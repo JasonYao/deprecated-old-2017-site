@@ -1,0 +1,8 @@
+# IDE ignores
+.idea/
+
+# MacOS ignores
+.DS_Store
+
+# Jekyll ignores
+_site/
