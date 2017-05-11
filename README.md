@@ -11,3 +11,9 @@ the mysteries of life, or whatever else I feel like.
 - [Github Pages](https://pages.github.com/) (Site hosting)
 - [Google Charts](https://developers.google.com/chart/) (Live data display)
 - [Google Analytics](https://analytics.google.com/) (Traffic analytics)
+
+## Commands
+Run dev site
+```sh
+bundle exec jekyll serve
+```
