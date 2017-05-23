@@ -13,7 +13,8 @@ url: "https://www.JasonYao.com" # the base hostname & protocol for your site, e.
 markdown: kramdown
 permalink: /blog/:categories/:year/:month/:day/:title/
 
-#google_analytics: TODO
+gems:
+  - jekyll-sitemap
 
 # Social
 github_username: JasonYao
@@ -25,3 +26,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - PSDs/
+  - assets/ajax/*.html
+  - assets/plugins/*.html
