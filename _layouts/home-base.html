@@ -1,0 +1,44 @@
+<!doctype html>
+    <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+    <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+    <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+    <head>
+        {% include head.html %}
+
+        <!-- CSS Footer -->
+        <link rel="stylesheet" href="/assets/css/footers/footer-v7.css">
+
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="/assets/plugins/animate.css">
+        <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/plugins/pace/pace-flash.css">
+        <link rel="stylesheet" href="/assets/plugins/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+        <link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+        <link rel="stylesheet" href="/assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+        <!--[if lt IE 9]><link rel="stylesheet" href="/assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
+
+        <!-- Style Switcher -->
+        <link rel="stylesheet" href="/assets/css/plugins/style-switcher.css">
+
+        <!-- CSS Theme -->
+        <link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color">
+        <link rel="stylesheet" href="/assets/css/theme-skins/one.dark.css">
+
+        <!-- CSS Customization -->
+        <link rel="stylesheet" href="/assets/css/custom.css">
+    </head>
+<!--
+The #page-top ID is part of the scrolling feature.
+The data-spy and data-target are part of the built-in Bootstrap scrollspy function.
+-->
+<body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery dark">
+    {% include home-navbar.html %}
+
+    {{ content }}
+
+    {% include google_analytics.html %}
+</body>
+</html>

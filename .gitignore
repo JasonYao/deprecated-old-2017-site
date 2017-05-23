@@ -4,5 +4,6 @@
 # MacOS ignores
 .DS_Store
 
-# Jekyll ignores
+# Dev ignores
 _site/
+PSDs/

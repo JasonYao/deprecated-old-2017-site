@@ -3,9 +3,7 @@
 ##
 
 # Site-wide global settings
-theme: jekyll-theme-modernist
 title: Jason Yao
-email: hello@JasonYao.com
 description: > # this means to ignore newlines until "baseurl:"
   Canadian-born, Hong Kong raised, NYC situated developer.
   I like to make and break things, and can do everything
@@ -16,15 +14,17 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.JasonYao.com" # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
+permalink: /blog/:categories/:year/:month/:day/:title/
 
-# Modernist theme variables
-show_downloads: false
 #google_analytics: TODO
 
 # Social
 github_username: JasonYao
 linkedin_username: JasonYaoNYU
+email_username: Hello
+phone_number: +1 (949) 335-2639
 
 exclude:
   - Gemfile
   - Gemfile.lock
+  - PSDs/

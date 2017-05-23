@@ -1,34 +1,625 @@
 ---
-layout: base
+layout: home-base
+page: Home
 ---
-<header {% unless site.description or site.github.project_tagline %} class="without-description" {% endunless %}>
-    <h1>{{ site.title | default: site.github.repository_name }}</h1>
-    {% if site.description or site.github.project_tagline %}
-    <p>{{ site.description | default: site.github.project_tagline }}</p>
-    {% endif %}
-    <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
-    <ul>
-        {% if site.show_downloads %}
-        <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
-        <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
-        {% endif %}
-        <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-    </ul>
-</header>
+<!-- Intro Section -->
+<section id="intro" class="intro-section">
+    <div class="fullscreenbanner-container">
+        <div class="fullscreenbanner">
+            <ul>
+                <!-- SLIDE 1 -->
+                <li data-transition="slidedown" data-slotamount="5" data-masterspeed="1500" data-title="Welcome">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/revolution/bg1.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
-<section>
-    <h2>Blog Posts:</h2>
+                    <!-- LAYERS -->
+                    <div class="tp-caption"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="0"
+                         data-speed="800"
+                         data-start="2000"
+                         data-easing="Back.easeInOut"
+                         data-endspeed="300">
+                        <img class="img-circle headshot" src="/assets/img/headshot.jpg" alt="Jason Yao" />
+                    </div>
 
-    <!-- Displays the last 5 posts -->
-    <ul class="post-list">
-        {% for post in site.posts limit:5 %}
-        <hr>
-        <li>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <h2>
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-            </h2>
-        </li>
-        {% endfor %}
-    </ul>
+                    <div class="tp-caption rs-caption-1 sft start"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="220"
+                         data-speed="800"
+                         data-start="2000"
+                         data-easing="Back.easeInOut"
+                         data-endspeed="300">
+                        Hi! I'm <span class="color-green stroke">Jason Yao</span>
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption rs-caption-2 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="300"
+                         data-speed="1000"
+                         data-start="3000"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off">
+                        I'm a kick-ass <span class="color-green stroke">Software Engineer</span>, <span class="color-green stroke">bad singer</span> in the shower,<br>
+                        and a <span class="color-green stroke">try-hard gamer</span> based in <span class="color-green stroke">New York City</span>.
+
+                        <div class="social-custom">
+                            <ul class="social-custom-row">
+                                <li class="social-custom-icon"><a href="{{ site.linkedin_username | prepend: 'https://www.linkedin.com/in/' }}"><i class="icon-custom icon-sm rounded-x fa fa-linkedin"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.github_username | prepend: 'https://www.github.com/' }}"><i class="icon-custom icon-sm rounded-x fa fa-github"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.email_username | append: '@JasonYao.com' | prepend: 'mailto:' }}"><i class="icon-custom icon-sm rounded-x fa fa-envelope"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.phone_number | prepend: 'tel:' }}"><i class="icon-custom icon-sm rounded-x fa fa-phone"></i></a></li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption rs-caption-3 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="300"
+                         data-speed="800"
+                         data-start="3500"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off">
+                        <span class="page-scroll"><a href="#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
+                        <span class="page-scroll"><a href="#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">My Work</a></span>
+                    </div>
+                </li>
+
+                <!-- SLIDE 2 -->
+                <li data-transition="slideup" data-slotamount="5" data-masterspeed="1000" data-title="My Core">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/revolution/bg2.jpg" alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYERS -->
+                    <div class="tp-caption rs-caption-1 sft start"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="100"
+                         data-speed="800"
+                         data-start="1500"
+                         data-easing="Back.easeInOut"
+                         data-endspeed="300">
+                        TEAM PLAYER | TEAM LEADER
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption rs-caption-2 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="200"
+                         data-speed="1000"
+                         data-start="2500"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off">
+                        Regardless of what role I'm in, I will always strive for <span class="color-green stroke">excellence</span>.<br>
+                        <span class="color-green stroke">Honesty</span>, <span class="color-green stroke">Respect</span>, <span class="color-green stroke">Passion</span>, and <span class="color-green stroke">Focus</span> form my professional core.<br>
+                        <div class="social-custom">
+                            <ul class="social-custom-row">
+                                <li class="social-custom-icon"><a href="{{ site.linkedin_username | prepend: 'https://www.linkedin.com/in/' }}"><i class="icon-custom icon-sm rounded-x fa fa-linkedin"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.github_username | prepend: 'https://www.github.com/' }}"><i class="icon-custom icon-sm rounded-x fa fa-github"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.email_username | append: '@JasonYao.com' | prepend: 'mailto:' }}"><i class="icon-custom icon-sm rounded-x fa fa-envelope"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.phone_number | prepend: 'tel:' }}"><i class="icon-custom icon-sm rounded-x fa fa-phone"></i></a></li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption rs-caption-3 sft"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="200"
+                         data-speed="800"
+                         data-start="3500"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off">
+                        <span class="page-scroll"><a href="#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
+                        <span class="page-scroll"><a href="#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">My Work</a></span>
+                    </div>
+                </li>
+
+                <!-- SLIDE 3 -->
+                <li data-transition="slidedown" data-slotamount="5" data-masterspeed="700" data-title="Goals">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/img/sliders/revolution/bg3.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+
+                    <!-- LAYERS -->
+                    <div class="tp-caption rs-caption-1 sft start"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="110"
+                         data-speed="800"
+                         data-start="1500"
+                         data-easing="Back.easeInOut"
+                         data-endspeed="300">
+                        ALWAYS LEARNING | ALWAYS STRIVING | ALWAYS IMPROVING
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption rs-caption-2 sfb"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="210"
+                         data-speed="800"
+                         data-start="2500"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off">
+                        <span class="color-green stroke">My education didn't end</span> after graduation. I will always be <span class="color-green stroke">moving forward</span>,<br>
+                        to be a better <span class="color-green stroke">person</span>, <span class="color-green stroke">engineer</span>, and <span class="color-green stroke">geek</span>.<br>
+                        <div class="social-custom">
+                            <ul class="social-custom-row">
+                                <li class="social-custom-icon"><a href="{{ site.linkedin_username | prepend: 'https://www.linkedin.com/in/' }}"><i class="icon-custom icon-sm rounded-x fa fa-linkedin"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.github_username | prepend: 'https://www.github.com/' }}"><i class="icon-custom icon-sm rounded-x fa fa-github"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.email_username | append: '@JasonYao.com' | prepend: 'mailto:' }}"><i class="icon-custom icon-sm rounded-x fa fa-envelope"></i></a></li>
+                                <li class="social-custom-icon"><a href="{{ site.phone_number | prepend: 'tel:' }}"><i class="icon-custom icon-sm rounded-x fa fa-phone"></i></a></li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+
+                    <!-- LAYER -->
+                    <div class="tp-caption rs-caption-3 sfb"
+                         data-x="center"
+                         data-hoffset="0"
+                         data-y="210"
+                         data-speed="800"
+                         data-start="3500"
+                         data-easing="Power4.easeOut"
+                         data-endspeed="300"
+                         data-endeasing="Power1.easeIn"
+                         data-captionhidden="off">
+                        <span class="page-scroll"><a href="#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
+                        <span class="page-scroll"><a href="#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">My Work</a></span>
+                    </div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+            <div class="tp-dottedoverlay twoxtwo"></div>
+        </div>
+    </div>
 </section>
+<!-- End Intro Section -->
+
+<!--  About Section -->
+<section id="about" class="about-section section-first">
+    <div class="block-v1">
+        <div class="container">
+            <div class="row content-boxes-v3">
+                <div class="col-md-4 md-margin-bottom-30">
+                    <i class="icon-custom rounded-x icon-bg-dark fa fa-lightbulb-o"></i>
+                    <div class="content-boxes-in-v3">
+                        <h2 class="heading-sm">Algorithmic Skills</h2>
+                        <p>
+                            I problem-solve based on understanding the trade-offs in a potential solution.
+                            Knowing runtime and space complexities, and leveraging them for an optimal solution.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 md-margin-bottom-30">
+                    <i class="icon-custom rounded-x icon-bg-dark fa fa-flask"></i>
+                    <div class="content-boxes-in-v3">
+                        <h2 class="heading-sm">General Application Development</h2>
+                        <p>
+                            Whether it's creating simple automated daemons, full desktop applications,
+                            or engineering a whole system, I can do it all or lead a team to do it even better.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="icon-custom rounded-x icon-bg-dark fa fa-bolt"></i>
+                    <div class="content-boxes-in-v3">
+                        <h2 class="heading-sm">Full-stack Web Development</h2>
+                        <p>
+                            Need web APIs? Full websites? A horizontally scalable web service that
+                            needs 5 9's of up-time? I'm your man. Django, Node, Laravel,
+                            Angular, VueJS, and everything in between.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-image bg-grey">
+        <div class="container">
+            <div class="title-v1">
+                <h1>I am a Product Builder&trade;</h1>
+                <p>
+                    I love <strong class="color-green">building things</strong>. Creating an
+                    end-product for users to enrich their lives and make
+                    it more enjoyable or productive.
+
+                    <br>
+
+                    I live and breath for the <strong class="color-green">product</strong> and the
+                    <strong class="color-green">user</strong>. To think up and implement new features,
+                    improvements, and bugfixes.
+                </p>
+            </div>
+            <div class="img-center">
+                <img class="img-responsive" src="assets/img/mockup/mockup.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-quote parallaxBg">
+        <div class="container">
+            <div class="parallax-quote-in">
+                <p>
+                    Any program is only as good as it is <span class="color-green">useful</span>.
+                </p>
+                <small>- Linus Torvald -</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-lg">
+        <div class="title-v1">
+            <h2>Young | Scrappy | Hungry</h2>
+            <p>
+                Fresh out of <strong class="color-green">New York University</strong>, I'm
+                hitting the ground running working as a Software Engineer at
+                <strong><a href="https://www.mediamath.com/">MediaMath</a></strong>.
+
+                <br>
+
+                I'm looking to be the dumbest person in the room.
+                To be constantly learning and experimenting, and
+                soak up the knowledge of my peers and mentors.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 content-boxes-v3 margin-bottom-40">
+                <div class="clearfix margin-bottom-30">
+                    <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-trophy"></i>
+                    <div class="content-boxes-in-v3">
+                        <h2 class="heading-sm">Programming Polyglot</h2>
+                        <p>
+                            Proficient in many languages, and fast learner for those that I haven't learned yet.
+                            I use the best language for the job that's required, and learn a language specifically
+                            to do the job well.
+                        </p>
+                    </div>
+                </div>
+                <div class="clearfix margin-bottom-30">
+                    <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-directions"></i>
+                    <div class="content-boxes-in-v3">
+                        <h2 class="heading-sm">Organised &amp; Adaptable</h2>
+                        <p>
+                            I think through the processes required to reach the end goal,
+                            while keeping in mind the fact that requirements may change,
+                            or new technologies may emerge.
+                        </p>
+                    </div>
+                </div>
+                <div class="clearfix margin-bottom-30">
+                    <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-diamond"></i>
+                    <div class="content-boxes-in-v3">
+                        <h2 class="heading-sm">Self-motivated</h2>
+                        <p>
+                            I'll be the first one in and the last one out when it comes to
+                            improving my software engineering skills to their full potential.
+                            Engaging with peers, reading books, and going to conferences to
+                            learn about the bleeding-edge of technology, and how I can leverage
+                            it in my current workflow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <img class="img-responsive" src="assets/img/mockup/mockup1.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!--  About Section -->
+
+<!-- Resume Section -->
+<section id="resume" class="resume-section section-first">
+    <div class="resume-image bg-color-light-grey">
+        <div class="container content-lg full">
+            <div class="title-v1"><h2>Resume</h2></div>
+            <div class="resume">
+                <object data="https://jasonyao.github.io/resume/Resume_Jason_Yao.pdf" width="100%" height="100%" type="application/pdf">
+                    <p>
+                        Hey! It looks like your broswer doesn't have a PDF plugin.
+                        No worries, you can <a href="https://jasonyao.github.io/resume/Resume_Jason_Yao.pdf">click here</a>
+                        to download the PDF file.
+                    </p>
+                </object>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  Resume Section -->
+
+<!-- News Section -->
+<section id="news" class="news-section">
+    <div class="container content-lg">
+        <div class="title-v1">
+            <h2>Latest News</h2>
+            <p>
+                For <span class="color-green">rants</span>, <span class="color-green">technical dissections</span>, or <span class="color-green">pseudo-philosophical
+                musings</span> that may or may not be interesting to others, check
+                out my <a href="/blog/">blog</a>.
+            </p>
+        </div>
+
+        <div class="row news-v1">
+            <!-- Displays the last 3 posts -->
+            {% for post in site.posts limit:3 %}
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="news-v1-in">
+                        <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                        <p>
+                            {{ post.excerpt }}
+                        </p>
+                        <ul class="list-inline news-v1-info">
+                            <li><i class="fa fa-clock-o"></i>
+                                {% assign day = post.date | date: "%-d"  %}
+                                {% case day %}
+                                {% when '1' or '21' or '31' %}{{ day }}st
+                                {% when '2' or '22' %}{{ day }}nd
+                                {% when '3' or '23' %}{{ day }}rd
+                                {% else %}{{ day }}th
+                                {% endcase %}
+                                {{ post.date | date: "of %B, %Y" }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End News Section -->
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="about-section">
+    <div class="container content-lg">
+        <div class="title-v1">
+            <h2>Portfolio</h2>
+            <p>
+                These are projects that I've built, either on my own or as part of a larger talented team.<br>
+                Web-friendly projects have been <strong class="color-green">dockerized and deployed</strong>, thus enabling old projects to live<br>
+                past the time when they've been shut down.
+            </p>
+        </div>
+
+        <!-- TODO: Implement the portfolio filtering -->
+        <div class="cube-portfolio">
+            <div id="filters-container" class="cbp-l-filters-button">
+                <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div>
+                <div data-filter=".print" class="cbp-filter-item"> Print </div>
+                <div data-filter=".web-design" class="cbp-filter-item"> Web Design </div>
+                <div data-filter=".motion" class="cbp-filter-item"> Motion </div>
+            </div><!--/end Filters Container-->
+
+            <div id="grid-container" class="cbp-l-grid-gallery">
+                <div class="cbp-item print motion">
+                    <a href="assets/ajax/project1.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="World Clock Widget<br>by Paul Flavius Nechita">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/1.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">World Clock Widget</div>
+                                    <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item web-design">
+                    <a href="assets/ajax/project2.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="Bolt UI<br>by Tiberiu Neamu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/2.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">Bolt UI</div>
+                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item print motion">
+                    <a href="assets/ajax/project3.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="WhereTO App<br>by Tiberiu Neamu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/3.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">WhereTO App</div>
+                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item web-design print">
+                    <a href="assets/ajax/project4.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="iDevices<br>by Tiberiu Neamu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/11.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">iDevices</div>
+                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item motion">
+                    <a href="assets/ajax/project5.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="Seemple* Music for iPad<br>by Tiberiu Neamu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/5.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
+                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item print motion">
+                    <a href="assets/ajax/project6.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="Remind~Me Widget<br>by Tiberiu Neamu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/6.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">Remind~Me Widget</div>
+                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item web-design print">
+                    <a href="assets/ajax/project7.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="Workout Buddy<br>by Tiberiu Neamu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/7.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">Workout Buddy</div>
+                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item print">
+                    <a href="assets/ajax/project8.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="Digital Menu<br>by Cosmin Capitanu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/8.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">Digital Menu</div>
+                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cbp-item motion">
+                    <a href="assets/ajax/project9.html" class="cbp-caption cbp-singlePageInline"
+                       data-title="Holiday Selector<br>by Cosmin Capitanu">
+                        <div class="cbp-caption-defaultWrap">
+                            <img src="assets/img/portfolio/4.jpg" alt="">
+                        </div>
+                        <div class="cbp-caption-activeWrap">
+                            <div class="cbp-l-caption-alignLeft">
+                                <div class="cbp-l-caption-body">
+                                    <div class="cbp-l-caption-title">Holiday Selector</div>
+                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="cbp-l-loadMore-button">
+                <a href="assets/ajax/loadMore.html" class="cbp-l-loadMore-button-link">LOAD MORE</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Portfolio Section -->
+
+<div class="copyright-section">
+    <p>{{ site.time | date: '%Y' }} &copy; All rights reserved.</p>
+    <span class="page-scroll"><a href="#intro"><i class="fa fa-angle-double-up back-to-top"></i></a></span>
+</div>
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.easing.min.js"></script>
+<script type="text/javascript" src="assets/plugins/pace/pace.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery.parallax.js"></script>
+<script type="text/javascript" src="assets/plugins/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="assets/plugins/counter/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="assets/plugins/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="assets/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<!-- JS Page Level-->
+<script type="text/javascript" src="assets/js/one.app.js"></script>
+<script type="text/javascript" src="assets/js/forms/login.js"></script>
+<script type="text/javascript" src="assets/js/forms/contact.js"></script>
+<script type="text/javascript" src="assets/js/plugins/pace-loader.js"></script>
+<script type="text/javascript" src="assets/js/plugins/owl-carousel.js"></script>
+<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript" src="assets/js/plugins/revolution-slider.js"></script>
+<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-lightbox.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initCounter();
+        App.initParallaxBg();
+        LoginForm.initLoginForm();
+        ContactForm.initContactForm();
+        OwlCarousel.initOwlCarousel();
+        StyleSwitcher.initStyleSwitcher();
+        RevolutionSlider.initRSfullScreen();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/html5shiv.js"></script>
+<script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
+<script src="assets/plugins/sky-forms-pro/skyforms/js/sky-forms-ie8.js"></script>
+<![endif]-->
+
+<!--[if lt IE 10]>
+<script src="assets/plugins/sky-forms-pro/skyforms/js/jquery.placeholder.min.js"></script>
+<![endif]-->
