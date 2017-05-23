@@ -22,6 +22,9 @@ linkedin_username: JasonYaoNYU
 email_username: Hello
 phone_number: +1 (949) 335-2639
 
+# Analytics
+google_analytics: true
+
 exclude:
   - Gemfile
   - Gemfile.lock
