@@ -1,0 +1,94 @@
+/* Add here all your css styles (customizations) */
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.social-custom * {
+    visibility: visible;
+}
+
+.social-custom > ul {
+    text-align: center;
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    top: 15vh;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.social-custom ul > li {
+    margin: 0 5px;
+    text-align: center;
+    display: inline-block;
+}
+.social-custom-icon > a {
+    color: #777;
+    outline: 0 !important;
+    visibility: hidden;
+}
+
+.social-custom-icon a > i {
+    color: #eee;
+    border-width: 2px;
+    border-color: #eee;
+    transition: all 0.1s ease-in-out;
+}
+
+/* Social icon colorings for when they're hovered over */
+.fa-linkedin:hover {
+    background-color: rgb(0, 119, 181);
+}
+
+.fa-github:hover {
+    background-color: #6cc644;
+}
+
+.fa-envelope:hover {
+    background-color: orangered;
+}
+
+.fa-phone:hover {
+    background-color: #7c1212;
+}
+
+/* Adds a stroke around text to make it more visible */
+.stroke {
+    text-shadow:
+            -1px -1px 0 #293546,
+            1px -1px 0 #293546,
+            -1px 1px 0 #293546,
+            1px 1px 0 #293546;
+}
+
+/* Styling for the headshot image */
+.headshot {
+    width: 200px;
+}
+
+/* Sets to the full size of the viewport */
+.full {
+    height: 100vh;
+    width: 100vw;
+}
+
+/*Resume Section
+------------------------------------*/
+/*Resume Section*/
+.resume-section {
+    padding-bottom: 0;
+}
+
+.resume-section .resume-image {
+    padding-top: 0px;
+}
+
+.resume {
+    width: 75vw;
+    margin: 0 auto;
+    height: 85%;
+}
