@@ -5,12 +5,9 @@
 # Site-wide global settings
 title: Jason Yao
 description: > # this means to ignore newlines until "baseurl:"
-  Canadian-born, Hong Kong raised, NYC situated developer.
-  I like to make and break things, and can do everything
-  from singing badly in the showers to building out
-  large-scale application features meant to reach millions.
-  I also love running, gaming, and binging on Netflix
-  and HBO shows.
+  My personal website for technical articles, memes,
+  and rants. None of this nor I should be taken seriously
+  at any point in time.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.JasonYao.com" # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
