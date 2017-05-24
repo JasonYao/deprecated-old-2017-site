@@ -379,169 +379,50 @@ page: Home
             <h2>Portfolio</h2>
             <p>
                 These are projects that I've built, either on my own or as part of a larger talented team.<br>
-                Web-friendly projects have been <strong class="color-green">dockerized and deployed</strong>, thus enabling old projects to live<br>
-                past the time when they've been shut down.
+                Web-friendly projects are in the process of being <strong class="color-green">dockerized and deployed</strong>,<br>
+                enabling old projects to be demo'd past the time when they've been shut down.
             </p>
         </div>
 
-        <!-- TODO: Implement the portfolio filtering -->
         <div class="cube-portfolio">
             <div id="filters-container" class="cbp-l-filters-button">
-                <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div>
-                <div data-filter=".print" class="cbp-filter-item"> Print </div>
-                <div data-filter=".web-design" class="cbp-filter-item"> Web Design </div>
-                <div data-filter=".motion" class="cbp-filter-item"> Motion </div>
+                <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All</div>
+                <div data-filter=".cli-project" class="cbp-filter-item">CLI Projects</div>
+                <div data-filter=".web-project" class="cbp-filter-item">Web Projects</div>
             </div><!--/end Filters Container-->
 
             <div id="grid-container" class="cbp-l-grid-gallery">
-                <div class="cbp-item print motion">
-                    <a href="/assets/ajax/project1.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="World Clock Widget<br>by Paul Flavius Nechita">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/1.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">World Clock Widget</div>
-                                    <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                {% for project in site.projects limit:9 %}
+                    <div class="cbp-item{% for type in project.types %} {{ type }}{% endfor %}">
+                        <a href="{{ project.url | prepend: site.baseurl }}" class="cbp-caption cbp-singlePageInline"
+                           data-title="{{ project.title }}">
+                            <div class="cbp-caption-defaultWrap"><img src="{{ project.img | prepend: '/assets/img/projects/' }}" alt="{{ project.alt_text }}"></div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="cbp-l-caption-alignLeft">
+                                    <div class="cbp-l-caption-body">
+                                        <div class="cbp-l-caption-title">{{ project.title }}</div>
+                                        <div class="cbp-l-caption-desc">
+                                            <i class="fa fa-clock-o"></i>
+                                            {% assign day = project.date | date: "%-d"  %}
+                                            {% case day %}
+                                            {% when '1' or '21' or '31' %}{{ day }}st
+                                            {% when '2' or '22' %}{{ day }}nd
+                                            {% when '3' or '23' %}{{ day }}rd
+                                            {% else %}{{ day }}th
+                                            {% endcase %}
+                                            {{ project.date | date: "of %B, %Y" }}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item web-design">
-                    <a href="/assets/ajax/project2.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="Bolt UI<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/2.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Bolt UI</div>
-                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item print motion">
-                    <a href="/assets/ajax/project3.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="WhereTO App<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/3.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">WhereTO App</div>
-                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item web-design print">
-                    <a href="/assets/ajax/project4.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="iDevices<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/11.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">iDevices</div>
-                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item motion">
-                    <a href="/assets/ajax/project5.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="Seemple* Music for iPad<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/5.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
-                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item print motion">
-                    <a href="/assets/ajax/project6.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="Remind~Me Widget<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/6.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Remind~Me Widget</div>
-                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item web-design print">
-                    <a href="/assets/ajax/project7.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="Workout Buddy<br>by Tiberiu Neamu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/7.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Workout Buddy</div>
-                                    <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item print">
-                    <a href="/assets/ajax/project8.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="Digital Menu<br>by Cosmin Capitanu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/8.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Digital Menu</div>
-                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="cbp-item motion">
-                    <a href="/assets/ajax/project9.html" class="cbp-caption cbp-singlePageInline"
-                       data-title="Holiday Selector<br>by Cosmin Capitanu">
-                        <div class="cbp-caption-defaultWrap">
-                            <img src="/assets/img/portfolio/4.jpg" alt="">
-                        </div>
-                        <div class="cbp-caption-activeWrap">
-                            <div class="cbp-l-caption-alignLeft">
-                                <div class="cbp-l-caption-body">
-                                    <div class="cbp-l-caption-title">Holiday Selector</div>
-                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
 
+            <!-- TODO check that loadMore actually does something good -->
             <div class="cbp-l-loadMore-button">
-                <a href="/assets/ajax/loadMore.html" class="cbp-l-loadMore-button-link">LOAD MORE</a>
+                <a href="/projects/more.html" class="cbp-l-loadMore-button-link">LOAD MORE</a>
             </div>
         </div>
     </div>

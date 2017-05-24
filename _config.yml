@@ -25,6 +25,12 @@ phone_number: +1 (949) 335-2639
 # Analytics
 google_analytics: true
 
+# Collections
+collections:
+  projects:
+    permalink: /projects/:path/
+    output: true
+
 exclude:
   - Gemfile
   - Gemfile.lock

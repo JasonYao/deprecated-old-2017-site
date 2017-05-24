@@ -1,0 +1,28 @@
+<div class="cbp-l-inline">
+    <div class="cbp-l-inline">
+        <div class="cbp-l-inline-left">
+            <img src="{{ page.img | prepend: '/assets/img/projects/' }}" alt="{{ page.alt_text }}" class="cbp-l-project-img">
+        </div>
+
+        <div class="cbp-l-inline-right">
+            <div class="cbp-l-inline-title">{{ project.title }}</div>
+            <div class="cbp-l-inline-subtitle">
+                <i class="fa fa-clock-o"></i>
+                {% assign day = project.date | date: "%-d"  %}
+                {% case day %}
+                {% when '1' or '21' or '31' %}{{ day }}st
+                {% when '2' or '22' %}{{ day }}nd
+                {% when '3' or '23' %}{{ day }}rd
+                {% else %}{{ day }}th
+                {% endcase %}
+                {{ project.date | date: "of %B, %Y" }}
+            </div>
+
+            <div class="cbp-l-inline-desc">
+                {{ page.excerpt }}
+            </div>
+
+            <a href="{{ page.url | prepend: site.baseurl }}" target="_blank" class="cbp-l-inline-view">VIEW PROJECT</a>
+        </div>
+    </div>
+</div>

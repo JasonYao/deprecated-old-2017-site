@@ -1,0 +1,31 @@
+---
+permalink: projects/more.html
+---
+<div class="cbp-loadMore-block1">
+    {% for project in site.projects offset:9 %}
+    <div class="cbp-item{% for type in project.types %} {{ type }}{% endfor %}">
+        <a href="{{ project.url | prepend: site.baseurl }}" class="cbp-caption cbp-singlePageInline"
+           data-title="{{ project.title }}">
+            <div class="cbp-caption-defaultWrap"><img src="{{ project.img | prepend: '/assets/img/projects/' }}" alt="{{ project.alt_text }}"></div>
+            <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignLeft">
+                    <div class="cbp-l-caption-body">
+                        <div class="cbp-l-caption-title">{{ project.title }}</div>
+                        <div class="cbp-l-caption-desc">
+                            <i class="fa fa-clock-o"></i>
+                            {% assign day = project.date | date: "%-d"  %}
+                            {% case day %}
+                            {% when '1' or '21' or '31' %}{{ day }}st
+                            {% when '2' or '22' %}{{ day }}nd
+                            {% when '3' or '23' %}{{ day }}rd
+                            {% else %}{{ day }}th
+                            {% endcase %}
+                            {{ project.date | date: "of %B, %Y" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
