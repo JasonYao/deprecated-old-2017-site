@@ -1,10 +1,15 @@
 ---
 layout: post
-title:  "Once More Unto The Breach"
+title:  "A Canadian Existential Crisis"
 date:   2017-05-22T17:30:32
-categories: jekyll update
+categories: featured introduction crisis
 img: 0-hamilton.jpg
 alt_text: "Truly, it's more of a Canadian/Hong Konger/American existential crisis."
+tags:
+  - featured
+  - introduction
+  - existential crisis
+  - rants
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

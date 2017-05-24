@@ -1,0 +1,413 @@
+---
+layout: blog-base
+page: Blog
+---
+<!-- Master Slider -->
+<div class="blog-ms-v1 content-sm bg-color-darker margin-bottom-60">
+    <div class="master-slider ms-skin-default" id="masterslider">
+
+        <!-- Displays the feature posts in the slider -->
+        {% for post in site.posts %}
+            {% if post.tags contains 'featured' %}
+                <div class="ms-slide blog-slider">
+                    <img src="/assets/plugins/blog/master-slider/blank.gif" data-src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}"/>
+                    <span class="blog-slider-badge">{{ post.tags[0] }}</span>
+                    <div class="ms-info"></div>
+                    <div class="blog-slider-title">
+                        <span class="blog-slider-posted">
+                            {% assign day = post.date | date: "%-d"  %}
+                            {% case day %}
+                            {% when '1' or '21' or '31' %}{{ day }}st
+                            {% when '2' or '22' %}{{ day }}nd
+                            {% when '3' or '23' %}{{ day }}rd
+                            {% else %}{{ day }}th
+                            {% endcase %}
+                            {{ post.date | date: "of %B, %Y" }}
+                        </span>
+                        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<!-- End Master Slider -->
+
+<!--=== Container Part ===-->
+<div class="container margin-bottom-40">
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <!-- Tab v4 -->
+            <div class="tab-v4 margin-bottom-40">
+                <!-- Tab Heading -->
+                <div class="tab-heading">
+                    <h2>Latest Posts</h2>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="home active"><a href="#latest-all" role="tab" data-toggle="tab">All</a></li>
+                        <li><a href="#latest-tech" role="tab" data-toggle="tab">Tech</a></li>
+                        <li><a href="#latest-education" role="tab" data-toggle="tab">Education</a></li>
+                        <li><a href="#latest-rants" role="tab" data-toggle="tab">Rants</a></li>
+                    </ul>
+                </div>
+                <!-- End Latest News -->
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Latest 6 posts -->
+                    <div class="tab-pane fade in active" id="latest-all">
+                        <div class="row">
+                            <!-- Large post with excerpt -->
+                            {% for post in site.posts limit:1 %}
+                                <div class="col-sm-7">
+                                    <!-- Blog Grid -->
+                                    <div class="blog-grid sm-margin-bottom-40">
+                                        <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                        <ul class="blog-grid-info">
+                                            <li>{{ site.title }}</li>
+                                            <li>
+                                                {% assign day = post.date | date: "%-d"  %}
+                                                {% case day %}
+                                                {% when '1' or '21' or '31' %}{{ day }}st
+                                                {% when '2' or '22' %}{{ day }}nd
+                                                {% when '3' or '23' %}{{ day }}rd
+                                                {% else %}{{ day }}th
+                                                {% endcase %}
+                                                {{ post.date | date: "of %B, %Y" }}
+                                            </li>
+                                            <!-- TODO implement and link to comments section -->
+                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        </ul>
+                                        <p>{{ post.excerpt }}</p>
+                                        <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                                    </div>
+                                    <!-- End Blog Grid -->
+                                </div>
+                            {% endfor %}
+
+
+                            <!-- Small posts without excerpts -->
+                            <div class="col-sm-5">
+                                {% for post in site.posts offset:1 limit:5 %}
+                                <!-- Blog Thumb -->
+                                <div class="blog-thumb margin-bottom-20">
+                                    <div class="blog-thumb-hover">
+                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
+                                    </div>
+                                    <div class="blog-thumb-desc">
+                                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                        <ul class="blog-thumb-info">
+                                            <li>
+                                                {% assign day = post.date | date: "%-d"  %}
+                                                {% case day %}
+                                                {% when '1' or '21' or '31' %}{{ day }}st
+                                                {% when '2' or '22' %}{{ day }}nd
+                                                {% when '3' or '23' %}{{ day }}rd
+                                                {% else %}{{ day }}th
+                                                {% endcase %}
+                                                {{ post.date | date: "of %B, %Y" }}
+                                            </li>
+                                            <!-- TODO implement and link to comments section -->
+                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Blog Thumb -->
+                                {% endfor %}
+                            </div>
+                        </div><!--/end row-->
+                    </div>
+
+                    <!-- Latest 6 tech-related posts -->
+                    <div class="tab-pane fade" id="latest-tech">
+                        <div class="row">
+                            <!-- Large post with excerpt -->
+                            {% for post in site.tags['technology'] limit:1 %}
+                                <div class="col-sm-7">
+                                    <!-- Blog Grid -->
+                                    <div class="blog-grid sm-margin-bottom-40">
+                                        <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                        <ul class="blog-grid-info">
+                                            <li>{{ site.title }}</li>
+                                            <li>
+                                                {% assign day = post.date | date: "%-d"  %}
+                                                {% case day %}
+                                                {% when '1' or '21' or '31' %}{{ day }}st
+                                                {% when '2' or '22' %}{{ day }}nd
+                                                {% when '3' or '23' %}{{ day }}rd
+                                                {% else %}{{ day }}th
+                                                {% endcase %}
+                                                {{ post.date | date: "of %B, %Y" }}
+                                            </li>
+                                            <!-- TODO implement and link to comments section -->
+                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        </ul>
+                                        <p>{{ post.excerpt }}</p>
+                                        <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                                    </div>
+                                    <!-- End Blog Grid -->
+                                </div>
+                            {% endfor %}
+
+                            <!-- Small posts without excerpts -->
+                            <div class="col-sm-5">
+                                {% for post in site.tags['technology'] offset:1 limit:5 %}
+                                <!-- Blog Thumb -->
+                                <div class="blog-thumb margin-bottom-20">
+                                    <div class="blog-thumb-hover">
+                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
+                                    </div>
+                                    <div class="blog-thumb-desc">
+                                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                        <ul class="blog-thumb-info">
+                                            <li>
+                                                {% assign day = post.date | date: "%-d"  %}
+                                                {% case day %}
+                                                {% when '1' or '21' or '31' %}{{ day }}st
+                                                {% when '2' or '22' %}{{ day }}nd
+                                                {% when '3' or '23' %}{{ day }}rd
+                                                {% else %}{{ day }}th
+                                                {% endcase %}
+                                                {{ post.date | date: "of %B, %Y" }}
+                                            </li>
+                                            <!-- TODO implement and link to comments section -->
+                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Blog Thumb -->
+                                {% endfor %}
+                            </div>
+                        </div><!--/end row-->
+                    </div>
+
+                    <!-- Latest 6 education-related posts -->
+                    <div class="tab-pane fade" id="latest-education">
+                        <div class="row">
+                            <!-- Large post with excerpt -->
+                            {% for post in site.tags['education'] limit:1 %}
+                            <div class="col-sm-7">
+                                <!-- Blog Grid -->
+                                <div class="blog-grid sm-margin-bottom-40">
+                                    <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                    <ul class="blog-grid-info">
+                                        <li>{{ site.title }}</li>
+                                        <li>
+                                            {% assign day = post.date | date: "%-d"  %}
+                                            {% case day %}
+                                            {% when '1' or '21' or '31' %}{{ day }}st
+                                            {% when '2' or '22' %}{{ day }}nd
+                                            {% when '3' or '23' %}{{ day }}rd
+                                            {% else %}{{ day }}th
+                                            {% endcase %}
+                                            {{ post.date | date: "of %B, %Y" }}
+                                        </li>
+                                        <!-- TODO implement and link to comments section -->
+                                        <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                    </ul>
+                                    <p>{{ post.excerpt }}</p>
+                                    <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                                </div>
+                                <!-- End Blog Grid -->
+                            </div>
+                            {% endfor %}
+
+                            <!-- Small posts without excerpts -->
+                            <div class="col-sm-5">
+                                {% for post in site.tags['education'] offset:1 limit:5 %}
+                                <!-- Blog Thumb -->
+                                <div class="blog-thumb margin-bottom-20">
+                                    <div class="blog-thumb-hover">
+                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
+                                    </div>
+                                    <div class="blog-thumb-desc">
+                                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                        <ul class="blog-thumb-info">
+                                            <li>
+                                                {% assign day = post.date | date: "%-d"  %}
+                                                {% case day %}
+                                                {% when '1' or '21' or '31' %}{{ day }}st
+                                                {% when '2' or '22' %}{{ day }}nd
+                                                {% when '3' or '23' %}{{ day }}rd
+                                                {% else %}{{ day }}th
+                                                {% endcase %}
+                                                {{ post.date | date: "of %B, %Y" }}
+                                            </li>
+                                            <!-- TODO implement and link to comments section -->
+                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Blog Thumb -->
+                                {% endfor %}
+                            </div>
+                        </div><!--/end row-->
+                    </div>
+
+                    <!-- Latest 6 rants-related posts -->
+                    <div class="tab-pane fade" id="latest-rants">
+                        <div class="row">
+                            <!-- Large post with excerpt -->
+                            {% for post in site.tags['rants'] limit:1 %}
+                            <div class="col-sm-7">
+                                <!-- Blog Grid -->
+                                <div class="blog-grid sm-margin-bottom-40">
+                                    <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                    <ul class="blog-grid-info">
+                                        <li>{{ site.title }}</li>
+                                        <li>
+                                            {% assign day = post.date | date: "%-d"  %}
+                                            {% case day %}
+                                            {% when '1' or '21' or '31' %}{{ day }}st
+                                            {% when '2' or '22' %}{{ day }}nd
+                                            {% when '3' or '23' %}{{ day }}rd
+                                            {% else %}{{ day }}th
+                                            {% endcase %}
+                                            {{ post.date | date: "of %B, %Y" }}
+                                        </li>
+                                        <!-- TODO implement and link to comments section -->
+                                        <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                    </ul>
+                                    <p>{{ post.excerpt }}</p>
+                                    <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                                </div>
+                                <!-- End Blog Grid -->
+                            </div>
+                            {% endfor %}
+
+                            <!-- Small posts without excerpts -->
+                            <div class="col-sm-5">
+                                {% for post in site.tags['rants'] offset:1 limit:5 %}
+                                <!-- Blog Thumb -->
+                                <div class="blog-thumb margin-bottom-20">
+                                    <div class="blog-thumb-hover">
+                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
+                                    </div>
+                                    <div class="blog-thumb-desc">
+                                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                        <ul class="blog-thumb-info">
+                                            <li>
+                                                {% assign day = post.date | date: "%-d"  %}
+                                                {% case day %}
+                                                {% when '1' or '21' or '31' %}{{ day }}st
+                                                {% when '2' or '22' %}{{ day }}nd
+                                                {% when '3' or '23' %}{{ day }}rd
+                                                {% else %}{{ day }}th
+                                                {% endcase %}
+                                                {{ post.date | date: "of %B, %Y" }}
+                                            </li>
+                                            <!-- TODO implement and link to comments section -->
+                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Blog Thumb -->
+                                {% endfor %}
+                            </div>
+                        </div><!--/end row-->
+                    </div>
+                </div>
+                <!-- End Tab Content -->
+            </div>
+            <!-- End Tab v4 -->
+
+            <!-- Blog Grid -->
+            <div class="margin-bottom-50">
+                <h2 class="title-v4">Archives</h2>
+                <div class="row margin-bottom-50">
+                    <!-- Splits the posts into two separate columns -->
+
+                    <!-- Featured posts first column -->
+                    <div class="col-sm-6 sm-margin-bottom-50">
+                        {% for post in site.posts %}
+                            {% capture firstcycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+                            {% if firstcycle == 'odd' %}
+                                <div class="blog-grid margin-bottom-40">
+                                    <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                    <ul class="blog-grid-info">
+                                        <li>{{ site.title }}</li>
+                                        <li>
+                                            {% assign day = post.date | date: "%-d"  %}
+                                            {% case day %}
+                                            {% when '1' or '21' or '31' %}{{ day }}st
+                                            {% when '2' or '22' %}{{ day }}nd
+                                            {% when '3' or '23' %}{{ day }}rd
+                                            {% else %}{{ day }}th
+                                            {% endcase %}
+                                            {{ post.date | date: "of %B, %Y" }}
+                                        </li>
+                                        <!-- TODO implement commenting and linking -->
+                                        <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                    </ul>
+                                    <p>{{ post.excerpt }}</p>
+                                    <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                                </div>
+                                <hr class="hr-xs">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <!-- Featured posts second column -->
+                    <div class="col-sm-6">
+                        {% for post in site.posts offset:1 %}
+                            {% capture secondcycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+                            {% if secondcycle == 'even' %}
+                            <div class="blog-grid margin-bottom-40">
+                                <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                <ul class="blog-grid-info">
+                                    <li>{{ site.title }}</li>
+                                    <li>
+                                        {% assign day = post.date | date: "%-d"  %}
+                                        {% case day %}
+                                        {% when '1' or '21' or '31' %}{{ day }}st
+                                        {% when '2' or '22' %}{{ day }}nd
+                                        {% when '3' or '23' %}{{ day }}rd
+                                        {% else %}{{ day }}th
+                                        {% endcase %}
+                                        {{ post.date | date: "of %B, %Y" }}
+                                    </li>
+                                    <!-- TODO implement commenting and linking -->
+                                    <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                </ul>
+                                <p>{{ post.excerpt }}</p>
+                                <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+                            </div>
+                            <hr class="hr-xs">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div><!--/end row-->
+            </div>
+            <!-- End Blog Grid -->
+        </div>
+        <!-- End Main Content -->
+
+        <!-- Right Sidebar -->
+        <div class="col-md-3">
+            <!-- Tags v3 -->
+            <div class="margin-bottom-50">
+                <h2 class="title-v4">Tags</h2>
+
+                <!-- TODO implement tag searching, possibly with query strings? /blog/list/?search="education" -->
+                <ul class="list-inline tags-v3">
+                    {% for tag in site.tags %}
+                        <li><a class="rounded-3x" href="#">{{ tag | first }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- End Tags v3 -->
+        </div>
+        <!-- End Right Sidebar -->
+    </div>
+</div>
+<!--=== End Container Part ===-->
