@@ -1,0 +1,64 @@
+---
+layout: error-base
+page: "Error: 404"
+permalink: /404.html
+---
+<!--=== Error V4 ===-->
+<div class="container content valign__middle">
+    <!--Error Block-->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="error-v4">
+                <h2>Jason Yao | 404 Error</h2>
+                <span class="sorry">
+                    Whoops, looks like the page you're looking for doesn't exist.<br>
+                    I'd suggest having an existential crisis and seeing if it is<br>
+                    in fact <strong>YOU</strong> that doesn't exist.
+                </span>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <a class="btn-u btn-brd btn-u-light" href="{{ site.url }}"> Go Back to Main Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/container-->
+<!--End Error Block-->
+
+<!--=== Sticky Footer ===-->
+<div class="container sticky-footer">
+    <p class="copyright-space">
+        {{ site.time | date: '%Y' }} &copy; All rights reserved.
+    </p>
+</div>
+<!--=== End Sticky Footer ===-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="/assets/js/error/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="/assets/js/error/app.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<script type="text/javascript">
+    $.backstretch([
+        "/assets/img/error/blur-img.jpg"
+    ])
+</script>
+<!--[if lt IE 9]>
+<script src="/assets/plugins/respond.js"></script>
+<script src="/assets/plugins/html5shiv.js"></script>
+<script src="/assets/plugins/error/placeholder-IE-fixes.js"></script>
+<![endif]-->
