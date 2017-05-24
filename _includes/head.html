@@ -46,9 +46,15 @@ _._ _..._ .-',     _.._(`))
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
+<!-- Note: We leverage the Filamentgroup's loadCSS for non-blocking, async preloading of assets -->
+
 <!-- Web Fonts -->
-<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+<link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans" onload="this.rel='stylesheet'">
+<noscript><link rel='stylesheet' type='text/css' href='"https://fonts.googleapis.com/css?family=Open+Sans'></noscript>
 
 <!-- CSS Global Compulsory -->
-<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/css/one.style.css">
+<link rel="preload" as="style" href="/assets/plugins/bootstrap/css/bootstrap.min.css" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"></noscript>
+
+<link rel="preload" as="style" href="/assets/css/one.style.css" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/one.style.css"></noscript>

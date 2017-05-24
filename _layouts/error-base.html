@@ -4,23 +4,40 @@
     {% include head.html %}
 
     <!-- CSS Header and Footer -->
-    <link rel="stylesheet" href="/assets/css/error/header-default.css">
-    <link rel="stylesheet" href="/assets/css/error/footer-v1.css">
+    <link rel="preload" as="style" href="/assets/css/error/header-default.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/error/header-default.css"></noscript>
+
+    <link rel="preload" as="style" href="/assets/css/error/footer-v1.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/error/footer-v1.css"></noscript>
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="/assets/plugins/animate.css">
-    <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
-    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="">
+    <link rel="preload" as="style" href="/assets/plugins/animate.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/plugins/animate.css"></noscript>
+
+    <link rel="preload" as="style" href="/assets/plugins/line-icons/line-icons.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"></noscript>
+
+    <link rel="preload" as="style" href="/assets/plugins/font-awesome/css/font-awesome.min.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"></noscript>
 
     <!-- CSS Page Style -->
-    <link rel="stylesheet" href="/assets/css/error/page_error4_404.css">
+    <link rel="preload" as="style" href="/assets/css/error/page_error4_404.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/error/page_error4_404.css"></noscript>
 
     <!-- CSS Theme -->
-    <link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color">
-    <link rel="stylesheet" href="/assets/css/error/dark.css">
+    <link rel="preload" as="style" href="/assets/css/theme-colors/default.css" onload="this.rel='stylesheet'" id="style_color">
+    <noscript><link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color"></noscript>
+
+    <link rel="preload" as="style" href="/assets/css/error/dark.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/error/dark.css"></noscript>
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="preload" as="style" href="/assets/css/custom.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/custom.css"></noscript>
+
+    {% include loadCSS.html %}
+
 </head>
 <body>
     {{ content }}

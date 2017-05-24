@@ -7,28 +7,55 @@
         {% include head.html %}
 
         <!-- CSS Footer -->
-        <link rel="stylesheet" href="/assets/css/footers/footer-v7.css">
+        <link rel="preload" as="style" href="/assets/css/footers/footer-v7.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/css/footers/footer-v7.css"></noscript>
 
         <!-- CSS Implementing Plugins -->
-        <link rel="stylesheet" href="/assets/plugins/animate.css">
-        <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
-        <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/plugins/pace/pace-flash.css">
-        <link rel="stylesheet" href="/assets/plugins/owl-carousel/owl.carousel.css">
-        <link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
-        <link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
-        <link rel="stylesheet" href="/assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
-        <!--[if lt IE 9]><link rel="stylesheet" href="/assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
+        <link rel="preload" as="style" href="/assets/plugins/animate.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/animate.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/line-icons/line-icons.css">
+        <noscript><link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/font-awesome/css/font-awesome.min.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/pace/pace-flash.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/pace/pace-flash.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/owl-carousel/owl.carousel.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/owl-carousel/owl.carousel.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css"></noscript>
+
+        <link rel="preload" as="style" href="/assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen"></noscript>
+
+        <!--[if lt IE 9]>
+        <link rel="preload" as="style" href="/assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"></noscript>
+        <![endif]-->
 
         <!-- Style Switcher -->
-        <link rel="stylesheet" href="/assets/css/plugins/style-switcher.css">
+        <link rel="preload" as="style" href="/assets/css/plugins/style-switcher.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/css/plugins/style-switcher.css"></noscript>
 
         <!-- CSS Theme -->
-        <link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color">
-        <link rel="stylesheet" href="/assets/css/theme-skins/one.dark.css">
+        <link rel="preload" as="style" href="/assets/css/theme-colors/default.css" id="style_color" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color"></noscript>
+
+        <link rel="preload" as="style" href="/assets/css/theme-skins/one.dark.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/css/theme-skins/one.dark.css"></noscript>
 
         <!-- CSS Customization -->
-        <link rel="stylesheet" href="/assets/css/custom.css">
+        <link rel="preload" as="style" href="/assets/css/custom.css" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/assets/css/custom.css"></noscript>
+
+        {% include loadCSS.html %}
     </head>
 <!--
 The #page-top ID is part of the scrolling feature.
