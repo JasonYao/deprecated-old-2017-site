@@ -28,8 +28,31 @@ google_analytics: true
 # Collections
 collections:
   projects:
+    permalink: /projects/partials/:path/
+    output: true
+  projects_full:
     permalink: /projects/:path/
     output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "_projects_full"
+    values:
+      layout: project_full
+# NOTE: The symlinked directory has to be above the normal one for fuckery reasons.
+  -
+    scope:
+      path: "_projects"
+    values:
+      layout: project
+
 
 exclude:
   - Gemfile

@@ -10,7 +10,7 @@ page: Blog
         {% for post in site.posts %}
             {% if post.tags contains 'featured' %}
                 <div class="ms-slide blog-slider">
-                    <img src="/assets/plugins/blog/master-slider/blank.gif" data-src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}"/>
+                    <img class="darken" src="/assets/plugins/blog/master-slider/blank.gif" data-src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}"/>
                     <span class="blog-slider-badge">{{ post.tags[0] }}</span>
                     <div class="ms-info"></div>
                     <div class="blog-slider-title">
@@ -24,7 +24,7 @@ page: Blog
                             {% endcase %}
                             {{ post.date | date: "of %B, %Y" }}
                         </span>
-                        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+                        <h2 class="stroke"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
                     </div>
                 </div>
             {% endif %}

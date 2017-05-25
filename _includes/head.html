@@ -1,9 +1,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="My personal website for technical articles, memes, and rants. None of this nor I should be taken seriously at any point in time.">
-<meta name="author" content="Jason Yao">
-<title>{{ site.title | default: site.github.repository_name }} | {{ page.page }}</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="author" content="{{ site.title }}">
+<title>{{ site.title }} | {% if page.title %}{{ page.title }}{% else %}{{ page.page }}{% endif %}</title>
 
 <!--
 The road ahead is dangerous, a safety pig is provided to guide you along your journey!
@@ -23,7 +23,7 @@ _._ _..._ .-',     _.._(`))
 -->
 
 <!-- Opengraph Metadata tags: http://ogp.me/ -->
-<meta property="og:title" content="{{ site.title | escape }} | {% if page.title %}{{ page.title | escape }}{% else %}Home{% endif %}" />
+<meta property="og:title" content="{{ site.title }} | {% if page.title %}{{ page.title }}{% else %}{{ page.page }}{% endif %}" />
 <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
 <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 

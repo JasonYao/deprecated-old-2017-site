@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "A Canadian Existential Crisis"
 date:   2017-05-22T17:30:32
 categories: featured introduction crisis

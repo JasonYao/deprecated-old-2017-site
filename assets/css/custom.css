@@ -92,3 +92,8 @@ html, body {
     margin: 0 auto;
     height: 85%;
 }
+
+/* Darkens an image */
+.darken {
+    filter: brightness(30%);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include head.html %}
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Blog CSS -->
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="/assets/css/blog/header-v8.css">
+
+    <link rel="stylesheet" href="/assets/css/blog/theme-color/default.css">
+    <!-- CSS Footer -->
+    <link rel="preload" as="style" href="/assets/css/footers/footer-v7.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/footers/footer-v7.css"></noscript>
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="/assets/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    {% include theme_css.html %}
+
+    <link rel="stylesheet" href="/assets/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="preload" as="style" href="/assets/css/custom.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/custom.css"></noscript>
+
+    <link rel="stylesheet" href="/assets/css/projects/project.css">
+
+    {% include load_css.html %}
+</head>
+<body class="header-fixed header-fixed-space-v2">
+{% include navbar.html %}
+
+{{ content }}
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="/assets/js/blog/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="/assets/js/blog/app.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="/assets/plugins/respond.js"></script>
+<script src="/assets/plugins/html5shiv.js"></script>
+<script src="/assets/plugins/blog/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+{% include google_analytics.html %}
+</body>
+</html>
