@@ -1,3 +1,10 @@
 .headline h2 {
     border-bottom: 2px solid #a10f2b;
 }
+
+li a {
+    color: #a10f2b;
+}
+h2 {
+    border-bottom: 1px solid #a10f2b;
+}
