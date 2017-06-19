@@ -1,8 +1,10 @@
 ---
 permalink: projects/more.html
+sitemap: false
 ---
 <div class="cbp-loadMore-block1">
-    {% for project in site.projects offset:9 %}
+    {% assign projects = site.projects | sort: 'date' | reverse %}
+    {% for project in projects offset:9 %}
     <div class="cbp-item{% for type in project.types %} {{ type }}{% endfor %}">
         <a href="{{ project.url | prepend: site.baseurl }}" class="cbp-caption cbp-singlePageInline"
            data-title="{{ project.title }}">

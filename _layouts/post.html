@@ -54,7 +54,7 @@ layout: post_base
                                     <li>
                                         <i class="fa fa-tags"></i>
                                         <strong>Tags:</strong>
-                                        {% for tag in page.tags limit:1 %}<a href="/posts/tag/{{ tag | uri_escape }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/posts/tag/{{ tag | uri_escape }}">{{ tag }}</a>{% endfor %}
+                                        {% for tag in page.tags limit:1 %}<a href="/posts/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/posts/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
                                     </li>
 
                                 </ul>

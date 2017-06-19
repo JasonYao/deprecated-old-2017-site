@@ -52,11 +52,9 @@ defaults:
       path: "_projects"
     values:
       layout: project
-
+      sitemap: false
 
 exclude:
   - Gemfile
   - Gemfile.lock
   - PSDs/
-  - assets/ajax/*.html
-  - assets/plugins/*.html

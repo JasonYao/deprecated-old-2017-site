@@ -349,9 +349,7 @@ page: Home
                     <div class="news-v1-in">
                         <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                         <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-                        <p>
-                            {{ post.excerpt }}
-                        </p>
+                        {{ post.excerpt }}
                         <ul class="list-inline news-v1-info">
                             <li><i class="fa fa-clock-o"></i>
                                 {% assign day = post.date | date: "%-d"  %}
@@ -380,7 +378,7 @@ page: Home
             <p>
                 These are projects that I've built, either on my own or as part of a larger talented team.<br>
                 Web-friendly projects are in the process of being <strong class="color-green">dockerized and deployed</strong>,<br>
-                enabling old projects to be demo'd past the time when they've been shut down.
+                enabling old projects to be demod past the time when they've been shut down.
             </p>
         </div>
 
@@ -392,7 +390,8 @@ page: Home
             </div><!--/end Filters Container-->
 
             <div id="grid-container" class="cbp-l-grid-gallery">
-                {% for project in site.projects limit:9 %}
+                {% assign projects = site.projects | sort: 'date' | reverse %}
+                {% for project in projects limit:9 %}
                     <div class="cbp-item{% for type in project.types %} {{ type }}{% endfor %}">
                         <a href="{{ project.url | prepend: site.baseurl }}" class="cbp-caption cbp-singlePageInline"
                            data-title="{{ project.title }}">
