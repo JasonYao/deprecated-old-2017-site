@@ -1,5 +1,6 @@
 ---
 layout: post_base
+comments: true
 ---
 <section>
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -60,10 +61,18 @@ layout: post_base
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="row margin-bottom-40">
+                            <div class="col-sm-8">
+                                {% include disqus.html %}
+                            </div>
+                        </div>
                         <!-- End Post Information -->
                     </div>
                 </div>
                 <!--=== End Container Part ===-->
+
+
 
                 <!-- Footer -->
                 <div class="copyright-section"><p>{% include copyright.html %}</p></div>
