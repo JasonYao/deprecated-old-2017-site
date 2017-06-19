@@ -237,74 +237,77 @@ page: Home
         </div>
     </div>
 
-    <div class="container content-lg">
-        <div class="title-v1">
-            <h2>Young | Scrappy | Hungry</h2>
-            <p>
-                Fresh out of <strong class="color-green">New York University</strong>, I'm
-                hitting the ground running working as a Software Engineer at
-                <strong><a href="https://www.mediamath.com/">MediaMath</a></strong>.
+    <div class="about-image bg-grey">
+        <div class="container content-lg">
+            <div class="title-v1">
+                <h2>Young | Scrappy | Hungry</h2>
+                <p>
+                    Fresh out of <strong class="color-green">New York University</strong>, I'm
+                    hitting the ground running working as a Software Engineer at
+                    <strong><a href="https://www.mediamath.com/">MediaMath</a></strong>.
 
-                <br>
+                    <br>
 
-                I'm looking to be the dumbest person in the room.
-                To be constantly learning and experimenting, and
-                soak up the knowledge of my peers and mentors.
-            </p>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 content-boxes-v3 margin-bottom-40">
-                <div class="clearfix margin-bottom-30">
-                    <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-trophy"></i>
-                    <div class="content-boxes-in-v3">
-                        <h2 class="heading-sm">Programming Polyglot</h2>
-                        <p>
-                            Proficient in many languages, and fast learner for those that I haven't learned yet.
-                            I use the best language for the job that's required, and learn a language specifically
-                            to do the job well.
-                        </p>
-                    </div>
-                </div>
-                <div class="clearfix margin-bottom-30">
-                    <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-directions"></i>
-                    <div class="content-boxes-in-v3">
-                        <h2 class="heading-sm">Organised &amp; Adaptable</h2>
-                        <p>
-                            I think through the processes required to reach the end goal,
-                            while keeping in mind the fact that requirements may change,
-                            or new technologies may emerge.
-                        </p>
-                    </div>
-                </div>
-                <div class="clearfix margin-bottom-30">
-                    <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-diamond"></i>
-                    <div class="content-boxes-in-v3">
-                        <h2 class="heading-sm">Self-motivated</h2>
-                        <p>
-                            I'll be the first one in and the last one out when it comes to
-                            improving my software engineering skills to their full potential.
-                            Engaging with peers, reading books, and going to conferences to
-                            learn about the bleeding-edge of technology, and how I can leverage
-                            it in my current workflow.
-                        </p>
-                    </div>
-                </div>
+                    I'm looking to be the dumbest person in the room.
+                    To be constantly learning and experimenting, and
+                    soak up the knowledge of my peers and mentors.
+                </p>
             </div>
 
-            <div class="col-md-6">
-                <img class="img-responsive" src="/assets/img/about/0-organized.jpg" alt="The good aspects probably outweigh the bad ones">
+            <div class="row">
+                <div class="col-md-6 content-boxes-v3 margin-bottom-40">
+                    <div class="clearfix margin-bottom-30">
+                        <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-trophy"></i>
+                        <div class="content-boxes-in-v3">
+                            <h2 class="heading-sm">Programming Polyglot</h2>
+                            <p>
+                                Proficient in many languages, and fast learner for those that I haven't learned yet.
+                                I use the best language for the job that's required, and learn a language specifically
+                                to do the job well.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix margin-bottom-30">
+                        <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-directions"></i>
+                        <div class="content-boxes-in-v3">
+                            <h2 class="heading-sm">Organised &amp; Adaptable</h2>
+                            <p>
+                                I think through the processes required to reach the end goal,
+                                while keeping in mind the fact that requirements may change,
+                                or new technologies may emerge.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clearfix margin-bottom-30">
+                        <i class="icon-custom icon-md rounded-x icon-bg-u icon-line icon-diamond"></i>
+                        <div class="content-boxes-in-v3">
+                            <h2 class="heading-sm">Self-motivated</h2>
+                            <p>
+                                I'll be the first one in and the last one out when it comes to
+                                improving my software engineering skills to their full potential.
+                                Engaging with peers, reading books, and going to conferences to
+                                learn about the bleeding-edge of technology, and how I can leverage
+                                it in my current workflow.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <img class="img-responsive" src="/assets/img/about/0-organized.jpg" alt="The good aspects probably outweigh the bad ones">
+                </div>
             </div>
         </div>
     </div>
-
+    
     <div class="parallax-quote parallaxBg">
         <div class="container">
             <div class="parallax-quote-in">
                 <p>
-                    Any program is only as good as it is <span class="color-green">useful</span>.
+                    If you give someone a program, you will <span class="color-green">frustrate them for a day</span>.
+                    If you teach them how to program, you will frustrate them for a <span class="color-green">lifetime</span>.
                 </p>
-                <small>- Linus Torvald -</small>
+                <small>- Probably Abraham Lincoln -</small>
             </div>
         </div>
     </div>
@@ -347,7 +350,7 @@ page: Home
             {% for post in site.posts limit:3 %}
                 <div class="col-md-4 md-margin-bottom-40">
                     <div class="news-v1-in">
-                        <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                        <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                         <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                         {{ post.excerpt }}
                         <ul class="list-inline news-v1-info">
@@ -361,11 +364,26 @@ page: Home
                                 {% endcase %}
                                 {{ post.date | date: "of %B, %Y" }}
                             </li>
+                            <li class="pull-right">
+                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                    <i class="fa fa-comments"></i>
+                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             {% endfor %}
         </div>
+
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-5">
+                <span><a href="/blog/" class="btn-u btn-brd btn-brd-hover btn-u-light">See More Posts</a></span>
+            </div>
+        </div>
+
     </div>
 </section>
 <!-- End News Section -->
@@ -376,9 +394,12 @@ page: Home
         <div class="title-v1">
             <h2>Portfolio</h2>
             <p>
-                These are projects that I've built, either on my own or as part of a larger talented team.<br>
-                Web-friendly projects are in the process of being <strong class="color-green">dockerized and deployed</strong>,<br>
-                enabling old projects to be demod past the time when they've been shut down.
+                These are projects that I've built, either on my own or as
+                part of a larger team of talented people.<br>
+                Web-friendly projects are in the process of
+                being <strong class="color-green">dockerized and deployed</strong>,<br>
+                enabling old projects to be demo'd indefinitely,
+                even if the original use-case has been deprecated.
             </p>
         </div>
 

@@ -10,7 +10,7 @@ page: Blog
         {% for post in site.posts %}
             {% if post.tags contains 'featured' %}
                 <div class="ms-slide blog-slider">
-                    <img class="darken" src="/assets/plugins/blog/master-slider/blank.gif" data-src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}"/>
+                    <img class="darken" src="/assets/plugins/blog/master-slider/blank.gif" data-src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}"/>
                     <span class="blog-slider-badge">{{ post.tags[0] }}</span>
                     <div class="ms-info"></div>
                     <div class="blog-slider-title">
@@ -62,7 +62,7 @@ page: Blog
                                 <div class="col-sm-7">
                                     <!-- Blog Grid -->
                                     <div class="blog-grid sm-margin-bottom-40">
-                                        <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                         <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                                         <ul class="blog-grid-info">
                                             <li>{{ site.title }}</li>
@@ -76,8 +76,14 @@ page: Blog
                                                 {% endcase %}
                                                 {{ post.date | date: "of %B, %Y" }}
                                             </li>
-                                            <!-- TODO implement and link to comments section -->
-                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                            <li>
+                                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                    <i class="fa fa-comments"></i>
+                                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                         <p>{{ post.excerpt }}</p>
                                         <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
@@ -93,7 +99,7 @@ page: Blog
                                 <!-- Blog Thumb -->
                                 <div class="blog-thumb margin-bottom-20">
                                     <div class="blog-thumb-hover">
-                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <img src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                         <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
                                     </div>
                                     <div class="blog-thumb-desc">
@@ -109,8 +115,14 @@ page: Blog
                                                 {% endcase %}
                                                 {{ post.date | date: "of %B, %Y" }}
                                             </li>
-                                            <!-- TODO implement and link to comments section -->
-                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                            <li>
+                                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                    <i class="fa fa-comments"></i>
+                                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -128,7 +140,7 @@ page: Blog
                                 <div class="col-sm-7">
                                     <!-- Blog Grid -->
                                     <div class="blog-grid sm-margin-bottom-40">
-                                        <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                         <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                                         <ul class="blog-grid-info">
                                             <li>{{ site.title }}</li>
@@ -142,8 +154,14 @@ page: Blog
                                                 {% endcase %}
                                                 {{ post.date | date: "of %B, %Y" }}
                                             </li>
-                                            <!-- TODO implement and link to comments section -->
-                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                            <li>
+                                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                    <i class="fa fa-comments"></i>
+                                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                         <p>{{ post.excerpt }}</p>
                                         <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
@@ -158,7 +176,7 @@ page: Blog
                                 <!-- Blog Thumb -->
                                 <div class="blog-thumb margin-bottom-20">
                                     <div class="blog-thumb-hover">
-                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <img src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                         <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
                                     </div>
                                     <div class="blog-thumb-desc">
@@ -174,8 +192,14 @@ page: Blog
                                                 {% endcase %}
                                                 {{ post.date | date: "of %B, %Y" }}
                                             </li>
-                                            <!-- TODO implement and link to comments section -->
-                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                            <li>
+                                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                    <i class="fa fa-comments"></i>
+                                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -193,7 +217,7 @@ page: Blog
                             <div class="col-sm-7">
                                 <!-- Blog Grid -->
                                 <div class="blog-grid sm-margin-bottom-40">
-                                    <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                    <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                     <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                                     <ul class="blog-grid-info">
                                         <li>{{ site.title }}</li>
@@ -207,8 +231,14 @@ page: Blog
                                             {% endcase %}
                                             {{ post.date | date: "of %B, %Y" }}
                                         </li>
-                                        <!-- TODO implement and link to comments section -->
-                                        <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        <li>
+                                            {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                            {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                            <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                <i class="fa fa-comments"></i>
+                                                <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <p>{{ post.excerpt }}</p>
                                     <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
@@ -223,7 +253,7 @@ page: Blog
                                 <!-- Blog Thumb -->
                                 <div class="blog-thumb margin-bottom-20">
                                     <div class="blog-thumb-hover">
-                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <img src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                         <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
                                     </div>
                                     <div class="blog-thumb-desc">
@@ -239,8 +269,14 @@ page: Blog
                                                 {% endcase %}
                                                 {{ post.date | date: "of %B, %Y" }}
                                             </li>
-                                            <!-- TODO implement and link to comments section -->
-                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                            <li>
+                                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                    <i class="fa fa-comments"></i>
+                                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -258,7 +294,7 @@ page: Blog
                             <div class="col-sm-7">
                                 <!-- Blog Grid -->
                                 <div class="blog-grid sm-margin-bottom-40">
-                                    <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                    <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                     <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                                     <ul class="blog-grid-info">
                                         <li>{{ site.title }}</li>
@@ -272,8 +308,14 @@ page: Blog
                                             {% endcase %}
                                             {{ post.date | date: "of %B, %Y" }}
                                         </li>
-                                        <!-- TODO implement and link to comments section -->
-                                        <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        <li>
+                                            {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                            {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                            <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                <i class="fa fa-comments"></i>
+                                                <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <p>{{ post.excerpt }}</p>
                                     <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
@@ -288,7 +330,7 @@ page: Blog
                                 <!-- Blog Thumb -->
                                 <div class="blog-thumb margin-bottom-20">
                                     <div class="blog-thumb-hover">
-                                        <img src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                        <img src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                         <a class="hover-grad" href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-video-camera"></i></a>
                                     </div>
                                     <div class="blog-thumb-desc">
@@ -304,8 +346,14 @@ page: Blog
                                                 {% endcase %}
                                                 {{ post.date | date: "of %B, %Y" }}
                                             </li>
-                                            <!-- TODO implement and link to comments section -->
-                                            <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                            <li>
+                                                {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                                {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                                <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                    <i class="fa fa-comments"></i>
+                                                    <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -331,7 +379,7 @@ page: Blog
                             {% capture firstcycle %}{% cycle 'odd', 'even' %}{% endcapture %}
                             {% if firstcycle == 'odd' %}
                                 <div class="blog-grid margin-bottom-40">
-                                    <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                    <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                     <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                                     <ul class="blog-grid-info">
                                         <li>{{ site.title }}</li>
@@ -345,8 +393,14 @@ page: Blog
                                             {% endcase %}
                                             {{ post.date | date: "of %B, %Y" }}
                                         </li>
-                                        <!-- TODO implement commenting and linking -->
-                                        <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                        <li>
+                                            {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                            {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                            <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                                <i class="fa fa-comments"></i>
+                                                <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <p>{{ post.excerpt }}</p>
                                     <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
@@ -362,7 +416,7 @@ page: Blog
                             {% capture secondcycle %}{% cycle 'odd', 'even' %}{% endcapture %}
                             {% if secondcycle == 'even' %}
                             <div class="blog-grid margin-bottom-40">
-                                <img class="img-responsive" src="{{ post.img | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                                <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
                                 <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                                 <ul class="blog-grid-info">
                                     <li>{{ site.title }}</li>
@@ -376,8 +430,14 @@ page: Blog
                                         {% endcase %}
                                         {{ post.date | date: "of %B, %Y" }}
                                     </li>
-                                    <!-- TODO implement commenting and linking -->
-                                    <li><a href="#"><i class="fa fa-comments"></i> 0</a></li>
+                                    <li>
+                                        {% comment %} We use this workaround due to there being no remove_last filter in liquid yet {% endcomment %}
+                                        {% assign num = post.url | prepend: site.baseurl | prepend: site.url | size | minus: 1 %}
+                                        <a href="{{ post.url | prepend: site.baseurl | prepend: site.url | slice: 0, num }}#disqus_thread">
+                                            <i class="fa fa-comments"></i>
+                                            <span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.baseurl | prepend: site.url }}">0</span>
+                                        </a>
+                                    </li>
                                 </ul>
                                 <p>{{ post.excerpt }}</p>
                                 <a class="r-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>

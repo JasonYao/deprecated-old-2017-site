@@ -17,7 +17,12 @@ comments: true
                         <div class="col-sm-6 col-sm-offset-3">
                             <!-- Blog Grid -->
                             <div class="blog-grid sm-margin-bottom-40">
-                                <img class="full-width img-responsive" src="{{ page.img | prepend: '/assets/img/posts/' }}" alt="{{ page.alt_text }}">
+                                <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                                    <img itemprop="image" class="full-width img-responsive" src="{{ page.img.name | prepend: '/assets/img/posts/' }}" alt="{{ page.alt_text }}">
+                                    <meta itemprop="url" content="{{ page.img.name | prepend: '/assets/img/posts/' | prepend: site.baseurl | prepend: site.url }}">
+                                    <meta itemprop="width" content="{{ page.img.width }}">
+                                    <meta itemprop="height" content="{{ page.img.height }}">
+                                </div>
                             </div>
                             <!-- End Blog Grid -->
                         </div>
@@ -64,6 +69,7 @@ comments: true
 
                         <div class="row margin-bottom-40">
                             <div class="col-sm-8">
+                                <div class="headline"><h2>Post Comments</h2></div>
                                 {% include disqus.html %}
                             </div>
                         </div>
@@ -71,8 +77,6 @@ comments: true
                     </div>
                 </div>
                 <!--=== End Container Part ===-->
-
-
 
                 <!-- Footer -->
                 <div class="copyright-section"><p>{% include copyright.html %}</p></div>
