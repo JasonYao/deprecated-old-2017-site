@@ -1,0 +1,18 @@
+<figure>
+    <amp-img on="tap:lightbox1"
+             role="button"
+             tabindex="0"
+             src="{{ page.img[0].name | prepend: '/assets/img/projects/' }}"
+             alt="{{ page.img[0].alt_text }}"
+             title="{{ page.img[0].caption }}"
+             layout="responsive"
+             width="{{ page.img[0].width }}"
+             height="{{ page.img[0].height }}">
+
+        <img class="i-amphtml-fill-content i-amphtml-replaced-content"
+             src="{{ page.img[0].name | prepend: '/assets/img/projects/' }}"
+             alt="{{ page.img[0].alt_text }}">
+
+    </amp-img>
+    <figcaption>{{ page.img[0].caption }}</figcaption>
+</figure>

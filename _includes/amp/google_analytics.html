@@ -1,0 +1,17 @@
+{% if jekyll.environment == "production" %}
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-99838993-1"
+            },
+            "triggers": {
+                "trackPageview": {
+                    "on": "visible",
+                    "request": "pageview"
+                }
+            }
+        }
+    </script>
+</amp-analytics>
+{% endif %}

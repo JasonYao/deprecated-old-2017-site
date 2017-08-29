@@ -1,5 +1,5 @@
 ---
-layout: home-base
+layout: base_home
 page: Home
 ---
 <!-- Intro Section -->
@@ -10,7 +10,7 @@ page: Home
                 <!-- SLIDE 1 -->
                 <li data-transition="slidedown" data-slotamount="5" data-masterspeed="1500" data-title="Welcome">
                     <!-- MAIN IMAGE -->
-                    <img src="/assets/img/bg/bg-0.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="/assets/img/bg/bg_hk.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYERS -->
                     <div class="tp-caption"
@@ -411,12 +411,12 @@ page: Home
             </div><!--/end Filters Container-->
 
             <div id="grid-container" class="cbp-l-grid-gallery">
-                {% assign projects = site.projects | sort: 'date' | reverse %}
+                {% assign projects = site.partial_projects | sort: 'date' | reverse %}
                 {% for project in projects limit:9 %}
                     <div class="cbp-item{% for type in project.types %} {{ type }}{% endfor %}">
                         <a href="{{ project.url | prepend: site.baseurl }}" class="cbp-caption cbp-singlePageInline"
                            data-title="{{ project.title }}">
-                            <div class="cbp-caption-defaultWrap"><img src="{{ project.img[0] | prepend: '/assets/img/projects/' }}" alt="{{ project.alt_text }}"></div>
+                            <div class="cbp-caption-defaultWrap"><img src="{{ project.img[0].name | prepend: '/assets/img/projects/' }}" alt="{{ project.alt_text }}"></div>
                             <div class="cbp-caption-activeWrap">
                                 <div class="cbp-l-caption-alignLeft">
                                     <div class="cbp-l-caption-body">
@@ -447,3 +447,8 @@ page: Home
     </div>
 </section>
 <!-- End Portfolio Section -->
+
+<div class="copyright-section">
+    <p>{% include copyright.html %}</p>
+    <span class="page-scroll"><a href="#intro"><i class="fa fa-angle-double-up back-to-top"></i></a></span>
+</div>

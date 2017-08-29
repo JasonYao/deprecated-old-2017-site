@@ -1,9 +1,26 @@
 <meta charset="utf-8">
+
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+
+<!-- Included common components -->
+{% if jekyll.environment == "production" %}
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+{% endif %}
+
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+<script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+<title itemprop="name">{{ site.title }} | {% if page.title %}{{ page.title }}{% else %}{{ page.page }}{% endif %}</title>
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 <meta name="author" content="{{ site.title }}">
-<title itemprop="name">{{ site.title }} | {% if page.title %}{{ page.title }}{% else %}{{ page.page }}{% endif %}</title>
 
 <!--
 The road ahead is dangerous, a safety pig is provided to guide you along your journey!
@@ -46,17 +63,8 @@ _._ _..._ .-',     _.._(`))
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
-<!-- Web Fonts -->
-<link rel='stylesheet' type='text/css' href='"https://fonts.googleapis.com/css?family=Open+Sans'>
+<!-- Font Awesome 4 (replace with FA5 when it's whitelisted for AMP) -->
+<script src="https://use.fontawesome.com/936f697afc.js"></script>
 
-<!-- CSS Global Compulsory -->
-<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
-
-{% for excluded_page in exclude_amp %}
-    {% if page.url == excluded_page %}
-
-    {% else %}
-        <!-- Link to the paired AMP page -->
-        <link rel="amphtml" href="{{ page.url | replace:'index.html','' | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
-    {% endif %}
-{% endfor %}
+<!-- AMP canonical link to avoid SEO shredding due to duplicate content on AMP pages -->
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | replace: '/amp', '' }}" itemprop="url" />

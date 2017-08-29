@@ -11,7 +11,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.JasonYao.com" # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
-permalink: /blog/:categories/:year/:month/:day/:title/
+permalink: /blog/:year/:month/:day/:title/
 
 gems:
   - jekyll-sitemap
@@ -22,30 +22,44 @@ linkedin_username: JasonYaoNYU
 email_username: Hello
 phone_number: +1 (949) 335-2639
 
-# Analytics
-google_analytics: true
-
 # Collections
 collections:
   projects:
-    permalink: /projects/partials/:path/
+    permalink: /projects/:year/:month/:day/:title/
     output: true
-  projects_full:
-    permalink: /projects/:path/
+  partial_projects:
+    permalink: /partials/projects/:year/:month/:day/:title/
+    output: true
+  amp_projects:
+    permalink: /amp/projects/:year/:month/:day/:title/
+    output: true
+  amp_posts:
+    permalink: /amp/blog/:year/:month/:day/:title/
     output: true
 
 defaults:
   -
     scope:
       path: ""
-      type: "posts"
+      type: "amp_posts"
     values:
-      layout: "post"
+      layout: amp/post
   -
     scope:
-      path: "_projects_full"
+      path: ""
+      type: "posts"
     values:
-      layout: project_full
+      layout: post
+  -
+    scope:
+      path: "_partial_projects"
+    values:
+      layout: partial_project
+  -
+    scope:
+      path: "_amp_projects"
+    values:
+      layout: amp/project
 # NOTE: The symlinked directory has to be above the normal one for fuckery reasons.
   -
     scope:
@@ -53,6 +67,10 @@ defaults:
     values:
       layout: project
       sitemap: false
+
+exclude_amp:
+  - /
+  - /blog
 
 exclude:
   - Gemfile

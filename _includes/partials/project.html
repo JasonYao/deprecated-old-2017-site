@@ -1,0 +1,213 @@
+{% if page.url contains '/amp/' %}
+<div id="project" class="ampstart-card m1">
+    <main>
+        <div class="heading">
+            <h1>Project | {{ page.title }}</h1>
+            {% assign words = content | number_of_words %}
+            <p><small>
+                {{ page.date | date_to_long_string }} • {% include reading_time.html %}
+
+                <!-- Github link -->
+                {% if page.github_link != nil and page.github_link != "" %}
+                •
+                <i class="fa fa-github"></i>
+                <a href="{{ page.github_link }}">Github</a>
+                {% endif %}
+
+                <!-- Project tags -->
+                {% if page.tags.size > 0 %}
+                •
+                <i class="fa fa-tags"></i>
+                <strong>Tags:</strong>
+                {% for tag in page.tags limit:1 %}<a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+                {% endif %}
+            </small>
+            </p>
+            {% include amp/social_sharing.html %}
+        </div>
+
+        {{ page.content }}
+
+        <!-- Related content -->
+            {% comment %}---> initialize that there is a post{% endcomment %}
+            {% assign is_first_post = true %}
+
+            {% comment %}---> the maximum number of related to posts to be printed {% endcomment %}
+            {% assign max_related = 5 %}
+
+            {% comment %}---> the minimum number of common tags to have for a post to be considered as a related post {% endcomment %}
+            {% assign min_common_tags =  3 %}
+
+            {% assign max_related_counter = 0 %}
+
+            {% for post in site.amp_projects %}
+
+                {% assign same_tag_count = 0 %}
+                {% assign common_tags = '' %}
+
+                {% for tag in post.tags %}
+                    {% comment %}---> Only compare if post is not same as current page {% endcomment %}
+                    {% if post.url != page.url %}
+
+                        {% if page.tags contains tag %}
+                            {% assign same_tag_count = same_tag_count | plus: 1 %}
+                            {% capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+                            {% assign common_tags = common_tags | append: tagmarkup %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if same_tag_count >= min_common_tags %}
+                    {% if is_first_post == true %}
+                        <h1>Related Content</h1>
+                        <div class="related-content">
+                        {% assign is_first_post = false %}
+                    {% endif %}
+
+                    <a class="card related" href="{{ site.baseurl }}{{ post.url }}" target="_top" role="listitem">
+                        <amp-img width="100" height="auto" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout">
+                            <noscript>
+                                <img class="i-amphtml-fill-content i-amphtml-replaced-content" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}">
+                            </noscript>
+                        </amp-img>
+                        <span>{{ post.title }}</span>
+                    </a>
+                    {% assign max_related_counter = max_related_counter | plus: 1 %}
+                    {% if max_related_counter >= max_related %}
+                        {% break %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            {% comment %}---> Puts in the closing tag for the div if the section is there {% endcomment %}
+            {% if is_first_post == false %}</div> <!-- End related -->{% endif %}
+    </main>
+
+    <!-- Disqus comments -->
+    <h1>Disqus Comments</h1>
+    {% include amp/disqus.html %}
+</div>
+
+{% else %}
+
+<!-- CONTENT -->
+<div class="wrapper">
+    <!--=== Container Part ===-->
+    <div class="container">
+        <div class="content">
+            <h1 class="title-v1">Project | {{ page.title }}</h1>
+
+            <!-- Image Header -->
+            <div class="col-sm-6 col-sm-offset-3">
+                <!-- Blog Grid -->
+                <div class="blog-grid sm-margin-bottom-40">
+
+                    <!-- Magazine Slider -->
+                    <div class="carousel slide carousel-v2 margin-bottom-40" id="portfolio-carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active rounded-x" data-target="#portfolio-carousel" data-slide-to="0"></li>
+
+                            {% for img in page.img offset:1 %}
+                            <li class="rounded-x" data-target="#portfolio-carousel" data-slide-to="{{ forloop.index }}"></li>
+                            {% endfor %}
+
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+
+                                {% if page.url contains '/amp/' %}
+                                <amp-img src="{{ page.img[0].name | prepend: '/assets/img/posts/' }}"
+                                         alt="{{ page.img[0].alt_text }}"
+                                         title="{{ page.img[0].caption }}"
+                                         layout="responsive"
+                                         width="{{ page.img[0].width }}"
+                                         height="{{ page.img[0].height }}">
+                                </amp-img>
+                                {% else %}
+                                <img class="full-width img-responsive" src="{{ page.img[0].name | prepend: '/assets/img/projects/' }}" alt="{{ page.img[0].alt_text }}">
+                                {% endif %}
+
+                            </div>
+
+                            {% for img in page.img offset:1 %}
+                            <div class="item">
+                                <img class="full-width img-responsive" src="{{ img.name | prepend: '/assets/img/projects/' }}" alt="{{ img.alt_text }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <a class="left carousel-control rounded-x" href="#portfolio-carousel" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left arrow-prev"></i>
+                        </a>
+                        <a class="right carousel-control rounded-x" href="#portfolio-carousel" role="button" data-slide="next">
+                            <i class="fa fa-angle-right arrow-next"></i>
+                        </a>
+                    </div>
+                    <!-- End Magazine Slider -->
+                </div>
+                <!-- End Blog Grid -->
+            </div>
+
+            <!-- Project Information -->
+            <div class="row margin-bottom-60">
+                <!-- Project Description -->
+                <div class="col-sm-8">
+                    <div class="headline"><h2>Project Description</h2></div>
+                    <p>
+                        {{ page.content }}
+                    </p>
+                </div>
+
+                <!-- Project Details -->
+                <div class="col-sm-4">
+                    <div class="headline"><h2>Project Details</h2></div>
+                    <ul class="list-unstyled project-details">
+
+                        <!-- Github link -->
+                        {% if page.github_link != nil and page.github_link != "" %}
+                        <li>
+                            <i class="fa fa-github"></i>
+                            <strong>Github:</strong>
+                            <a href="{{ page.github_link }}">{{ page.github_link }}</a>
+                        </li>
+                        {% endif %}
+
+                        <!-- Date project is posted -->
+                        <li>
+                            <i class="fa fa-clock-o"></i>
+                            <strong>Date:</strong>
+                            {% assign day = page.date | date: "%-d"  %}
+                            {% case day %}
+                            {% when '1' or '21' or '31' %}{{ day }}st
+                            {% when '2' or '22' %}{{ day }}nd
+                            {% when '3' or '23' %}{{ day }}rd
+                            {% else %}{{ day }}th
+                            {% endcase %}
+                            {{ page.date | date: "of %B, %Y" }}
+                        </li>
+
+                        <!-- Project tags -->
+                        <li>
+                            <i class="fa fa-tags"></i>
+                            <strong>Tags:</strong>
+                            {% for tag in page.tags limit:1 %}<a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- End Project Information -->
+        </div>
+    </div>
+    <!--=== End Container Part ===-->
+
+    <!-- Footer -->
+    <div class="copyright-section"><p>{% include copyright.html %}</p></div>
+</div><!--/wrapper-->
+<!-- /CONTENT -->
+
+
+
+{% endif %}
+

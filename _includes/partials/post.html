@@ -1,0 +1,94 @@
+<section>
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-content" itemprop="articleBody">
+            <!-- CONTENT -->
+            <div class="wrapper">
+                <!--=== Container Part ===-->
+                <div class="container">
+                    <div class="content">
+                        <h1 class="title-v1" itemprop="name headline">Post | {{ page.title }}</h1>
+                        <h3 class="title-v1"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ site.title }}</span></span></h3>
+
+                        <!-- Image Header -->
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <!-- Blog Grid -->
+                            <div class="blog-grid sm-margin-bottom-40">
+                                <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                                    {% if page.url contains '/amp/' %}
+                                    <amp-img src="{{ page.img.name | prepend: '/assets/img/posts/' }}"
+                                             alt="{{ page.alt_text }}"
+                                             title="{{ page.alt_text }}"
+                                             layout="responsive"
+                                             width="{{ page.img.width }}"
+                                             height="{{ page.img.height }}">
+                                    </amp-img>
+                                    {% else %}
+                                    <img itemprop="image" class="full-width img-responsive" src="{{ page.img.name | prepend: '/assets/img/posts/' }}" alt="{{ page.alt_text }}">
+                                    {% endif %}
+
+                                    <meta itemprop="url" content="{{ page.img.name | prepend: '/assets/img/posts/' | prepend: site.baseurl | prepend: site.url }}">
+                                    <meta itemprop="width" content="{{ page.img.width }}">
+                                    <meta itemprop="height" content="{{ page.img.height }}">
+                                </div>
+                            </div>
+                            <!-- End Blog Grid -->
+                        </div>
+
+                        <!-- Post Information -->
+                        <div class="row margin-bottom-60">
+                            <!-- Post Description -->
+                            <div class="col-sm-8">
+                                <div class="headline"><h2>{{ page.title }}</h2></div>
+                                <p>
+                                    {{ page.content }}
+                                </p>
+                            </div>
+
+                            <!-- Post Details -->
+                            <div class="col-sm-4">
+                                <div class="headline"><h2>Post Details</h2></div>
+                                <ul class="list-unstyled project-details">
+                                    <!-- Github link -->
+                                    {% if page.github_link != nil and page.github_link != "" %}
+                                    <li>
+                                        <i class="fa fa-github"></i>
+                                        <strong>Github:</strong>
+                                        <a href="{{ page.github_link }}">{{ page.github_link }}</a>
+                                    </li>
+                                    {% endif %}
+
+                                    <!-- Date post is posted -->
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        <strong>Date:</strong><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+                                    </li>
+
+                                    <!-- Post tags -->
+                                    <li>
+                                        <i class="fa fa-tags"></i>
+                                        <strong>Tags:</strong>
+                                        {% for tag in page.tags limit:1 %}<a href="/posts/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/posts/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row margin-bottom-40">
+                            <div class="col-sm-8">
+                                <div class="headline"><h2>Post Comments</h2></div>
+                                {% include disqus.html %}
+                            </div>
+                        </div>
+                        <!-- End Post Information -->
+                    </div>
+                </div>
+                <!--=== End Container Part ===-->
+
+                <!-- Footer -->
+                <div class="copyright-section"><p>{% include copyright.html %}</p></div>
+            </div><!--/wrapper-->
+            <!-- /CONTENT -->
+        </div>
+    </article>
+</section>

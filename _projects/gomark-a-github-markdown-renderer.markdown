@@ -2,11 +2,26 @@
 title:  "gomark | A Github Markdown Renderer"
 date:   2017-05-30T17:30:32
 img:
-  - 0-hamilton.jpg
-  - 1-gomark.jpg
-  - 1a-gomark.jpg
-  - 1b-gomark.jpg
-alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
+  - name: 0-hamilton.jpg
+    height: 1850
+    width: 1463
+    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
+    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
+  - name: 0-hamilton.jpg
+    height: 1850
+    width: 1463
+    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
+    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
+  - name: 0-hamilton.jpg
+    height: 1850
+    width: 1463
+    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
+    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
+  - name: 0-hamilton.jpg
+    height: 1850
+    width: 1463
+    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
+    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
 tags:
   - featured
   - github renderer
@@ -17,6 +32,44 @@ types:
   - cli-project
 github_link: "https://www.github.com/JasonYao/gomark"
 ---
+## Test
+# hello, This is Markdown Live Preview
+
+----
+## what is Markdown?
+see [Wikipedia](http://en.wikipedia.org/wiki/Markdown)
+
+> Markdown is a lightweight markup language, originally created by John Gruber and Aaron Swartz allowing people "to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)".
+
+----
+## usage
+1. Write markdown text in this textarea.
+2. Click 'HTML Preview' button.
+
+----
+## markdown quick reference
+# headers
+
+*emphasis*
+
+**strong**
+
+* list
+
+>block quote
+
+    code (4 spaces indent)
+[links](http://wikipedia.org)
+
+----
+## changelog
+* 17-Feb-2013 re-design
+
+----
+## thanks
+* [markdown-js](https://github.com/evilstreak/markdown-js)
+## End Test
+
 ## Intro
 When building out documentation for projects on github, I've found
 that writing everything in a `.md` markdown file is both the simplest
@@ -33,6 +86,8 @@ the need for a new markdown renderer project became apparent.
 This markdown renderer project will render markdown files locally,
 even when offline, allowing you to see how they look before
 committing and pushing to Github.
+
+{% include amp/img/0.html %}
 
 More than that, it uses the latest [Github GraphQL v4 API](https://developer.github.com/v4/),
 enabling for more efficient calls than the v3 REST API used by grip.
