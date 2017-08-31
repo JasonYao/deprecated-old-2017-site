@@ -19,64 +19,61 @@
 
             <!-- Right side nav -->
             <div>
-                <!-- Sidebar -->
-                <amp-sidebar id="sidebar"
-                             layout="nodisplay"
-                             side="right">
-                    <amp-img class="amp-close-image"
-                             src="/assets/img/icons/general/exit_button.png"
-                             width="20"
-                             height="20"
-                             alt="close sidebar"
-                             on="tap:sidebar.close"
-                             role="button"
-                             tabindex="0"></amp-img>
-                    <!-- Sidebar: Main links -->
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/#about">About</a></li>
-                        <li><a href="/#resume">Resume</a></li>
-                        <li><a href="/#news">News</a></li>
-                        <li><a href="/#portfolio">Portfolio</a></li>
-                        <li><a href="/blog/">Blog</a></li>
-                    </ul>
-
-                    <!-- Sidebar: Social links -->
-                    <hr>
-                    <ul  itemscope itemtype="http://schema.org/Person" class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap m0 mb4">
-                        <!-- Linkedin -->
-                        <li class="mr2">
-                            <a href="{{ site.linkedin_username | prepend: 'https://www.linkedin.com/in/' }}" class="inline-block"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-
-                        <!-- Github -->
-                        <li class="mr2">
-                            <a href="{{ site.github_username | prepend: 'https://www.github.com/' }}" class="inline-block"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-
-                        <!-- Email -->
-                        <li class="mr2">
-                            <a href="{{ site.email_username | append: '@JasonYao.com' | prepend: 'mailto:' }}" class="inline-block"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                        </li>
-
-                        <!-- Phone -->
-                        <li class="mr2">
-                            <a href="{{ site.phone_number | prepend: 'tel:' }}" class="inline-block"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </amp-sidebar> <!-- End sidebar -->
-
                 <!-- Responsive hamburger menu -->
                 <div class="right alt">
                     <button class="tab hamburger" id="menu-button" on='tap:sidebar.toggle'></button>
                 </div>
-
             </div><!-- End right nav-->
         </div> <!-- End nav container-->
     </div> <!-- End container -->
 </header>
 
+<!-- Sidebar -->
+<amp-sidebar id="sidebar"
+             layout="nodisplay"
+             side="right">
+    <amp-img class="amp-close-image"
+             src="/assets/img/icons/general/exit_button.png"
+             width="20"
+             height="20"
+             alt="close sidebar"
+             on="tap:sidebar.close"
+             role="button"
+             tabindex="0"></amp-img>
+    <!-- Sidebar: Main links -->
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#resume">Resume</a></li>
+        <li><a href="/#news">News</a></li>
+        <li><a href="/#portfolio">Portfolio</a></li>
+        <li><a href="/blog/">Blog</a></li>
+    </ul>
 
+    <!-- Sidebar: Social links -->
+    <hr>
+    <ul  itemscope itemtype="http://schema.org/Person" class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap m0 mb4">
+        <!-- Linkedin -->
+        <li class="mr2">
+            <a href="{{ site.linkedin_username | prepend: 'https://www.linkedin.com/in/' }}" class="inline-block"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </li>
+
+        <!-- Github -->
+        <li class="mr2">
+            <a href="{{ site.github_username | prepend: 'https://www.github.com/' }}" class="inline-block"><i class="fa fa-github" aria-hidden="true"></i></a>
+        </li>
+
+        <!-- Email -->
+        <li class="mr2">
+            <a href="{{ site.email_username | append: '@JasonYao.com' | prepend: 'mailto:' }}" class="inline-block"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+        </li>
+
+        <!-- Phone -->
+        <li class="mr2">
+            <a href="{{ site.phone_number | prepend: 'tel:' }}" class="inline-block"><i class="fa fa-phone" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</amp-sidebar> <!-- End sidebar -->
 
 
 
