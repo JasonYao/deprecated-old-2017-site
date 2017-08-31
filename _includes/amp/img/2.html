@@ -8,11 +8,11 @@
              layout="responsive"
              width="{{ page.img[2].width }}"
              height="{{ page.img[2].height }}">
-
-        <img class="i-amphtml-fill-content i-amphtml-replaced-content"
-             src="{{ page.img[2].name | prepend: '/assets/img/projects/' }}"
-             alt="{{ page.img[2].alt_text }}">
-
+        <noscript>
+            <img class="i-amphtml-fill-content i-amphtml-replaced-content"
+                 src="{{ page.img[2].name | prepend: '/assets/img/projects/' }}"
+                 alt="{{ page.img[2].alt_text }}">
+        </noscript>
     </amp-img>
     <figcaption>{{ page.img[2].caption }}</figcaption>
 </figure>
