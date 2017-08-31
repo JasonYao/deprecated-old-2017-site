@@ -65,10 +65,7 @@
                     {% endif %}
 
                     <a class="card related" href="{{ site.baseurl }}{{ post.url }}" target="_top" role="listitem">
-                        <amp-img width="100" height="auto" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}">
-                            <noscript>
-                                <img src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}">
-                            </noscript>
+                        <amp-img width="auto" height="100" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}" layout="fixed-height">
                         </amp-img>
                         <span>{{ post.title }}</span>
                     </a>

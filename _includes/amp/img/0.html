@@ -8,11 +8,6 @@
              layout="responsive"
              width="{{ page.img[0].width }}"
              height="{{ page.img[0].height }}">
-
-        <noscript>
-            <img src="{{ page.img[0].name | prepend: '/assets/img/projects/' }}"
-                 alt="{{ page.img[0].alt_text }}">
-        </noscript>
     </amp-img>
     <figcaption>{{ page.img[0].caption }}</figcaption>
 </figure>
