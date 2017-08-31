@@ -65,9 +65,9 @@
                     {% endif %}
 
                     <a class="card related" href="{{ site.baseurl }}{{ post.url }}" target="_top" role="listitem">
-                        <amp-img width="100" height="auto" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout">
+                        <amp-img width="100" height="auto" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}">
                             <noscript>
-                                <img class="i-amphtml-fill-content i-amphtml-replaced-content" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}">
+                                <img src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}">
                             </noscript>
                         </amp-img>
                         <span>{{ post.title }}</span>
