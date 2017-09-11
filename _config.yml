@@ -76,3 +76,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - PSDs/
+  - package.json
+  - node_modules/
+  - gulpfile.js
+  - vendor/
