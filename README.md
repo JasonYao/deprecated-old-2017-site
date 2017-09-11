@@ -1,25 +1,37 @@
-# My Personal Site
-By [Jason Yao](https://github.com/JasonYao/). Website link is located [here](https://www.jasonyao.com).
+# My Personal Website | [JasonYao.com](https://www.jasonyao.com)
+By [Jason Yao](https://github.com/JasonYao/).
 
-## Description
-This repo contains my online personal site for
-blogging about technical subjects, ruminations on
-the mysteries of life, or whatever else I feel like.
+![if it's broken, it's all up to jebus now](https://travis-ci.org/JasonYao/JasonYao.github.io.svg?branch=source)
 
-## Tools
+This repo contains my personal site, which contains everything from
+articles and guides on technical subjects to pseudo-philosophical
+ramblings on the mysteries of life, with a couple ~~bio-hazards~~
+food recipes tossed in for variety.
+
+## Tools Used
 - [Jekyll](https://jekyllrb.com/) (Site generator)
 - [Github Pages](https://pages.github.com/) (Site hosting)
-- [Google Charts](https://developers.google.com/chart/) (Live data display)
+- [Travis CI](https://travis-ci.org/) (CI/CD)
+- [Google Accelerated Mobile Pages (AMP)](https://www.ampproject.org/)
 - [Google Analytics](https://analytics.google.com/) (Traffic analytics)
 - [Disqus](https://disqus.com/) (3rd party commenting platform)
+- TODO [Google Charts](https://developers.google.com/chart/) (Live data display)
 
-## Commenting
-To disable commenting on a specific post,
-just add `comments: false` to the post's
-front matter.
+## Usage
+TODO insert workflow diagram and .xml file into sourcecode
 
-## Commands
+### Commands
 Run dev site
 ```sh
 bundle exec jekyll serve
 ```
+
+## Notes
+### Commenting
+To disable commenting on a specific post,
+just add `comments: false` to the post's
+front matter.
+
+## License
+This repo is released under the GNU GPL v3 license,
+a copy of which may be found [here](LICENSE).

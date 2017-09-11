@@ -55,6 +55,7 @@ defaults:
       path: "_partial_projects"
     values:
       layout: partial_project
+      sitemap: false
   -
     scope:
       path: "_amp_projects"
@@ -66,7 +67,6 @@ defaults:
       path: "_projects"
     values:
       layout: project
-      sitemap: false
 
 exclude_amp:
   - /
@@ -76,3 +76,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - PSDs/
+  - package.json
+  - node_modules/
+  - gulpfile.js
+  - vendor/
