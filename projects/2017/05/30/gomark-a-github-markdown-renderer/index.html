@@ -1,0 +1,431 @@
+<!doctype html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Testhello, This is Markdown Live Preview">
+<meta name="author" content="Jason Yao">
+<title itemprop="name">Jason Yao | gomark | A Github Markdown Renderer</title>
+
+<!--
+The road ahead is dangerous, a safety pig is provided to guide you along your journey!
+_._ _..._ .-',     _.._(`))
+'-. `     '  /-._.-'    ',/
+  )         \            '.
+ / _    _    |             \
+|  a    a    /              |
+\   .-.                     ;
+ '-('' ).-'       ,'       ;
+    '-;           |      .'
+       \           \    /
+       | 7  .__  _.-\   \
+       | |  |  ``/  /`  /
+      /,_|  |   /,_/   /
+         /,_/      '`-'
+-->
+
+<!-- Opengraph Metadata tags: http://ogp.me/ -->
+<meta property="og:title" content="Jason Yao | gomark | A Github Markdown Renderer" />
+<meta property="og:description" content="Testhello, This is Markdown Live Preview" />
+<meta property="og:url" content="https://www.JasonYao.com/projects/2017/05/30/gomark-a-github-markdown-renderer/" />
+
+<meta property="og:image" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg" />
+<meta property="og:image:secure_url" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1463" />
+<meta property="og:image:height" content="1850" />
+
+<!-- Google's Webmaster verification (keep this after initial verification) -->
+<meta name="google-site-verification" content="bS_JqKuXEPzN-1VZ4w0kc-PhpPeTs-ng8VtsvpnwXCU" />
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Web Fonts -->
+<link rel='stylesheet' type='text/css' href='"https://fonts.googleapis.com/css?family=Open+Sans'>
+
+<!-- CSS Global Compulsory -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- CSS Header and Footer -->
+<link rel="stylesheet" href="/assets/css/blog/header-v8.css">
+<link rel="stylesheet" href="/assets/css/blog/theme-color/default.css">
+<link rel="stylesheet" href="/assets/css/footers/footer-v7.css">
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="/assets/plugins/animate.css">
+<link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+<link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+<!-- CSS Theme -->
+<link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color">
+
+<link rel="stylesheet" href="/assets/css/theme-skins/dark.css">
+
+<!-- CSS Customization -->
+<link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/projects/project.css">
+
+</head>
+<!--
+The #page-top ID is part of the scrolling feature.
+The data-spy and data-target are part of the built-in Bootstrap scrollspy function.
+-->
+<body class="header-fixed header-fixed-space-v2">
+<!--=== Header v8 ===-->
+<div class="header-v8 header-sticky">
+    <!-- Navbar -->
+    <div class="navbar mega-menu" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="res-container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Logo -->
+                <div class="navbar-brand"><a href="/">Jason Yao</a></div>
+            </div><!--/end responsive container-->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <div class="res-container">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#intro">Home</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#about/">About</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#resume/">Resume</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#news/">News</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#portfolio/">Portfolio</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/blog/">Blog</a></li>
+                    </ul>
+                </div><!--/responsive container-->
+            </div><!--/navbar-collapse-->
+        </div><!--/end contaoner-->
+    </div>
+    <!-- End Navbar -->
+</div>
+<!--=== End Header v8 ===-->
+
+
+
+
+<!-- CONTENT -->
+<div class="wrapper">
+    <!--=== Container Part ===-->
+    <div class="container">
+        <div class="content">
+            <h1 class="title-v1">Project | gomark | A Github Markdown Renderer</h1>
+
+            <!-- Image Header -->
+            <div class="col-sm-6 col-sm-offset-3">
+                <!-- Blog Grid -->
+                <div class="blog-grid sm-margin-bottom-40">
+
+                    <!-- Magazine Slider -->
+                    <div class="carousel slide carousel-v2 margin-bottom-40" id="portfolio-carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active rounded-x" data-target="#portfolio-carousel" data-slide-to="0"></li>
+
+                            
+                            <li class="rounded-x" data-target="#portfolio-carousel" data-slide-to="1"></li>
+                            
+                            <li class="rounded-x" data-target="#portfolio-carousel" data-slide-to="2"></li>
+                            
+                            <li class="rounded-x" data-target="#portfolio-carousel" data-slide-to="3"></li>
+                            
+
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+
+                                
+                                <img class="full-width img-responsive" src="/assets/img/projects/0-hamilton.jpg" alt="Idle hands are the Devils playthings. In this case the devil was a really bored geek.">
+                                
+
+                            </div>
+
+                            
+                            <div class="item">
+                                <img class="full-width img-responsive" src="/assets/img/projects/0-hamilton.jpg" alt="Idle hands are the Devils playthings. In this case the devil was a really bored geek.">
+                            </div>
+                            
+                            <div class="item">
+                                <img class="full-width img-responsive" src="/assets/img/projects/0-hamilton.jpg" alt="Idle hands are the Devils playthings. In this case the devil was a really bored geek.">
+                            </div>
+                            
+                            <div class="item">
+                                <img class="full-width img-responsive" src="/assets/img/projects/0-hamilton.jpg" alt="Idle hands are the Devils playthings. In this case the devil was a really bored geek.">
+                            </div>
+                            
+                        </div>
+
+                        <a class="left carousel-control rounded-x" href="#portfolio-carousel" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left arrow-prev"></i>
+                        </a>
+                        <a class="right carousel-control rounded-x" href="#portfolio-carousel" role="button" data-slide="next">
+                            <i class="fa fa-angle-right arrow-next"></i>
+                        </a>
+                    </div>
+                    <!-- End Magazine Slider -->
+                </div>
+                <!-- End Blog Grid -->
+            </div>
+
+            <!-- Project Information -->
+            <div class="row margin-bottom-60">
+                <!-- Project Description -->
+                <div class="col-sm-8">
+                    <div class="headline"><h2>Project Description</h2></div>
+                    <p>
+                        <h2 id="test">Test</h2>
+<h1 id="hello-this-is-markdown-live-preview">hello, This is Markdown Live Preview</h1>
+
+<hr />
+<h2 id="what-is-markdown">what is Markdown?</h2>
+<p>see <a href="http://en.wikipedia.org/wiki/Markdown">Wikipedia</a></p>
+
+<blockquote>
+  <p>Markdown is a lightweight markup language, originally created by John Gruber and Aaron Swartz allowing people “to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)”.</p>
+</blockquote>
+
+<hr />
+<h2 id="usage">usage</h2>
+<ol>
+  <li>Write markdown text in this textarea.</li>
+  <li>Click ‘HTML Preview’ button.</li>
+</ol>
+
+<hr />
+<h2 id="markdown-quick-reference">markdown quick reference</h2>
+<h1 id="headers">headers</h1>
+
+<p><em>emphasis</em></p>
+
+<p><strong>strong</strong></p>
+
+<ul>
+  <li>list</li>
+</ul>
+
+<blockquote>
+  <p>block quote</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>code (4 spaces indent) [links](http://wikipedia.org)
+</code></pre>
+</div>
+
+<hr />
+<h2 id="changelog">changelog</h2>
+<ul>
+  <li>17-Feb-2013 re-design</li>
+</ul>
+
+<hr />
+<h2 id="thanks">thanks</h2>
+<ul>
+  <li><a href="https://github.com/evilstreak/markdown-js">markdown-js</a>
+    <h2 id="end-test">End Test</h2>
+  </li>
+</ul>
+
+<h2 id="intro">Intro</h2>
+<p>When building out documentation for projects on github, I’ve found
+that writing everything in a <code class="highlighter-rouge">.md</code> markdown file is both the simplest
+and most pleasant solution to solving the problem of documentation.</p>
+
+<p>A problem then occurs, however, when I try and see the output file
+before committing. In the past, I could rely on
+<a href="https://github.com/joeyespo/grip">grip</a>, but a huge limitation was
+the inability to render markdown when offline.
+As the project development seems to have stalled
+(last commit was 3 months ago, with 4 outstanding <code class="highlighter-rouge">PR</code>s and 20 open issues),
+the need for a new markdown renderer project became apparent.</p>
+
+<p>This markdown renderer project will render markdown files locally,
+even when offline, allowing you to see how they look before
+committing and pushing to Github.</p>
+
+<figure>
+    <amp-img on="tap:lightbox1" role="button" tabindex="0" src="/assets/img/projects/0-hamilton.jpg" alt="Idle hands are the Devils playthings. In this case the devil was a really bored geek." title="The existential crisis that occurs when choosing which type of bubble tea to get it real." layout="responsive" width="1463" height="1850">
+    </amp-img>
+    <figcaption>The existential crisis that occurs when choosing which type of bubble tea to get it real.</figcaption>
+</figure>
+
+<p>More than that, it uses the latest <a href="https://developer.github.com/v4/">Github GraphQL v4 API</a>,
+enabling for more efficient calls than the v3 REST API used by grip.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Server application that will re-render file automatically as it
+changes- will not need a page refresh either</li>
+  <li>Built in <a href="https://golang.org/">Golang</a>, making it extremely fast</li>
+  <li>Allows for offline rendering based on prior cached responses</li>
+  <li>Allows for <code class="highlighter-rouge">HTML</code> file output generation</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+<h3 id="macos">MacOS</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>brew install grender
+</code></pre>
+</div>
+
+<h3 id="others">Others</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>go get -u github.com/JasonYao/gRender/cmd/gRender
+</code></pre>
+</div>
+
+<h2 id="usage-1">Usage</h2>
+
+<h3 id="rendering-a-markdown-file">Rendering a Markdown file</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md
+</code></pre>
+</div>
+
+<h3 id="rendering-all-markdown-files-in-a-directory">Rendering All Markdown Files in a Directory</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES
+</code></pre>
+</div>
+
+<h3 id="generate-html-output">Generate HTML Output</h3>
+<h4 id="single-file-output">Single File Output</h4>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md -o OUTPUTFILE.html
+</code></pre>
+</div>
+<h4 id="directory-output">Directory Output</h4>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES -o OUTPUT_DIRECTORY
+</code></pre>
+</div>
+
+<h3 id="seeing-the-help-menu">Seeing the Help Menu</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender -h
+</code></pre>
+</div>
+
+<h3 id="seeing-the-help-submenu-of-a-command">Seeing the Help Submenu of a Command</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_COMMAND -h
+</code></pre>
+</div>
+
+<h3 id="equivalence-with-githubs-online-renderer">Equivalence With Github’s Online Renderer</h3>
+<p>The goal for this project is two-fold:</p>
+<ul>
+  <li>Match Github’s online rendering exactly, or close to exactly
+in offline situations</li>
+  <li>Provide offline rendering when there is no access
+to the internet or rate limits are hit.</li>
+</ul>
+
+<p>In order for this to occur, <code class="highlighter-rouge">gRender</code> will make a call
+to github’s <a href="https://developer.github.com/v3/markdown/">markdown</a> API. If it fails for rate limiting
+or connectivity issues, it will automatically fall back to
+the offline renderer, with any cached values from the last call
+to Github overriding shipped defaults.</p>
+
+<p>It should be noted that any calls to Github will be over HTTPS,
+encrypting your data when it’s transported over the wire.</p>
+
+<h2 id="license">License</h2>
+<p>This code is licensed under GNU’s GPL v3 license, a copy of which
+may be found <a href="LICENSE">here</a>.</p>
+
+                    </p>
+                </div>
+
+                <!-- Project Details -->
+                <div class="col-sm-4">
+                    <div class="headline"><h2>Project Details</h2></div>
+                    <ul class="list-unstyled project-details">
+
+                        <!-- Github link -->
+                        
+                        <li>
+                            <i class="fa fa-github"></i>
+                            <strong>Github:</strong>
+                            <a href="https://www.github.com/JasonYao/gomark">https://www.github.com/JasonYao/gomark</a>
+                        </li>
+                        
+
+                        <!-- Date project is posted -->
+                        <li>
+                            <i class="fa fa-clock-o"></i>
+                            <strong>Date:</strong>
+                            
+                            30th
+                            
+                            of May, 2017
+                        </li>
+
+                        <!-- Project tags -->
+                        <li>
+                            <i class="fa fa-tags"></i>
+                            <strong>Tags:</strong>
+                            <a href="/projects/tag/featured">featured</a>, <a href="/projects/tag/github-renderer">github renderer</a>, <a href="/projects/tag/go">go</a>, <a href="/projects/tag/technology">technology</a>, <a href="/projects/tag/in-progress">in-progress</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- End Project Information -->
+        </div>
+    </div>
+    <!--=== End Container Part ===-->
+
+    <!-- Footer -->
+    <div class="copyright-section"><p>2017 &copy; All rights reserved.</p></div>
+</div><!--/wrapper-->
+<!-- /CONTENT -->
+
+
+
+
+
+
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="/assets/js/blog/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="/assets/js/blog/app.js"></script>
+<script type="text/javascript" src="/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="/assets/plugins/respond.js"></script>
+<script src="/assets/plugins/html5shiv.js"></script>
+<script src="/assets/plugins/blog/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+
+</body>
+</html>

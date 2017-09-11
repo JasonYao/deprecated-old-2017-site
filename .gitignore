@@ -1,9 +1,0 @@
-# IDE ignores
-.idea/
-
-# MacOS ignores
-.DS_Store
-
-# Dev ignores
-_site/
-PSDs/

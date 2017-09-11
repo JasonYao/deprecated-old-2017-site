@@ -1,0 +1,953 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+
+<!-- Included common components -->
+
+
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+<script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+<title itemprop="name">Jason Yao | gomark | A Github Markdown Renderer</title>
+<meta name="description" content="Testhello, This is Markdown Live Preview">
+<meta name="author" content="Jason Yao">
+
+<!--
+The road ahead is dangerous, a safety pig is provided to guide you along your journey!
+_._ _..._ .-',     _.._(`))
+'-. `     '  /-._.-'    ',/
+  )         \            '.
+ / _    _    |             \
+|  a    a    /              |
+\   .-.                     ;
+ '-('' ).-'       ,'       ;
+    '-;           |      .'
+       \           \    /
+       | 7  .__  _.-\   \
+       | |  |  ``/  /`  /
+      /,_|  |   /,_/   /
+         /,_/      '`-'
+-->
+
+<!-- Opengraph Metadata tags: http://ogp.me/ -->
+<meta property="og:title" content="Jason Yao | gomark | A Github Markdown Renderer" />
+<meta property="og:description" content="Testhello, This is Markdown Live Preview" />
+<meta property="og:url" content="https://www.JasonYao.com/amp/projects/2017/05/30/gomark-a-github-markdown-renderer/" />
+
+<meta property="og:image" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg" />
+<meta property="og:image:secure_url" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1463" />
+<meta property="og:image:height" content="1850" />
+
+<!-- Google's Webmaster verification (keep this after initial verification) -->
+<meta name="google-site-verification" content="bS_JqKuXEPzN-1VZ4w0kc-PhpPeTs-ng8VtsvpnwXCU" />
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Font Awesome 4 (replace with FA5 when it's whitelisted for AMP) -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- AMP canonical link to avoid SEO shredding due to duplicate content on AMP pages -->
+<link rel="canonical" href="https://www.JasonYao.com/projects/2017/05/30/gomark-a-github-markdown-renderer/" itemprop="url" />
+
+
+    
+
+    <!-- Keep content hidden until AMP.js is loaded -->
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-custom>
+        /**
+         * General styling
+         **/
+        body {
+            padding-top: 50px;
+            background: #f9f7f7;
+        }
+
+        #project {
+            background: #fff;
+            min-height: 100vh;
+
+            margin: 56px auto 0;
+            max-width: 800px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-bottom: 1rem;
+            color: #555;
+        }
+
+        .ampstart-card {
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,.14),0 1px 1px -1px rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+        }
+        .heading {
+            padding-bottom: 1rem;
+        }
+
+        .heading h1 {
+            font-size: 2rem;
+            line-height: 3rem;
+            padding-top: 1rem;
+            padding-left: 0; /* hack required to over-ride the general padding */
+            color: #2a2a2a;
+            font-weight: 600;
+        }
+
+        /**
+         * Navbar styling
+         **/
+        .header.fixed {
+            left: 0;
+            position: fixed;
+            top: 0;
+            transform: translateY(0%);
+            transition: all .4s ease;
+            width: 100%;
+            z-index: 1000;
+            line-height: 0;
+        }
+        .header {
+            backface-visibility: hidden;
+            background-color: #fff;
+            box-shadow: 0 0 40px 0 rgba(0,0,0,0.1);
+            font-size: 14px;
+            font-weight: 300;
+            transform: translateZ(0);
+        }
+        .container {
+            box-sizing: border-box;
+            margin: 0 auto;
+            max-width: 3000px;
+            padding: 0 22px;
+        }
+        .header .nav-container {
+            justify-content: space-between;
+            position: relative;
+            display: flex;
+        }
+        .header .alt {
+            padding: 0;
+        }
+        .header .alt, .header .tabs {
+            align-items: stretch;
+        }
+        .header .left-nav {
+            font-size: 20px;
+            font-weight: 300;
+            margin-left: 0;
+        }
+
+        .header .left-nav, .header .alt {
+            justify-content: flex-start;
+        }
+
+        /* Brand */
+        .header .left-nav .header-title::after, .header .left-nav .header-title::before {
+            display: none;
+        }
+        .header .tab::after {
+            background: linear-gradient(to right, #1c79c0, #0389ff, #0dd3ff);
+            bottom: 0;
+            content: '';
+            height: 3px;
+            left: 20px;
+            margin: auto;
+            opacity: 0;
+            position: absolute;
+            right: 20px;
+            transition: .1s ease opacity;
+        }
+        .header .tab::before {
+            bottom: 0;
+            box-shadow: 0 0 40px 0 rgba(0,0,0,0.1);
+            content: '';
+            left: -10px;
+            opacity: 0;
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            transition: opacity .2s ease-out;
+        }
+        .header .left-nav .header-title {
+            color: #0379c4;
+            margin: 0;
+            padding: 40px 40px 40px 60px;
+            text-transform: none;
+            white-space: nowrap;
+            width: auto;
+        }
+
+        /* Tabs */
+        .header .tabs {
+            justify-content: center;
+            margin-left: 60px;
+        }
+        .header .alt, .header .tabs {
+            align-items: stretch;
+        }
+        .header .nav-container, .header .left-nav, .header .alt, .header .tabs {
+            display: flex;
+        }
+
+        /* Tab */
+        .header .tab::before {
+            bottom: 0;
+            box-shadow: 0 0 40px 0 rgba(0,0,0,0.1);
+            content: '';
+            left: -10px;
+            opacity: 0;
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            transition: opacity .2s ease-out;
+        }
+        .header .tab::after {
+            background: linear-gradient(to right, #1c79c0, #0389ff, #0dd3ff);
+            bottom: 0;
+            content: '';
+            height: 3px;
+            left: 20px;
+            margin: auto;
+            opacity: 0;
+            position: absolute;
+            right: 20px;
+            transition: .1s ease opacity;
+        }
+        .header .tab {
+            padding: 6px 20px;
+        }
+        .header .tab {
+            color: #333;
+            font-weight: 400;
+            margin: 0 4px;
+            padding: 6px;
+            position: relative;
+            transition: .1s ease color;
+        }
+
+        /* Tab text */
+        .header .tab > a {
+            color: inherit;
+            position: relative;
+            top: 19px;
+        }
+        a {
+            color: #1c79c0;
+            position: relative;
+            text-decoration: none;
+        }
+        .light, a, .text-label, amp-sidebar .return-button {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: .56px;
+            line-height: 16px;
+            text-transform: uppercase;
+        }
+
+        /* Sidebar styling */
+        amp-sidebar {
+            background: white;
+            width: 50vw;
+        }
+        amp-sidebar .menu-layer.secondary .items, amp-sidebar .menu-layer.tertiary .items {
+            bottom: 0;
+            top: 85px;
+        }
+        amp-sidebar .menu-layer .items {
+            left: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            position: absolute;
+            right: 0;
+        }
+        amp-sidebar .item-layer-1 {
+            font-size: 35px;
+            font-weight: 100;
+            line-height: 44px;
+            padding: 30px 35px 30px 25px;
+        }
+        amp-sidebar .menu-item {
+            border-bottom: solid 1px #ededed;
+            color: #000;
+            display: block;
+            position: relative;
+            text-transform: none;
+        }
+        amp-sidebar .menu-layer .items {
+            left: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            position: absolute;
+            right: 0;
+        }
+
+        amp-sidebar .item-layer-2, amp-sidebar .item-layer-3 {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 26px;
+            padding: 15px 35px 15px 25px;
+        }
+        amp-sidebar .menu-item {
+            border-bottom: solid 1px #ededed;
+            color: #000;
+            display: block;
+            position: relative;
+            text-transform: none;
+        }
+
+
+
+
+        .header .alt {
+            padding: 0;
+        }
+        .header .alt, .header .tabs {
+            align-items: stretch;
+        }
+        .header .left-nav, .header .alt {
+            justify-content: flex-start;
+        }
+        .header .nav-container, .header .left-nav, .header .alt, .header .tabs {
+            display: flex;
+        }
+
+        /* Sidebar button styling */
+        .header .tab.hamburger {
+            align-self: center;
+            background: url("/assets/img/icons/general/hamburger.svg") no-repeat center/30px 24px transparent;
+            border: 0;
+            cursor: pointer;
+            display: none;
+            height: 40px;
+            margin: 0;
+            padding: 0;
+            width: 40px;
+        }
+        .header .tab {
+            color: #333;
+            font-weight: 400;
+            margin: 0 4px;
+            padding: 6px;
+            position: relative;
+            transition: .1s ease color;
+        }
+        button, button:hover {
+            text-decoration: underline;
+        }
+
+        /* Media resizing responsiveness stuff */
+        @media only screen and (max-width: 956px) {
+            .header .container {
+                padding-right: 18px
+            }
+            .header .left-nav {
+                flex: 1 1 auto;
+                width: auto
+            }
+            .header .left-nav .header-title {
+                margin: 0;
+                padding: 30px 30px 30px 50px;
+                width: auto
+            }
+            .header div.tab,
+            .header .desktop {
+                display: none
+            }
+            .header .tab.hamburger {
+                display: inline-block
+            }
+        }
+
+        /**
+         * Related content styling
+         **/
+        .related {
+            background-color: #f5f5f5;
+            margin: 1rem;
+            color: #111;
+            padding: 1em;
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px -1px rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+            text-decoration: none;
+            box-sizing: border-box;
+            display: inline-block;
+            flex: 0 0 31%;
+            flex-basis: calc(33% - 30px);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .related > span {
+            font-weight: 400;
+            margin: 8px;
+        }
+        .related:hover {
+            background-color: #ccc;
+        }
+        .related-content {
+            display: block;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .related > amp-img {
+            width: 101px;
+            height: 75px;
+        }
+
+        .card::before {
+            background: linear-gradient(to right, #1c79c0, #0389ff, #0dd3ff);
+            content: '';
+            left: 0;
+            height: 2px;
+            position: absolute;
+            right: 0;
+            top: -2px;
+        }
+
+        /**
+         * Markdown styling
+         */
+
+        /* General text colouring */
+        main>h1, #project>h1 {
+            border-bottom: 3px solid #a10f2b;
+        }
+        main>h2 {
+            border-bottom: 2px solid #a10f2b;
+        }
+        main>h3 {
+            border-bottom: 1px dotted #a10f2b;
+        }
+        main>hr {
+            margin: 30px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+            height: 0;
+            box-sizing: content-box;
+        }
+        blockquote {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin: 0 0 20px;
+            border-left: 2px solid #eee;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+        blockquote:hover {
+            border-left: 2px solid #c7254e;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 1rem;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: "Open Sans",Arial,sans-serif;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin: 0 0 10px;
+            box-sizing: border-box;
+        }
+        code {
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+        }
+        code, kbd, pre, samp {
+            font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        }
+        pre {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: auto;
+        }
+        pre code {
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+            white-space: pre-wrap;
+            background-color: transparent;
+            border-radius: 0;
+        }
+        a {
+            color: #a10f2b;
+            text-decoration: none;
+            background-color: transparent;
+            outline: 0;
+        }
+        a:focus, a:hover, a:active, button, button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+<header class="header fixed">
+    <div class="container">
+        <div class="nav-container">
+
+            <!-- Left side nav -->
+            <div class="left-nav alt">
+                <span class="tab header-title">Jason Yao</span>
+
+                <div class="tabs">
+                    <div class="tab"><a href="/">Home</a></div>
+                    <div class="tab"><a href="/#about">About</a></div>
+                    <div class="tab"><a href="/#resume">Resume</a></div>
+                    <div class="tab"><a href="/#news">News</a></div>
+                    <div class="tab"><a href="/#portfolio">Portfolio</a></div>
+                    <div class="tab"><a href="/blog/">Blog</a></div>
+                </div>
+            </div>
+
+            <!-- Right side nav -->
+            <div>
+                <!-- Responsive hamburger menu -->
+                <div class="right alt">
+                    <button class="tab hamburger" id="menu-button" on='tap:sidebar.toggle'></button>
+                </div>
+            </div><!-- End right nav-->
+        </div> <!-- End nav container-->
+    </div> <!-- End container -->
+</header>
+
+<!-- Sidebar -->
+<amp-sidebar id="sidebar"
+             layout="nodisplay"
+             side="right">
+    <amp-img class="amp-close-image"
+             src="/assets/img/icons/general/exit_button.png"
+             width="20"
+             height="20"
+             alt="close sidebar"
+             on="tap:sidebar.close"
+             role="button"
+             tabindex="0"></amp-img>
+    <!-- Sidebar: Main links -->
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#resume">Resume</a></li>
+        <li><a href="/#news">News</a></li>
+        <li><a href="/#portfolio">Portfolio</a></li>
+        <li><a href="/blog/">Blog</a></li>
+    </ul>
+
+    <!-- Sidebar: Social links -->
+    <hr>
+    <ul  itemscope itemtype="http://schema.org/Person" class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap m0 mb4">
+        <!-- Linkedin -->
+        <li class="mr2">
+            <a href="https://www.linkedin.com/in/JasonYaoNYU" class="inline-block"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </li>
+
+        <!-- Github -->
+        <li class="mr2">
+            <a href="https://www.github.com/JasonYao" class="inline-block"><i class="fa fa-github" aria-hidden="true"></i></a>
+        </li>
+
+        <!-- Email -->
+        <li class="mr2">
+            <a href="mailto:Hello@JasonYao.com" class="inline-block"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+        </li>
+
+        <!-- Phone -->
+        <li class="mr2">
+            <a href="tel:+1 (949) 335-2639" class="inline-block"><i class="fa fa-phone" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</amp-sidebar> <!-- End sidebar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash; Start Navbar &ndash;&gt;-->
+<!--<header class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4">-->
+    <!--<div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger md-hide lg-hide pr2">☰</div>-->
+    <!--Jason Yao-->
+    <!--<nav class="ampstart-headerbar-nav ampstart-nav xs-hide sm-hide" itemscope itemtype="http://www.schema.org/SiteNavigationElement">-->
+        <!--<ul class="list-reset center m0 p0 flex justify-center nowrap">-->
+            <!--<li class="ampstart-nav-item" itemprop="name"><a itemprop="url" href="/" class="text-decoration-none block">Home</a></li>-->
+            <!--<li class="ampstart-nav-item" itemprop="name"><a itemprop="url" href="/#about" class="text-decoration-none block">About</a></li>-->
+            <!--<li class="ampstart-nav-item" itemprop="name"><a itemprop="url" href="/#resume" class="text-decoration-none block">Resume</a></li>-->
+            <!--<li class="ampstart-nav-item" itemprop="name"><a itemprop="url" href="/#news" class="text-decoration-none block">News</a></li>-->
+            <!--<li class="ampstart-nav-item" itemprop="name"><a itemprop="url" href="/#portfolio" class="text-decoration-none block">Portfolio</a></li>-->
+            <!--<li class="ampstart-nav-item" itemprop="name"><a itemprop="url" href="/blog/" class="text-decoration-none block">Blog</a></li>-->
+        <!--</ul>-->
+    <!--</nav>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Start Sidebar &ndash;&gt;-->
+<!--<amp-sidebar id="header-sidebar" layout="nodisplay" side="right" class="ampstart-sidebar">-->
+<!--&lt;!&ndash;<amp-sidebar id="header-sidebar" class="ampstart-sidebar px3 md-hide lg-hide" layout="nodisplay">&ndash;&gt;-->
+    <!--<div class="flex justify-start items-center ampstart-sidebar-header">-->
+        <!--<div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger items-start">✕</div>-->
+    <!--</div>-->
+    <!--<nav class="ampstart-sidebar-nav ampstart-nav">-->
+        <!--<ul class="list-reset m0 p0 caps h5">-->
+            <!--<li class="ampstart-nav-item"><a href="/" class="text-decoration-none block">Home</a></li>-->
+            <!--<li class="ampstart-nav-item"><a href="/#about" class="text-decoration-none block">About</a></li>-->
+            <!--<li class="ampstart-nav-item"><a href="/#resume" class="text-decoration-none block">Resume</a></li>-->
+            <!--<li class="ampstart-nav-item"><a href="/#news" class="text-decoration-none block">News</a></li>-->
+            <!--<li class="ampstart-nav-item"><a href="/#portfolio" class="text-decoration-none block">Portfolio</a></li>-->
+            <!--<li class="ampstart-nav-item"><a href="/blog/" class="text-decoration-none block">Blog</a></li>-->
+        <!--</ul>-->
+    <!--</nav>-->
+
+    <!--&lt;!&ndash; Social icons &ndash;&gt;-->
+    <!--<ul  itemscope itemtype="http://schema.org/Person" class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap m0 mb4">-->
+        <!--&lt;!&ndash; Linkedin &ndash;&gt;-->
+        <!--<li class="mr2">-->
+            <!--<a href="https://www.linkedin.com/in/JasonYaoNYU" class="inline-block"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
+        <!--</li>-->
+
+        <!--&lt;!&ndash; Github &ndash;&gt;-->
+        <!--<li class="mr2">-->
+            <!--<a href="https://www.github.com/JasonYao" class="inline-block"><i class="fa fa-github" aria-hidden="true"></i></a>-->
+        <!--</li>-->
+
+        <!--&lt;!&ndash; Email &ndash;&gt;-->
+        <!--<li class="mr2">-->
+            <!--<a href="mailto:Hello@JasonYao.com" class="inline-block"><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+        <!--</li>-->
+
+        <!--&lt;!&ndash; Phone &ndash;&gt;-->
+        <!--<li class="mr2">-->
+            <!--<a href="tel:+1 (949) 335-2639" class="inline-block"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
+        <!--</li>-->
+    <!--</ul>-->
+
+
+
+
+
+
+
+
+
+    <!--<script type="application/ld+json">-->
+<!--{ "@context" : "http://schema.org",-->
+  <!--"@type" : "Organization",-->
+  <!--"name" : "Your Organization Name",-->
+  <!--"url" : "http://www.your-site.com",-->
+  <!--"sameAs" : [ "http://www.facebook.com/your-profile",-->
+    <!--"http://www.twitter.com/yourProfile",-->
+    <!--"http://plus.google.com/your_profile"]-->
+<!--}-->
+<!--</script>-->
+
+
+    <!--&lt;!&ndash;<span>&ndash;&gt;-->
+  <!--&lt;!&ndash;<link itemprop="url" href="http://www.your-company-site.com">&ndash;&gt;-->
+  <!--&lt;!&ndash;<a itemprop="sameAs" href="http://www.facebook.com/your-company">FB</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;<a itemprop="sameAs" href="http://www.twitter.com/YourCompany">Twitter</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</span>&ndash;&gt;-->
+<!--</amp-sidebar>-->
+<!--&lt;!&ndash; End Sidebar &ndash;&gt;-->
+<!--&lt;!&ndash; End Navbar &ndash;&gt;-->
+
+
+
+    
+<div id="project" class="ampstart-card m1">
+    <main>
+        <div class="heading">
+            <h1>Project | gomark | A Github Markdown Renderer</h1>
+            
+            <p><small>
+                30 May 2017 • <span class="reading-time" title="Estimated read time">
+  
+  
+    3 min read
+  
+</span>
+
+
+                <!-- Github link -->
+                
+                •
+                <i class="fa fa-github"></i>
+                <a href="https://www.github.com/JasonYao/gomark">Github</a>
+                
+
+                <!-- Project tags -->
+                
+                •
+                <i class="fa fa-tags"></i>
+                <strong>Tags:</strong>
+                <a href="/projects/tag/featured">featured</a>, <a href="/projects/tag/github-renderer">github renderer</a>, <a href="/projects/tag/go">go</a>, <a href="/projects/tag/technology">technology</a>, <a href="/projects/tag/in-progress">in-progress</a>
+                
+            </small>
+            </p>
+            <!-- Social Sharing TODO: get FB app data attribution # -->
+<amp-social-share type="email" width="45" height="33"></amp-social-share>
+<amp-social-share type="facebook" width="45" height="33" data-param-app_id="254325784911610"></amp-social-share>
+<amp-social-share type="twitter" width="45" height="33"></amp-social-share>
+<amp-social-share type="gplus" width="45" height="33"></amp-social-share>
+
+<amp-social-share type="linkedin" width="45" height="33"></amp-social-share>
+<amp-social-share type="whatsapp" width="45" height="33"></amp-social-share>
+<amp-social-share type="tumblr" width="45" height="33"></amp-social-share>
+
+
+
+        </div>
+
+        <h2 id="test">Test</h2>
+<h1 id="hello-this-is-markdown-live-preview">hello, This is Markdown Live Preview</h1>
+
+<hr />
+<h2 id="what-is-markdown">what is Markdown?</h2>
+<p>see <a href="http://en.wikipedia.org/wiki/Markdown">Wikipedia</a></p>
+
+<blockquote>
+  <p>Markdown is a lightweight markup language, originally created by John Gruber and Aaron Swartz allowing people “to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)”.</p>
+</blockquote>
+
+<hr />
+<h2 id="usage">usage</h2>
+<ol>
+  <li>Write markdown text in this textarea.</li>
+  <li>Click ‘HTML Preview’ button.</li>
+</ol>
+
+<hr />
+<h2 id="markdown-quick-reference">markdown quick reference</h2>
+<h1 id="headers">headers</h1>
+
+<p><em>emphasis</em></p>
+
+<p><strong>strong</strong></p>
+
+<ul>
+  <li>list</li>
+</ul>
+
+<blockquote>
+  <p>block quote</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>code (4 spaces indent) [links](http://wikipedia.org)
+</code></pre>
+</div>
+
+<hr />
+<h2 id="changelog">changelog</h2>
+<ul>
+  <li>17-Feb-2013 re-design</li>
+</ul>
+
+<hr />
+<h2 id="thanks">thanks</h2>
+<ul>
+  <li><a href="https://github.com/evilstreak/markdown-js">markdown-js</a>
+    <h2 id="end-test">End Test</h2>
+  </li>
+</ul>
+
+<h2 id="intro">Intro</h2>
+<p>When building out documentation for projects on github, I’ve found
+that writing everything in a <code class="highlighter-rouge">.md</code> markdown file is both the simplest
+and most pleasant solution to solving the problem of documentation.</p>
+
+<p>A problem then occurs, however, when I try and see the output file
+before committing. In the past, I could rely on
+<a href="https://github.com/joeyespo/grip">grip</a>, but a huge limitation was
+the inability to render markdown when offline.
+As the project development seems to have stalled
+(last commit was 3 months ago, with 4 outstanding <code class="highlighter-rouge">PR</code>s and 20 open issues),
+the need for a new markdown renderer project became apparent.</p>
+
+<p>This markdown renderer project will render markdown files locally,
+even when offline, allowing you to see how they look before
+committing and pushing to Github.</p>
+
+<figure>
+    <amp-img on="tap:lightbox1" role="button" tabindex="0" src="/assets/img/projects/0-hamilton.jpg" alt="Idle hands are the Devils playthings. In this case the devil was a really bored geek." title="The existential crisis that occurs when choosing which type of bubble tea to get it real." layout="responsive" width="1463" height="1850">
+    </amp-img>
+    <figcaption>The existential crisis that occurs when choosing which type of bubble tea to get it real.</figcaption>
+</figure>
+
+<p>More than that, it uses the latest <a href="https://developer.github.com/v4/">Github GraphQL v4 API</a>,
+enabling for more efficient calls than the v3 REST API used by grip.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Server application that will re-render file automatically as it
+changes- will not need a page refresh either</li>
+  <li>Built in <a href="https://golang.org/">Golang</a>, making it extremely fast</li>
+  <li>Allows for offline rendering based on prior cached responses</li>
+  <li>Allows for <code class="highlighter-rouge">HTML</code> file output generation</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+<h3 id="macos">MacOS</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>brew install grender
+</code></pre>
+</div>
+
+<h3 id="others">Others</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>go get -u github.com/JasonYao/gRender/cmd/gRender
+</code></pre>
+</div>
+
+<h2 id="usage-1">Usage</h2>
+
+<h3 id="rendering-a-markdown-file">Rendering a Markdown file</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md
+</code></pre>
+</div>
+
+<h3 id="rendering-all-markdown-files-in-a-directory">Rendering All Markdown Files in a Directory</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES
+</code></pre>
+</div>
+
+<h3 id="generate-html-output">Generate HTML Output</h3>
+<h4 id="single-file-output">Single File Output</h4>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md -o OUTPUTFILE.html
+</code></pre>
+</div>
+<h4 id="directory-output">Directory Output</h4>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES -o OUTPUT_DIRECTORY
+</code></pre>
+</div>
+
+<h3 id="seeing-the-help-menu">Seeing the Help Menu</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender -h
+</code></pre>
+</div>
+
+<h3 id="seeing-the-help-submenu-of-a-command">Seeing the Help Submenu of a Command</h3>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_COMMAND -h
+</code></pre>
+</div>
+
+<h3 id="equivalence-with-githubs-online-renderer">Equivalence With Github’s Online Renderer</h3>
+<p>The goal for this project is two-fold:</p>
+<ul>
+  <li>Match Github’s online rendering exactly, or close to exactly
+in offline situations</li>
+  <li>Provide offline rendering when there is no access
+to the internet or rate limits are hit.</li>
+</ul>
+
+<p>In order for this to occur, <code class="highlighter-rouge">gRender</code> will make a call
+to github’s <a href="https://developer.github.com/v3/markdown/">markdown</a> API. If it fails for rate limiting
+or connectivity issues, it will automatically fall back to
+the offline renderer, with any cached values from the last call
+to Github overriding shipped defaults.</p>
+
+<p>It should be noted that any calls to Github will be over HTTPS,
+encrypting your data when it’s transported over the wire.</p>
+
+<h2 id="license">License</h2>
+<p>This code is licensed under GNU’s GPL v3 license, a copy of which
+may be found <a href="LICENSE">here</a>.</p>
+
+
+        <!-- Related content -->
+            
+            
+
+            
+            
+
+            
+            
+
+            
+
+            
+
+                
+                
+
+                
+
+                
+            
+
+            
+            
+    </main>
+
+    <!-- Disqus comments -->
+    <h1>Disqus Comments</h1>
+    <amp-iframe width=600 height=140
+            layout="responsive"
+            sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+            resizable
+            src="https://d22lgxauhc5z5y.cloudfront.net/amp.html?shortname=jasonyao&fontBodyFamily=serif&fontLinkColor=03A9F4&url=https://www.JasonYao.com/projects/2017/05/30/gomark-a-github-markdown-renderer/&identifier=/amp/projects/2017/05/30/gomark-a-github-markdown-renderer">
+    <div overflow tabindex=0 role=button aria-label="Disqus Comments">Disqus Comments</div><!-- Required by AMP as a fallback as pointed out here: https://github.com/disqus/disqus-install-examples/issues/3#issue-177942264 -->
+</amp-iframe>
+</div>
+
+
+
+
+
+
+    
+
+
+    <amp-install-serviceworker
+        src="https://JasonYao.com/assets/js/service_worker.js"
+        data-iframe-src="https://JasonYao.com/assets/js/service_worker.js"
+        layout="nodisplay">
+</amp-install-serviceworker>
+</body>
+</html>

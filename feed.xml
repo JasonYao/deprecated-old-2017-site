@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="https://www.jasonyao.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.jasonyao.com/" rel="alternate" type="text/html" /><updated>2017-09-11T04:58:10+00:00</updated><id>https://www.jasonyao.com/</id><title type="html">Jason Yao</title><subtitle>My personal website for technical articles, memes, and rants. None of this nor I should be taken seriously at any point in time.
+</subtitle><entry><title type="html">A Canadian Existential Crisis Introduction</title><link href="https://www.jasonyao.com/blog/2017/05/22/a-canadian-existential-crisis-introduction/" rel="alternate" type="text/html" title="A Canadian Existential Crisis Introduction" /><published>2017-05-22T17:30:32+00:00</published><updated>2017-05-22T17:30:32+00:00</updated><id>https://www.jasonyao.com/blog/2017/05/22/a-canadian-existential-crisis-introduction</id><content type="html" xml:base="https://www.jasonyao.com/blog/2017/05/22/a-canadian-existential-crisis-introduction/">&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Hey there! My name is Jason, and for some reason you’ve stumbled onto my site.
+Whether it was to laugh at/with me on my rants, geeking out over playing games
+(currently &lt;a href=&quot;https://playoverwatch.com/&quot;&gt;Overwatch&lt;/a&gt; is my drug of choice), or
+because a technical guide sparked your interest, I hope you derive some
+enjoyment from this site.&lt;/p&gt;
+
+&lt;p&gt;This is actually the 5th or 6th time I’ve tried to get a blog going. I kept
+building and rebuilding prior versions on different platforms, and ended up
+learning five or six different ways to deploy blog platforms instead of just
+writing posts.&lt;/p&gt;
+
+&lt;h2 id=&quot;platform-overview&quot;&gt;Platform Overview&lt;/h2&gt;
+&lt;p&gt;Technically speaking, I am proud that I managed to get everything to this point,
+because:&lt;/p&gt;
+
+&lt;p&gt;1.) I get to be lazy&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;There is no maintenance required for the site, just content updates. Since
+  hosting is taken care of by &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;, and
+  deployment taken care of by &lt;a href=&quot;https://www.cloudflare.com/&quot;&gt;Cloudflare’s CDN&lt;/a&gt;,
+  all I have to do to update content is push to the github repo.&lt;/li&gt;
+  &lt;li&gt;In this fashion the site also becomes distributed among the CDN’s
+  edge nodes, becoming fault-tolerant in the process (barring catastrophic
+  failure), all while minimizing latency globally.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.) I get free stuff until the &lt;a href=&quot;https://www.youtube.com/watch?v=F1CddzgVW14&quot;&gt;heat death of the universe&lt;/a&gt;,
+or until they run out of business, whichever comes first&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Free automatic optimization of static assets and &lt;code class=&quot;highlighter-rouge&quot;&gt;TLS&lt;/code&gt; provided by Cloudflare&lt;/li&gt;
+  &lt;li&gt;Free sending/receiving of emails from a custom email address via &lt;a href=&quot;https://www.mailgun.com/&quot;&gt;Mailgun&lt;/a&gt; *&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3.) This site has an extremely strong foundation&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;By fully leveraging &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;’s liquid templating,
+  this site can &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/3041#issuecomment-303910050&quot;&gt;generate multiple output files from a single source&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Has proper &lt;code class=&quot;highlighter-rouge&quot;&gt;404&lt;/code&gt; error code handling&lt;/li&gt;
+  &lt;li&gt;Has automatic redirects to the &lt;code class=&quot;highlighter-rouge&quot;&gt;www.&lt;/code&gt; subdomain for better SEO&lt;/li&gt;
+  &lt;li&gt;Automatically leverages &lt;a href=&quot;https://developers.facebook.com/docs/sharing/opengraph&quot;&gt;Opengraph&lt;/a&gt; for all pages,
+  making any sharing on Facebook look good.&lt;/li&gt;
+  &lt;li&gt;Automatically adds metadata to all blog posts and projects via &lt;a href=&quot;https://schema.org/docs/schemas.html&quot;&gt;Schema.org&lt;/a&gt;
+  markup&lt;/li&gt;
+  &lt;li&gt;Is mobile-friendly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;* Up to 10k emails a month, which is overkill for my purposes.&lt;/p&gt;
+
+&lt;h2 id=&quot;existential-crisis-question&quot;&gt;Existential Crisis Question&lt;/h2&gt;
+&lt;p&gt;If you play Genji in Overwatch, are you supposed to spam
+“I NEED HEALING” when you get a kill, or emote over the
+enemy’s corpse?&lt;/p&gt;
+
+&lt;h3 id=&quot;my-answer&quot;&gt;My Answer&lt;/h3&gt;
+&lt;p&gt;I think I would uninstall the game and re-evaluate my life
+for picking trash heroes. At least it isn’t as bad as
+instalocking Hanzo.&lt;/p&gt;
+
+&lt;h2 id=&quot;future-steps&quot;&gt;Future Steps&lt;/h2&gt;
+&lt;p&gt;There’s a couple projects that I’ll be adding to the site over time,
+along with the writing of technical articles and other blog posts.&lt;/p&gt;
+
+&lt;h2 id=&quot;blog-posts--technical-articles&quot;&gt;Blog Posts &amp;amp; Technical Articles&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The first planned article will be on AWS and dev-ops in general&lt;/li&gt;
+  &lt;li&gt;The second planned article will be on a specific clever trick
+to build in a programmatic circuit breaker into AWS&lt;/li&gt;
+  &lt;li&gt;The third planned post will be something different, and be a
+rant about NYC’s terrible housing market for renters&lt;/li&gt;
+  &lt;li&gt;A fourth planned post fawning over the
+&lt;a href=&quot;www.hamiltonbroadway.com/&quot;&gt;Hamilton Musical&lt;/a&gt;, since I only just
+saw it recently and was completely blown away and need to vent.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="featured" /><category term="introduction" /><category term="existential crisis" /><category term="rants" /><summary type="html">Intro Hey there! My name is Jason, and for some reason you’ve stumbled onto my site. Whether it was to laugh at/with me on my rants, geeking out over playing games (currently Overwatch is my drug of choice), or because a technical guide sparked your interest, I hope you derive some enjoyment from this site.</summary></entry></feed>
