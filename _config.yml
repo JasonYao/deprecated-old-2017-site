@@ -55,6 +55,7 @@ defaults:
       path: "_partial_projects"
     values:
       layout: partial_project
+      sitemap: false
   -
     scope:
       path: "_amp_projects"
@@ -66,7 +67,6 @@ defaults:
       path: "_projects"
     values:
       layout: project
-      sitemap: false
 
 exclude_amp:
   - /
