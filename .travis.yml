@@ -1,11 +1,40 @@
+# General build settings
 language: ruby
 rvm:
   - 2.4.1
-script: bundle exec jekyll build
 branches:
   only:
     - source
 sudo: false
+
+cache:
+  directories:
+  - $TRAVIS_BUILD_DIR/tmp/.htmlproofer
+
+# Notification settings
+notifications:
+  email:
+    recipients:
+      - hello@jasonyao.com
+    # Only sends an email when the build status changes
+    on_success: change
+
+# Dependency installation steps
+install:
+  - bundle install
+  - npm install
+
+# Build steps
+script:
+  # Generates the static site
+  - bundle exec jekyll build
+
+# Testing steps
+after_script:
+  # Runs an html output validator
+  - htmlproofer --assume-extension ./_site
+
+# Deployment steps (on success)
 after_success:
   - cd _site
   - git init
@@ -17,3 +46,5 @@ after_success:
   - git add -A .
   - git commit -m "[Build] ${TRAVIS_COMMIT}"
   - git push -q upstream HEAD:master
+
+
