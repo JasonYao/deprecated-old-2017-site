@@ -13,9 +13,6 @@ url: "https://www.JasonYao.com" # the base hostname & protocol for your site, e.
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 
-gems:
-  - jekyll-sitemap
-
 # Social
 github_username: JasonYao
 linkedin_username: JasonYaoNYU
@@ -77,9 +74,11 @@ exclude:
   - Gemfile.lock
   - PSDs/
   - package.json
+  - package-lock.json
   - node_modules/
   - gulpfile.js
   - vendor/
+  - git/
 
 # The following settings are for the `jekyll-responsive-image` plugin
 responsive_image:

@@ -20,7 +20,12 @@ gem "github-pages", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-   gem "jekyll-feed", "~> 0.6"
+   # Generates an update feed at feed.xml
+   gem "jekyll-feed"
+
+   # Generates a sitemap for crawlers
+   gem "jekyll-sitemap"
+
    # Adds in dynamic image set generation
    gem 'jekyll-responsive-image'
 end

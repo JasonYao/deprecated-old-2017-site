@@ -230,8 +230,9 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   html-proofer
-  jekyll-feed (~> 0.6)
+  jekyll-feed
   jekyll-responsive-image
+  jekyll-sitemap
   tzinfo-data
 
 RUBY VERSION
