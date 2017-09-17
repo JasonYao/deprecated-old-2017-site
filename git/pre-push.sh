@@ -46,30 +46,31 @@ function stash_push () {
 # Makes sure that the script doesn't run on stuff outside of the committed repo
 #stash_push # TODO uncomment before push
 
-# Generates the thumbnails in each directory given
-
-for image_directory in "${image_directories[@]}"; do
-    # Sanity check: Makes sure the thumbnails directory is created
-    if [[ ! -d "$image_directory/thumbnails" ]]; then
-        info "Creating the thumbnails directory in: $image_directory"
-        if mkdir -p "$image_directory/thumbnails"; then
-            success "Thumbnails directory is now created"
-        else
-        # TODO stash_pop # Uncomment before push
-            fail "Thumbnails directory failed to be created"
-        fi
-   fi
-
-    # Converts all image thumbnails
-    info "Generating thumbnail for: $image_directory"
-
-    # Conversion command taken from https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
-    if mogrify -path "$image_directory/thumbnails/" -filter Triangle -define filter:support=2 -thumbnail 100 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB -strip "$image_directory/*.jpg" ; then
-            success "Thumbnail successfully generated"
-    else
-            fail "Thumbnail failed to be generated"
-    fi
-done
+# TODO remove after
+## Generates the thumbnails in each directory given
+#
+#for image_directory in "${image_directories[@]}"; do
+#    # Sanity check: Makes sure the thumbnails directory is created
+#    if [[ ! -d "$image_directory/thumbnails" ]]; then
+#        info "Creating the thumbnails directory in: $image_directory"
+#        if mkdir -p "$image_directory/thumbnails"; then
+#            success "Thumbnails directory is now created"
+#        else
+#        # TODO stash_pop # Uncomment before push
+#            fail "Thumbnails directory failed to be created"
+#        fi
+#   fi
+#
+#    # Converts all image thumbnails
+#    info "Generating thumbnail for: $image_directory"
+#
+#    # Conversion command taken from https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
+#    if mogrify -path "$image_directory/thumbnails/" -filter Triangle -define filter:support=2 -thumbnail 100 -unsharp 0.25x0.25+8+0.065 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB -strip "$image_directory/*.jpg" ; then
+#            success "Thumbnail successfully generated"
+#    else
+#            fail "Thumbnail failed to be generated"
+#    fi
+#done
 
 # TODO add in HTML lint
 htmlproofer --assume-extension ./_site
