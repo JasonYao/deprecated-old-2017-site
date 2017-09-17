@@ -1,27 +1,6 @@
 ---
 title:  "gomark | A Github Markdown Renderer"
 date:   2017-05-30T17:30:32
-img:
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
 tags:
   - featured
   - github renderer
@@ -33,6 +12,10 @@ types:
 github_link: "https://www.github.com/JasonYao/gomark"
 ---
 ## Test
+
+## Test of responsive image
+{% responsive_image path: assets/img/projects/0-hamilton.jpg template: _includes/image-templates/amp.html alt: "Idle hands are the Devils playthings. In this case the devil was a really bored geek." title: "The existential crisis that occurs when choosing which type of bubble tea to get it real." %}
+
 # hello, This is Markdown Live Preview
 
 ----
@@ -87,7 +70,7 @@ This markdown renderer project will render markdown files locally,
 even when offline, allowing you to see how they look before
 committing and pushing to Github.
 
-{% include amp/img/0.html %}
+{% responsive_image path: assets/img/projects/0-hamilton.jpg template: _includes/image-templates/amp.html alt: "Idle hands are the Devils playthings. In this case the devil was a really bored geek." title: "The existential crisis that occurs when choosing which type of bubble tea to get it real." %}
 
 More than that, it uses the latest [Github GraphQL v4 API](https://developer.github.com/v4/),
 enabling for more efficient calls than the v3 REST API used by grip.

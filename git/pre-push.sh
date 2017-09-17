@@ -72,3 +72,4 @@ for image_directory in "${image_directories[@]}"; do
 done
 
 # TODO add in HTML lint
+htmlproofer --assume-extension ./_site
