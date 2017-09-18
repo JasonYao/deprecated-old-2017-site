@@ -31,11 +31,9 @@ script:
 
 # Testing steps
 after_script:
-  # Runs an html output validator
-  - htmlproofer --assume-extension ./_site
+  # Runs through any validators and tests
+  - bin/test
 
-# Deployment steps (on success)
+# Deployment steps (on success & on the correct branch)
 after_success:
-  - if [[ $TRAVIS_BRANCH = 'source' ]]; cd _site && git init && git config user.name "Jason Yao" && git config user.email "JasonYao@nyu.edu" git remote add upstream "https://$GITHUB_ACCESS_TOKEN@github.com/JasonYao/JasonYao.github.io.git" git fetch upstream && git reset upstream/master && git add -A . && git commit -m "[Build] ${TRAVIS_COMMIT}" && git push -q upstream HEAD:master; fi
-
-
+  - bin/deploy

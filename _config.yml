@@ -79,6 +79,7 @@ exclude:
   - gulpfile.js
   - vendor/
   - git/
+  - bin/
 
 # The following settings are for the `jekyll-responsive-image` plugin
 responsive_image:
