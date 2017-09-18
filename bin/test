@@ -13,6 +13,7 @@ function success () {
 
 function warn () {
   printf "\r\033[2K  [\033[0;31mWARN\033[0m] %s\n" "$1"
+  exit 1
 }
 
 function sub_warn () {
@@ -42,7 +43,18 @@ function stash_push () {
 #stash_push # TODO uncomment before push
 
 # Validates the HTML that is output
-htmlproofer --assume-extension ./_site
+info "Checking site HTML validity"
+if htmlproofer --assume-extension ./_site; then
+    success "Site HTML was successfully validated"
+else
+    warn "Site HTML failed validation, please correct the above found errors"
+fi
 
 # Validates the JSON file required for search to function correctly
-jsonlint _site/search.json
+info "Checking search.json file integrity and validity"
+if jsonlint _site/search.json &> /dev/null; then
+    success "Auto-generated `search.json` file was valid"
+else
+    warn "Auto-generated `search.json` file was invalid, please manually check to see why"
+fi
+
