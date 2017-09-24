@@ -7,10 +7,6 @@ branches:
     - source
 sudo: false
 
-cache:
-  directories:
-  - $TRAVIS_BUILD_DIR/tmp/.htmlproofer
-
 # Notification settings
 notifications:
   email:
@@ -32,9 +28,6 @@ install:
 # Test steps
 script:
   # Runs through any validators and tests
-  # - sudo apt-get update &> /dev/null
-  # - sudo apt-get install curl
-  - curl www.google.com
   - bin/test
 
 # We only run the tests and deployment checks if the build succeeded
