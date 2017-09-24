@@ -459,12 +459,13 @@ page: Blog
                 <div class="margin-bottom-50">
                     <h2 class="title-v4">Tags</h2>
 
-                    <!-- TODO implement tag searching, possibly with query strings? /blog/list/?search="education" -->
+                    <!-- TODO: Onclick this so that when a tag gets clicked, we don't do a full redirect, just set the search bar's value to the new tag -->
                     <ul class="list-inline tags-v3">
                         {% for tag in site.tags %}
-                        <li><a class="rounded-3x" href="#">{{ tag | first }}</a></li>
+                        <li><a class="rounded-3x" href="/blog?search={{ tag | first | slugify }}">{{ tag | first }}</a></li>
                         {% endfor %}
                     </ul>
+
                 </div>
                 <!-- End Tags v3 -->
             </div>

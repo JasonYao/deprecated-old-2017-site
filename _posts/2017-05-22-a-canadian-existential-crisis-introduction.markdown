@@ -77,5 +77,5 @@ to build in a programmatic circuit breaker into AWS
 - The third planned post will be something different, and be a
 rant about NYC's terrible housing market for renters
 - A fourth planned post fawning over the
-[Hamilton Musical](www.hamiltonbroadway.com/), since I only just
+[Hamilton Musical](https://www.hamiltonbroadway.com/), since I only just
 saw it recently and was completely blown away and need to vent.
