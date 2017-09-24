@@ -18,8 +18,8 @@ notifications:
 # Dependency installation steps
 before_install:
   - bundle install
-  - npm install --only=prod    # Installs everything but the dev dependencies
   - npm install -g --only=dev  # Installs the dev dependencies globally (required for jsonlint)
+  - npm install --only=prod    # Installs everything but the dev dependencies
 
 # Build steps
 install:
