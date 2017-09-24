@@ -19,6 +19,37 @@ github_link: "https://www.github.com/JasonYao/gomark"
 ## Test of responsive image
 {% responsive_image path: assets/img/projects/0-hamilton.jpg template: _includes/image-templates/amp.html alt: "Idle hands are the Devils playthings. In this case the devil was a really bored geek." title: "The existential crisis that occurs when choosing which type of bubble tea to get it real." %}
 
+## Test of code block highlighting
+### Direct
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+
+### Normal markdown
+```ruby
+def foo
+  puts 'foo'
+end
+```
+
+## Bash test
+### Normal markdown
+```sh
+function something() {
+    echo "hi"
+}
+```
+
+### Direct
+{% highlight bash %}
+function something() {
+    echo "hi"
+}
+{% endhighlight %}
+
+
 # hello, This is Markdown Live Preview
 
 ----
@@ -144,6 +175,3 @@ to Github overriding shipped defaults.
 It should be noted that any calls to Github will be over HTTPS,
 encrypting your data when it's transported over the wire.
 
-## License
-This code is licensed under GNU's GPL v3 license, a copy of which
-may be found [here](LICENSE).
