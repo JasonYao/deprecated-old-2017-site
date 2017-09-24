@@ -100,6 +100,8 @@ responsive_image:
     - width: 800
     - width: 1400
       quality: 100
+    - width: 100  # For thumbnails
+      quality: 50
 
   # [Optional, Default: false]
   # Rotate resized images depending on their EXIF rotation attribute. Useful for

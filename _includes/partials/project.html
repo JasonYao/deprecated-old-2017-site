@@ -19,7 +19,13 @@
                 •
                 <i class="fa fa-tags"></i>
                 <strong>Tags:</strong>
-                {% for tag in page.tags limit:1 %}<a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+
+                {% comment %}We print the first tag, then print any remainders with a comma between them{% endcomment %}
+                {% for tag in page.tags limit:1 %}
+                <a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>
+                {% endfor %}
+
+                {% for tag in page.tags offset:1 %}, <a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}
                 {% endif %}
             </small>
             </p>
@@ -65,8 +71,13 @@
                     {% endif %}
 
                     <a class="card related" href="{{ site.baseurl }}{{ post.url }}" target="_top" role="listitem">
-                        <amp-img width="auto" height="100" src="{{ post.img[0].name | prepend: '/assets/img/projects/thumbnails/' }}" layout="fixed-height">
-                        </amp-img>
+                        {% assign image_path = post.image | prepend: 'assets/img/projects/' %}
+
+                        {% responsive_image_block %}
+                        path: {{ image_path }}
+                        template: _includes/image-templates/amp_thumbnail.html
+                        {% endresponsive_image_block %}
+
                         <span>{{ post.title }}</span>
                     </a>
                     {% assign max_related_counter = max_related_counter | plus: 1 %}
@@ -188,7 +199,7 @@
                         <li>
                             <i class="fa fa-tags"></i>
                             <strong>Tags:</strong>
-                            {% for tag in page.tags limit:1 %}<a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/projects/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+                            {% for tag in page.tags limit:1 %}<a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}
                         </li>
 
                     </ul>

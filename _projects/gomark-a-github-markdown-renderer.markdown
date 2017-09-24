@@ -1,6 +1,7 @@
 ---
 title:  "gomark | A Github Markdown Renderer"
 date:   2017-05-30T17:30:32
+image: 0-hamilton.jpg
 tags:
   - featured
   - github renderer
