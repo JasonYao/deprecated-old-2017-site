@@ -38,24 +38,22 @@ function stash_push () {
 # Some source used from the sample .pre-commit files by the golang team,
 # at https://tip.golang.org/misc/git/pre-commit
 
-# Makes sure that the script doesn't run on stuff outside of the committed repo
-#stash_push # TODO uncomment before push
+info "Deployment: Starting deployment of site"
 
+# Converts the generated site into its own repo
+cd _site
+git init
 
-if [[ "$TRAVIS_BRANCH" == "source" ]]; then
-    # Converts the generated site into its own repo
-    cd _site
-    git init
+# Sets up the repo to push as myself
+git config user.name "Jason Yao"
+git config user.email "JasonYao@nyu.edu"
+git remote add upstream "https://$GITHUB_ACCESS_TOKEN@github.com/JasonYao/JasonYao.github.io.git"
 
-    # Sets up the repo to push as myself
-    git config user.name "Jason Yao"
-    git config user.email "JasonYao@nyu.edu"
-    git remote add upstream "https://$GITHUB_ACCESS_TOKEN@github.com/JasonYao/JasonYao.github.io.git"
+# Commit a new build and push to master (which will auto deploy to Github Pages)
+git fetch upstream
+git reset upstream/master
+git add -A .
+git commit -m "[Build] ${TRAVIS_COMMIT}"
+git push -q upstream HEAD:master
 
-    # Commit a new build and push to master (which will auto deploy to Github Pages)
-    git fetch upstream
-    git reset upstream/master
-    git add -A .
-    git commit -m "[Build] ${TRAVIS_COMMIT}"
-    git push -q upstream HEAD:master
-fi
+success "Deployment: Site is now deployed"
