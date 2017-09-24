@@ -55,7 +55,7 @@ fi
 
 # Validates the JSON file required for search to function correctly
 info "Checking search.json file integrity and validity"
-if jsonlint _site/search.json &> /dev/null; then
+if jsonlint _site/search.json > /dev/null; then
     success "Auto-generated 'search.json' file was valid"
 else
     warn "Auto-generated 'search.json' file was invalid, please manually check to see why"
