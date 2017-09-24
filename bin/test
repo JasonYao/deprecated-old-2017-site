@@ -44,7 +44,10 @@ function stash_push () {
 
 # Validates the HTML that is output
 info "Checking site HTML validity"
-if htmlproofer --assume-extension ./_site; then
+
+# Error code 999 is given from Linkedin, so we ignore the error here
+# To add in more, use commas: --http-status-ignore "999,404,401"
+if htmlproofer --http-status-ignore "999" --assume-extension ./_site; then
     success "Site HTML was successfully validated"
 else
     warn "Site HTML failed validation, please correct the found errors above"
