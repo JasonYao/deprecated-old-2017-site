@@ -39,9 +39,6 @@ function stash_push () {
 # Some source used from the sample .pre-commit files by the golang team,
 # at https://tip.golang.org/misc/git/pre-commit
 
-# Makes sure that the script doesn't run on stuff outside of the committed repo
-#stash_push # TODO uncomment before push
-
 # Validates the HTML that is output
 info "Checking site HTML validity"
 
@@ -51,6 +48,7 @@ if htmlproofer --http-status-ignore "999" --assume-extension ./_site; then
     success "Site HTML was successfully validated"
 else
     warn "Site HTML failed validation, please correct the found errors above"
+    exit 1
 fi
 
 # Validates the JSON file required for search to function correctly
@@ -59,4 +57,5 @@ if jsonlint _site/search.json &> /dev/null; then
     success "Auto-generated 'search.json' file was valid"
 else
     warn "Auto-generated 'search.json' file was invalid, please manually check to see why"
+    exit 1
 fi

@@ -36,4 +36,4 @@ after_script:
 
 # Deployment steps (on success & on the correct branch)
 after_success:
-  - if [[ $TRAVIS_BRANCH = 'source' ]]; then bin/deploy else echo "Skipping deployment" fi
+  - if [[ $TRAVIS_BRANCH = 'source' ]]; then bin/deploy else echo "Skipping deployment" ; fi
