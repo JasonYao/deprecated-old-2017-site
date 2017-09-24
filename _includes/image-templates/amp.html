@@ -8,7 +8,7 @@
     <amp-img on="tap:lightbox1"
              role="button"
              tabindex="0"
-             src="{{ path }}"
+             src="/{{ path }}"
              srcset="{{ srcset | strip_newlines }}"
              alt="{{ alt }}"
              title="{{ title }}"
@@ -16,7 +16,7 @@
              width="{{ resized[0].width }}"
              height="{{ resized[0].height }}">
         <noscript>
-            <img src="{{ path }}"
+            <img src="/{{ path }}"
                  srcset="{{ srcset | strip_newlines }}"
                  width="{{ resized[0].width }}"
                  height="{{ resized[0].height }}"
