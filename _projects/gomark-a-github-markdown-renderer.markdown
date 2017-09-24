@@ -1,7 +1,9 @@
 ---
 title:  "gomark | A Github Markdown Renderer"
 date:   2017-05-30T17:30:32
-image: 0-hamilton.jpg
+image:
+  name: 0-hamilton.jpg
+  alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
 tags:
   - featured
   - github renderer
