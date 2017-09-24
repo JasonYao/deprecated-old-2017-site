@@ -44,7 +44,9 @@ info "Checking site HTML validity"
 
 # Error code 999 is given from Linkedin, so we ignore the error here
 # To add in more, use commas: --http-status-ignore "999,404,401"
-if htmlproofer --http-status-ignore "999" --assume-extension ./_site; then
+# Likewise, we ignore error code 0s due to a bug in the travis environment
+# https://github.com/gjtorikian/html-proofer/issues/376#issuecomment-331696490
+if htmlproofer --http-status-ignore "999,0" --assume-extension ./_site; then
     success "Site HTML was successfully validated"
 else
     warn "Site HTML failed validation, please correct the found errors above"
