@@ -42,9 +42,19 @@ function stash_push () {
 stash_push
 
 # Generates the static site
-jekyll build
+if jekyll build &> /dev/null ; then
+    success "Build: Jekyll build step was successful"
+else
+    warn "Build: Jekyll build step failed"
+    stash_pop
+    exit 1
+fi
 
 # Runs through the test suite
-bin/test
+if bin/test ; then
+    success "Test: All tests passed correctly"
+else
+    warn "Test: Some tests failed to pass"
+fi
 
 stash_pop
