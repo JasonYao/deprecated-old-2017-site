@@ -1,0 +1,35 @@
+{
+  "name": "jason-yao-website",
+  "version": "1.0.0",
+  "description": "My personal website for technical articles, memes, and rants. None of this nor I should be taken seriously at any point in time.",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonYao/JasonYao.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "blog",
+    "resume"
+  ],
+  "author": "Jason Yao",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/JasonYao/JasonYao.github.io/issues"
+  },
+  "homepage": "https://github.com/JasonYao/JasonYao.github.io#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "jsonlint": "^1.6.2",
+    "sw-precache": "^5.2.0"
+  },
+  "dependencies": {
+    "simple-jekyll-search": "^1.5.0"
+  }
+}

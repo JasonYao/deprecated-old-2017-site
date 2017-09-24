@@ -67,7 +67,9 @@
                                     <li>
                                         <i class="fa fa-tags"></i>
                                         <strong>Tags:</strong>
-                                        {% for tag in page.tags limit:1 %}<a href="/posts/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/posts/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+
+                                        <!-- TODO: Onclick this so that when a tag gets clicked, we don't do a full redirect, just set the search bar's value to the new tag -->
+                                        {% for tag in page.tags limit:1 %}<a href="/blog?search={{ tag | first | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/blog?search={{ tag | first | slugify }}">{{ tag }}</a>{% endfor %}
                                     </li>
 
                                 </ul>

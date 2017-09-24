@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+###
+# Helper functions
+##
+function info () {
+	printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
+}
+
+function success () {
+	printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+}
+
+function warn () {
+  printf "\r\033[2K  [\033[0;31mWARN\033[0m] %s\n" "$1"
+}
+
+function sub_warn () {
+  printf "\r\033[2K  [\033[0;31mWARN\033[0m] \t%s\n" "$1"
+}
+
+function stash_pop () {
+	# Puts back the stuff that wasn't committed
+	info "Git stashing: Putting back temporarily stashed files"
+	git stash pop -q
+}
+
+function stash_push () {
+    info "Git stashing: Stashing non-committed files temporarily"
+    if git stash save -u -q; then
+        success "Git stashing: All non-committed files have been temporarily stashed"
+    else
+        warn "Git stashing: An error occurred trying to stash non-relevant files, please check for any merge conflicts"
+        exit 1
+    fi
+}
+
+# Some source used from the sample .pre-commit files by the golang team,
+# at https://tip.golang.org/misc/git/pre-commit
+
+# Makes sure that the script doesn't run on stuff outside of the committed repo
+stash_push
+
+# Generates the static site
+if jekyll build &> /dev/null ; then
+    success "Build: Jekyll build step was successful"
+else
+    warn "Build: Jekyll build step failed"
+    stash_pop
+    exit 1
+fi
+
+# Runs through the test suite
+if bin/test ; then
+    success "Test: All tests passed correctly"
+else
+    warn "Test: Some tests failed to pass"
+fi
+
+stash_pop

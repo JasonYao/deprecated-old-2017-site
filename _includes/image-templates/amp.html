@@ -1,0 +1,28 @@
+{% capture srcset %}
+    {% for i in resized %}
+        /{{ i.path }} {{ i.width }}w,
+    {% endfor %}
+{% endcapture %}
+
+<figure>
+    <amp-img on="tap:lightbox1"
+             role="button"
+             tabindex="0"
+             src="/{{ path }}"
+             srcset="{{ srcset | strip_newlines }}"
+             alt="{{ alt }}"
+             title="{{ title }}"
+             layout="responsive"
+             width="{{ resized[0].width }}"
+             height="{{ resized[0].height }}">
+        <noscript>
+            <img src="/{{ path }}"
+                 srcset="{{ srcset | strip_newlines }}"
+                 width="{{ resized[0].width }}"
+                 height="{{ resized[0].height }}"
+                 alt="{{ alt }}"
+                 title="{{ title }}">
+        </noscript>
+    </amp-img>
+    <figcaption>{{ title }}</figcaption>
+</figure>

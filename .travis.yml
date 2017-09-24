@@ -1,19 +1,37 @@
+# General build settings
 language: ruby
 rvm:
   - 2.4.1
-script: bundle exec jekyll build
 branches:
   only:
     - source
 sudo: false
+
+# Notification settings
+notifications:
+  email:
+    recipients:
+      - hello@jasonyao.com
+    # Only sends an email when the build status changes
+    on_success: change
+
+# Dependency installation steps
+before_install:
+  - bundle install
+  - npm install -g jsonlint  # Required global install otherwise it doesn't work
+  - npm install
+
+# Build steps
+install:
+  # Generates the static site
+  - bundle exec jekyll build
+
+# Test steps
+script:
+  # Runs through any validators and tests
+  - bin/test
+
+# We only run the tests and deployment checks if the build succeeded
 after_success:
-  - cd _site
-  - git init
-  - git config user.name "Jason Yao"
-  - git config user.email "JasonYao@nyu.edu"
-  - git remote add upstream "https://$GITHUB_ACCESS_TOKEN@github.com/JasonYao/JasonYao.github.io.git"
-  - git fetch upstream
-  - git reset upstream/master
-  - git add -A .
-  - git commit -m "[Build] ${TRAVIS_COMMIT}"
-  - git push -q upstream HEAD:master
+  # Deployment steps (on success & on the correct branch)
+  - bin/deploy

@@ -1,27 +1,9 @@
 ---
 title:  "gomark | A Github Markdown Renderer"
 date:   2017-05-30T17:30:32
-img:
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
-  - name: 0-hamilton.jpg
-    height: 1850
-    width: 1463
-    alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
-    caption: The existential crisis that occurs when choosing which type of bubble tea to get it real.
+image:
+  name: 0-hamilton.jpg
+  alt_text: "Idle hands are the Devils playthings. In this case the devil was a really bored geek."
 tags:
   - featured
   - github renderer
@@ -33,6 +15,41 @@ types:
 github_link: "https://www.github.com/JasonYao/gomark"
 ---
 ## Test
+
+## Test of responsive image
+{% responsive_image path: assets/img/projects/0-hamilton.jpg template: _includes/image-templates/amp.html alt: "Idle hands are the Devils playthings. In this case the devil was a really bored geek." title: "The existential crisis that occurs when choosing which type of bubble tea to get it real." %}
+
+## Test of code block highlighting
+### Direct
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+
+### Normal markdown
+```ruby
+def foo
+  puts 'foo'
+end
+```
+
+## Bash test
+### Normal markdown
+```sh
+function something() {
+    echo "hi"
+}
+```
+
+### Direct
+{% highlight bash %}
+function something() {
+    echo "hi"
+}
+{% endhighlight %}
+
+
 # hello, This is Markdown Live Preview
 
 ----
@@ -87,7 +104,7 @@ This markdown renderer project will render markdown files locally,
 even when offline, allowing you to see how they look before
 committing and pushing to Github.
 
-{% include amp/img/0.html %}
+{% responsive_image path: assets/img/projects/0-hamilton.jpg template: _includes/image-templates/amp.html alt: "Idle hands are the Devils playthings. In this case the devil was a really bored geek." title: "The existential crisis that occurs when choosing which type of bubble tea to get it real." %}
 
 More than that, it uses the latest [Github GraphQL v4 API](https://developer.github.com/v4/),
 enabling for more efficient calls than the v3 REST API used by grip.
@@ -158,6 +175,3 @@ to Github overriding shipped defaults.
 It should be noted that any calls to Github will be over HTTPS,
 encrypting your data when it's transported over the wire.
 
-## License
-This code is licensed under GNU's GPL v3 license, a copy of which
-may be found [here](LICENSE).

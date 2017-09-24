@@ -8,7 +8,13 @@ sitemap: false
     <div class="cbp-item{% for type in project.types %} {{ type }}{% endfor %}">
         <a href="{{ project.url | prepend: site.baseurl }}" class="cbp-caption cbp-singlePageInline"
            data-title="{{ project.title }}">
-            <div class="cbp-caption-defaultWrap"><img src="{{ project.img[0].name | prepend: '/assets/img/projects/' }}" alt="{{ project.img[0].alt_text }}"></div>
+            <div class="cbp-caption-defaultWrap">
+                {% responsive_image_block %}
+                    path: {{ project.image.name | prepend: 'assets/img/projects/' }}
+                    alt: {{ project.image.alt_text }}
+                {% endresponsive_image_block %}
+
+            </div>
             <div class="cbp-caption-activeWrap">
                 <div class="cbp-l-caption-alignLeft">
                     <div class="cbp-l-caption-body">

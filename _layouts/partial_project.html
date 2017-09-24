@@ -1,7 +1,11 @@
 <div class="cbp-l-inline">
     <div class="cbp-l-inline">
         <div class="cbp-l-inline-left">
-            <img src="{{ page.img[0].name | prepend: '/assets/img/projects/' }}" alt="{{ page.img[0].alt_text }}" class="cbp-l-project-img">
+            {% responsive_image_block %}
+                path: {{ page.image.name | prepend: 'assets/img/projects/' }}
+                alt: {{ page.image.alt_text }}
+                class: cbp-l-project-img
+            {% endresponsive_image_block %}
         </div>
 
         <div class="cbp-l-inline-right">
