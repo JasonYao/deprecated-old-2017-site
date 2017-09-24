@@ -37,4 +37,4 @@ after_script:
 # Deployment steps (on success & on the correct branch)
 after_success:
   - echo "The TRAVIS_BRANCH is- '$TRAVIS_BRANCH', and the TRAVIS_PULL_REQUEST is- '$TRAVIS_PULL_REQUEST' "
-  - if [[ $TRAVIS_BRANCH = 'source' ]] && [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then bin/deploy else echo "Skipping deployment" ; fi
+  - 'if [[ "$TRAVIS_BRANCH" == "source" ]] && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then bin/deploy else echo "Skipping deployment" ; fi'
