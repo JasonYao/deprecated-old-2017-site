@@ -41,5 +41,10 @@ function stash_push () {
 # Makes sure that the script doesn't run on stuff outside of the committed repo
 stash_push
 
+# Generates the static site
+jekyll build
+
 # Runs through the test suite
 bin/test
+
+stash_pop
