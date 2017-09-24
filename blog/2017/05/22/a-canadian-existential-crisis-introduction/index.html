@@ -52,8 +52,8 @@ _._ _..._ .-',     _.._(`))
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
-<!-- Web Fonts -->
-<link rel='stylesheet' type='text/css' href='"https://fonts.googleapis.com/css?family=Open+Sans'>
+<!-- Site-wide fonts -->
+<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|IM+Fell+Great+Primer" rel="stylesheet">
 
 <!-- CSS Global Compulsory -->
 <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -111,12 +111,24 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 <div class="res-container">
                     <ul class="nav navbar-nav">
                         <li class="dropdown mega-menu-fullwidth"><a href="/#intro">Home</a></li>
-                        <li class="dropdown mega-menu-fullwidth"><a href="/#about/">About</a></li>
-                        <li class="dropdown mega-menu-fullwidth"><a href="/#resume/">Resume</a></li>
-                        <li class="dropdown mega-menu-fullwidth"><a href="/#news/">News</a></li>
-                        <li class="dropdown mega-menu-fullwidth"><a href="/#portfolio/">Portfolio</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#about">About</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#resume">Resume</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#news">News</a></li>
+                        <li class="dropdown mega-menu-fullwidth"><a href="/#portfolio">Portfolio</a></li>
                         <li class="dropdown mega-menu-fullwidth"><a href="/blog/">Blog</a></li>
+                        <li class="dropdown mega-menu-fullwidth">
+                            <!-- HTML elements for search -->
+                            <div class="search-container">
+                                <div class="search-wrapper">
+                                    <span class="icon"><i class="fa fa-search"></i></span>
+                                    <input type="text" class="search-input" id="search-input" placeholder="Search..." />
+                                    <ul id="search-results-container"></ul>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
+                    <!-- script pointing to jekyll-search.js -->
+                    <script src="/assets/js/search/search.js" type="text/javascript"></script>
                 </div><!--/responsive container-->
             </div><!--/navbar-collapse-->
         </div><!--/end contaoner-->
@@ -231,7 +243,7 @@ to build in a programmatic circuit breaker into AWS</li>
   <li>The third planned post will be something different, and be a
 rant about NYC’s terrible housing market for renters</li>
   <li>A fourth planned post fawning over the
-<a href="www.hamiltonbroadway.com/">Hamilton Musical</a>, since I only just
+<a href="http://www.hamiltonbroadway.com/">Hamilton Musical</a>, since I only just
 saw it recently and was completely blown away and need to vent.</li>
 </ul>
 
@@ -255,7 +267,9 @@ saw it recently and was completely blown away and need to vent.</li>
                                     <li>
                                         <i class="fa fa-tags"></i>
                                         <strong>Tags:</strong>
-                                        <a href="/posts/tag/featured">featured</a>, <a href="/posts/tag/introduction">introduction</a>, <a href="/posts/tag/existential-crisis">existential crisis</a>, <a href="/posts/tag/rants">rants</a>
+
+                                        <!-- TODO: Onclick this so that when a tag gets clicked, we don't do a full redirect, just set the search bar's value to the new tag -->
+                                        <a href="/blog?search=">featured</a>, <a href="/blog?search=">introduction</a>, <a href="/blog?search=">existential crisis</a>, <a href="/blog?search=">rants</a>
                                     </li>
 
                                 </ul>
