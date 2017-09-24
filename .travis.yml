@@ -32,6 +32,9 @@ install:
 # Test steps
 script:
   # Runs through any validators and tests
+  # - sudo apt-get update &> /dev/null
+  # - sudo apt-get install curl
+  - curl www.google.com
   - bin/test
 
 # We only run the tests and deployment checks if the build succeeded
