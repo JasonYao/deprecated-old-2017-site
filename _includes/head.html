@@ -60,3 +60,6 @@ _._ _..._ .-',     _.._(`))
         <link rel="amphtml" href="{{ page.url | replace:'index.html','' | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
     {% endif %}
 {% endfor %}
+
+<!-- Asynchronously load the AMP-with-Shadow-DOM runtime library. -->
+<script async src="https://cdn.ampproject.org/shadow-v0.js"></script>

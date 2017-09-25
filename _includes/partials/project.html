@@ -5,7 +5,12 @@
             <h1>Project | {{ page.title }}</h1>
             {% assign words = content | number_of_words %}
             <p><small>
-                {{ page.date | date_to_long_string }} • {% include reading_time.html %}
+
+                <!-- Date of the article -->
+                <i class="fa fa-calendar" aria-hidden="true"></i> {{ page.date | date_to_long_string }}
+
+                <!-- Reading time of the article -->
+                • <i class="fa fa-clock-o"></i> {% include reading_time.html %}
 
                 <!-- Github link -->
                 {% if page.github_link != nil and page.github_link != "" %}
@@ -22,10 +27,10 @@
 
                 {% comment %}We print the first tag, then print any remainders with a comma between them{% endcomment %}
                 {% for tag in page.tags limit:1 %}
-                <a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>
+                <a href="{{ page.url | replace: '/amp', '' }}?search={{ tag | slugify }}">{{ tag }}</a>
                 {% endfor %}
 
-                {% for tag in page.tags offset:1 %}, <a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+                {% for tag in page.tags offset:1 %}, <a href="{{ page.url | replace: '/amp', '' }}?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}
                 {% endif %}
             </small>
             </p>
@@ -97,72 +102,58 @@
 
 {% else %}
 
-<!-- CONTENT -->
-<div class="wrapper">
-    <!--=== Container Part ===-->
-    <div class="container">
-        <div class="content">
-            <h1 class="title-v1">Project | {{ page.title }}</h1>
+<!-- We populate this container with the embedded AMP pages -->
+<div id="container" style="width: 100%; height: 100%"></div>
 
-            <!-- Project Information -->
-            <div class="row margin-bottom-60">
-                <!-- Project Description -->
-                <div class="col-sm-8">
-                    <div class="headline"><h2>Project Description</h2></div>
-                    <p>
-                        {{ page.content }}
-                    </p>
-                </div>
+<!-- Asynchronously loads the relevant AMP page -->
+<script>
+    function fetchDocument(url) {
+        // unfortunately fetch() does not support retrieving documents,
+        // so we have to resort to good old XMLHttpRequest.
+        let xhr = new XMLHttpRequest();
 
-                <!-- Project Details -->
-                <div class="col-sm-4">
-                    <div class="headline"><h2>Project Details</h2></div>
-                    <ul class="list-unstyled project-details">
+        return new Promise(function(resolve, reject) {
+            xhr.open('GET', url, true);
+            xhr.responseType = 'document';
+            xhr.setRequestHeader('Accept', 'text/html');
+            xhr.onload = function() {
+                // .responseXML contains a ready-to-use Document object
+                resolve(xhr.responseXML);
+            };
+            xhr.send();
+        });
+    }
 
-                        <!-- Github link -->
-                        {% if page.github_link != nil and page.github_link != "" %}
-                        <li>
-                            <i class="fa fa-github"></i>
-                            <strong>Github:</strong>
-                            <a href="{{ page.github_link }}">{{ page.github_link }}</a>
-                        </li>
-                        {% endif %}
+    (window.AMP = window.AMP || []).push(function(AMP) {
+        // AMP is now available.
 
-                        <!-- Date project is posted -->
-                        <li>
-                            <i class="fa fa-clock-o"></i>
-                            <strong>Date:</strong>
-                            {% assign day = page.date | date: "%-d"  %}
-                            {% case day %}
-                            {% when '1' or '21' or '31' %}{{ day }}st
-                            {% when '2' or '22' %}{{ day }}nd
-                            {% when '3' or '23' %}{{ day }}rd
-                            {% else %}{{ day }}th
-                            {% endcase %}
-                            {{ page.date | date: "of %B, %Y" }}
-                        </li>
+        // This can be any DOM element
+        let container = document.getElementById('container');
 
-                        <!-- Project tags -->
-                        <li>
-                            <i class="fa fa-tags"></i>
-                            <strong>Tags:</strong>
-                            {% for tag in page.tags limit:1 %}<a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}{% for tag in page.tags offset:1 %}, <a href="/blog?search={{ tag | slugify }}">{{ tag }}</a>{% endfor %}
-                        </li>
+        // The AMP page you want to display
+        const url = "{{ page.url | prepend: '/amp' }}";
 
-                    </ul>
-                </div>
-            </div>
-            <!-- End Project Information -->
-        </div>
-    </div>
-    <!--=== End Container Part ===-->
+        // Use our fetchDocument method to get the doc
+        fetchDocument(url).then(function(doc) {
+            // At this point, doc contains our full AMP page, which we need to remove the header from
+            const ampHeader = doc.getElementsByTagName('header')[0];
+            ampHeader.parentNode.removeChild(ampHeader);
 
-    <!-- Footer -->
-    <div class="copyright-section"><p>{% include copyright.html %}</p></div>
-</div><!--/wrapper-->
-<!-- /CONTENT -->
+            // Removes the sidebar
+            const sidebar = doc.getElementById('sidebar');
+            sidebar.parentNode.removeChild(sidebar);
 
+            // Let AMP take over and render the page
+            let ampedDoc = AMP.attachShadowDoc(container, doc, url);
 
+            // When the user leaves the page, we tell AMP to clean itself up
+            // NOTE: Uncommenting the line below causes amp-imgs to not render
+            // window.onbeforeunload = ampedDoc.close();
+        });
+    });
+</script>
+
+{% include search.html %}
 
 {% endif %}
 
