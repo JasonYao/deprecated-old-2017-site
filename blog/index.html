@@ -62,6 +62,9 @@ _._ _..._ .-',     _.._(`))
 
 
 
+<!-- Asynchronously load the AMP-with-Shadow-DOM runtime library. -->
+<script async src="https://cdn.ampproject.org/shadow-v0.js"></script>
+
 
     <link rel="stylesheet" href="/assets/css/blog/blog.css">
 
@@ -409,8 +412,8 @@ enjoyment from this site.</p>
 
 </div><!--/wrapper-->
 
-<script src="/assets/js/search/search.js" type="text/javascript"></script>
 
+<script src="/assets/js/search/search.js" type="text/javascript"></script>
 
 <script>
     "use strict";
@@ -440,18 +443,19 @@ enjoyment from this site.</p>
         search_bar.focus();
 
         /*
-        * In the search.js, an event listener is setup for the `keyup` event,
-        * but for some reason, manually setting the search value by mutating
-        * the DOM doesn't work, and triggering a `keyup` event manually doesn't
-        * work either. Leaving the below code for a future debugging session
-        * if I'm ever bored enough to come back.
-        * */
+         * In the search.js, an event listener is setup for the `keyup` event,
+         * but for some reason, manually setting the search value by mutating
+         * the DOM doesn't work, and triggering a `keyup` event manually doesn't
+         * work either. Leaving the below code for a future debugging session
+         * if I'm ever bored enough to come back.
+         * */
 
 //        search_bar.trigger('keyup');
 //        const trigger_search_event = new Event('keyup');
 //        search_bar.dispatchEvent(trigger_search_event);
     }
 </script>
+
 
 <!-- Disqus comment count -->
 <script id="dsq-count-scr" src="https://jasonyao.disqus.com/count.js" async></script>
