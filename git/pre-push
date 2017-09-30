@@ -53,8 +53,9 @@ fi
 # Runs through the test suite
 if bin/test ; then
     success "Test: All tests passed correctly"
+    stash_pop
 else
     warn "Test: Some tests failed to pass"
+    stash_pop
+    exit 1
 fi
-
-stash_pop
