@@ -24,7 +24,7 @@ title: Offline
         <h2>General Writings, Rants, and Existential Crisis</h2>
         <ul>
             {% for post in site.posts limit:10 %}
-                <li><a href="{{ post.url | prepend: '/amp' | prepend: site.base_url | prepend: site.url }}">{{ post.title }}</a></li>
+                <li><a href="{{ post.url | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
 
@@ -33,7 +33,7 @@ title: Offline
         <h2>Prior Projects</h2>
         <ul>
             {% for project in site.projects limit:10 %}
-                <li><a href="{{ project.url | prepend: '/amp' | prepend: site.base_url | prepend: site.url }}">{{ project.title }}</a></li>
+                <li><a href="{{ project.url | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">{{ project.title }}</a></li>
             {% endfor %}
         </ul>
     </main>

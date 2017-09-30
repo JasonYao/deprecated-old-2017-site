@@ -5,7 +5,7 @@
 let urlsToCache = [];
 
 // Caches the offline url
-urlsToCache.push("{{ site.base_url | prepend: site.url }}/offline/");
+urlsToCache.push("{{ site.baseurl | prepend: site.url }}/offline/");
 
 // Caches some required AMP libraries
 let amp_libraries = [
@@ -25,22 +25,22 @@ amp_libraries.forEach(function (amp_library) {
 
 // Cache latest 10 post urls
 {% for post in site.posts limit:10 %}
-    urlsToCache.push("{{ post.url | prepend: site.base_url | prepend: site.url }}");
+    urlsToCache.push("{{ post.url | prepend: site.baseurl | prepend: site.url }}");
 {% endfor %}
 
 // Caches latest 10 amp post urls
 {% for amp_post in site.amp_posts limit:10 %}
-    urlsToCache.push("{{ amp_post.url | prepend: site.base_url | prepend: site.url }}");
+    urlsToCache.push("{{ amp_post.url | prepend: site.baseurl | prepend: site.url }}");
 {% endfor %}
 
 // Cache latest 10 project urls
 {% for project in site.projects limit:10 %}
-    urlsToCache.push("{{ project.url | prepend: site.base_url | prepend: site.url }}");
+    urlsToCache.push("{{ project.url | prepend: site.baseurl | prepend: site.url }}");
 {% endfor %}
 
 // Cache latest 10 project urls
 {% for amp_project in site.amp_projects limit:10 %}
-    urlsToCache.push("{{ amp_project.url | prepend: site.base_url | prepend: site.url }}");
+    urlsToCache.push("{{ amp_project.url | prepend: site.baseurl | prepend: site.url }}");
 {% endfor %}
 
 // To invalidate service worker caches, just increment the semver-compliant cache name
@@ -70,7 +70,7 @@ self.addEventListener('fetch', function(event) {
             });
         }).catch(function() {
             // Fallback to the offline page if not available in the cache.
-            return caches.match("{{ site.base_url | prepend: site.url }}/offline/");
+            return caches.match("{{ site.baseurl | prepend: site.url }}/offline/");
         })
     );
 });
@@ -85,7 +85,7 @@ self.addEventListener('fetch', function(event) {
             });
         }).catch(function() {
             // Fallback to the offline page if not available in the cache.
-            return caches.match("{{ site.base_url | prepend: site.url }}/offline/");
+            return caches.match("{{ site.baseurl | prepend: site.url }}/offline/");
         })
     );
 });
