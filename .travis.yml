@@ -7,6 +7,12 @@ branches:
     - source
 sudo: false
 
+addons:
+  apt:
+    packages:
+    # Required for html-proofer, more info here: https://github.com/gjtorikian/html-proofer/issues/376#issuecomment-332770021
+    - libcurl4-openssl-dev
+
 # Notification settings
 notifications:
   email:
