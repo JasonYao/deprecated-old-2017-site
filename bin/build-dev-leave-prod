@@ -67,6 +67,14 @@ function cleanup() {
         exit 1
     fi
 
+    echo "Debug: TODO remove this after"
+    ps aux
+
+
+
+
+
+
     # Rebuild everything for production
     if jekyll build ; then
         success "Build: Jekyll build step was successful"

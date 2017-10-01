@@ -1,11 +1,14 @@
 # General build settings
+sudo: false
+dist: trusty
+
 language: ruby
+
 rvm:
   - 2.4.1
 branches:
   only:
     - source
-sudo: false
 
 addons:
   apt:
