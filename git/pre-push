@@ -66,14 +66,7 @@ function cleanup() {
     fi
 }
 
-
-
 # Makes sure that the script doesn't run on stuff outside of the committed repo
 stash_push
 
-if bin/build-dev-leave-prod true ; then
-    cleanup $jekyll_pid true
-else
-    cleanup $jekyll_pid true
-    exit 1
-fi
+bin/build-dev-leave-prod true

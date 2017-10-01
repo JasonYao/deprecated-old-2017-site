@@ -78,7 +78,7 @@ function cleanup() {
 info "Serve: Starting a Jekyll server in the background"
 bundle exec jekyll serve &
 jekyll_pid=$!
-info "Serve: Jekyll server has started in the background"
+info "Serve: Jekyll server has started in the background on PID: $jekyll_pid"
 
 # Sleeps for a bit while the site is building.
 # NOTE: This value will need to be changed
@@ -87,8 +87,7 @@ info "Serve: Jekyll server has started in the background"
 
 info "Build: Sleeping for $CURRENT_BUILD_TIME_MAX seconds"
 sleep $CURRENT_BUILD_TIME_MAX
-info "Build: Done sleeping for $CURRENT_BUILD_TIME_MAX seconds"
-
+success "Build: Done sleeping for $CURRENT_BUILD_TIME_MAX seconds"
 
 # Runs through the test suite
 if bin/test ; then
