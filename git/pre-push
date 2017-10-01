@@ -48,7 +48,7 @@ function cleanup() {
     # Kill the process
     info "Cleanup: Killing the jekyll PID: $jekyll_pid"
     kill -INT $jekyll_pid
-    info "Cleanup: Killed the jekyll PID: $jekyll_pid"
+    success "Cleanup: Killed the jekyll PID: $jekyll_pid"
 
     # Unstash everything
     stash_pop
