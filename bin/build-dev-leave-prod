@@ -53,14 +53,22 @@ function cleanup() {
 
     # Unstash everything
     if [[ "$is_git_stashed" = true ]]; then
+        info "Git stashing: Unstashing prior files to their original place"
         stash_pop
+        success "Git stashing: Unstashed prior files to their original place"
     fi
 
     # Remove the build artifacts
-    rm -rf _site/*
+    info "Build: Removing the old build from _site/*"
+    if rm -rf _site/* ; then
+        success "Build: Removed the old build from _site/*"
+    else
+        warn "Build: Failed to remove the old build from _site/*"
+        exit 1
+    fi
 
     # Rebuild everything for production
-    if jekyll build &> /dev/null ; then
+    if jekyll build > /dev/null ; then
         success "Build: Jekyll build step was successful"
     else
         warn "Build: Jekyll build step failed"
