@@ -28,14 +28,15 @@ before_install:
   - npm install
 
 # Build steps
-install:
-  # Generates the static site
-  - bundle exec jekyll build
+#install:
+
 
 # Test steps
 script:
-  # Runs through any validators and tests
-  - bin/test
+  # Generates the static site and runs through the test suite
+  - bin/build-dev-leave-prod
+#  # Runs through any validators and tests
+#  - bin/test
 
 # We only run the tests and deployment checks if the build succeeded
 after_success:
