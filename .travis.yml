@@ -34,7 +34,8 @@ before_install:
 # Test steps
 script:
   # Generates the static site and runs through the test suite
-  - bin/build-dev-leave-prod
+  - bin/build-dev-leave-prod false
+
 #  # Runs through any validators and tests
 #  - bin/test
 
