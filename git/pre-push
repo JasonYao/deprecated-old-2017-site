@@ -42,6 +42,7 @@ function cleanup() {
 
     # PID of the jekyll serve process is $1
     jekyll_pid=$1
+    is_git_stashed=$2
 
     # Kill the process
     info "Cleanup: Killing the jekyll PID: $jekyll_pid"
@@ -49,7 +50,9 @@ function cleanup() {
     success "Cleanup: Killed the jekyll PID: $jekyll_pid"
 
     # Unstash everything
-    stash_pop
+    if [[ "$is_git_stashed" = true ]]; then
+        stash_pop
+    fi
 
     # Remove the build artifacts
     rm -rf _site/*
@@ -66,15 +69,9 @@ function cleanup() {
 # Makes sure that the script doesn't run on stuff outside of the committed repo
 stash_push
 
-if bin/build-dev-leave-prod ; then
-    cleanup $jekyll_pid
+if . bin/build-dev-leave-prod ; then
+    cleanup $jekyll_pid true
 else
-    cleanup $jekyll_pid
+    cleanup $jekyll_pid true
     exit 1
 fi
-
-
-
-
-
-
