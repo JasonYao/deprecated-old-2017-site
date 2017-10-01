@@ -51,6 +51,16 @@ function cleanup() {
     kill -INT $jekyll_pid
     success "Cleanup: Killed the jekyll PID: $jekyll_pid"
 
+    echo "Debug: TODO remove this after"
+    ps aux
+
+    info "Sleeping for 10 seconds to let the jekyll process die"
+    sleep 10
+    success "Slept for 10 seconds to let the jekyll process die"
+
+    echo "Debug: TODO remove this after"
+    ps aux
+
     # Unstash everything
     if [[ "$is_git_stashed" = true ]]; then
         info "Git stashing: Unstashing prior files to their original place"
@@ -66,17 +76,6 @@ function cleanup() {
         warn "Build: Failed to remove the old build from _site/*"
         exit 1
     fi
-
-
-    echo "Debug: TODO remove this after"
-    ps aux
-
-    info "Sleeping for 10 seconds to let the jekyll process die"
-    sleep 10
-    success "Slept for 10 seconds to let the jekyll process die"
-    
-    echo "Debug: TODO remove this after"
-    ps aux
 
     # Rebuild everything for production
     if jekyll build ; then
