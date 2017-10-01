@@ -48,4 +48,4 @@ else
     exit 1
 fi
 
-export $jekyll_pid
+export jekyll_pid
