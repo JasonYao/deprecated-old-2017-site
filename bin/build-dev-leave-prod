@@ -67,13 +67,16 @@ function cleanup() {
         exit 1
     fi
 
+
     echo "Debug: TODO remove this after"
     ps aux
 
-
-
-
-
+    info "Sleeping for 10 seconds to let the jekyll process die"
+    sleep 10
+    success "Slept for 10 seconds to let the jekyll process die"
+    
+    echo "Debug: TODO remove this after"
+    ps aux
 
     # Rebuild everything for production
     if jekyll build ; then
