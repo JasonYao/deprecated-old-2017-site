@@ -51,7 +51,8 @@ function cleanup() {
 
     # kill -INT $jekyll_pid # TODO remove after <- normal SIGINT
     # kill $jekyll_pid # TODO remove after <- normal SIGTERM
-    kill -9 $jekyll_pid # TODO remove after <- force kill
+    # kill -9 $jekyll_pid # TODO remove after <- force kill
+    kill -TERM $jekyll_pid
 
     success "Cleanup: Killed the jekyll PID: $jekyll_pid"
 
