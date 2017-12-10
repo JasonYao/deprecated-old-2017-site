@@ -17,6 +17,7 @@ addons:
     - libcurl4-openssl-dev
 
 # Notification settings
+# TODO look into fixing this
 notifications:
   email:
     recipients:
@@ -32,7 +33,6 @@ before_install:
 
 # Build steps
 #install:
-
 
 # Test steps
 script:

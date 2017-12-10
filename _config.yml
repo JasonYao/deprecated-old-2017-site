@@ -87,6 +87,8 @@ exclude:
   - vendor/
   - git/
   - bin/
+  - README.md
+  - LICENSE
 
 # The following settings are for the `jekyll-responsive-image` plugin
 responsive_image:
