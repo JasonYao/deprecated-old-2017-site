@@ -48,7 +48,10 @@ function cleanup() {
 
     # Kill the process
     info "Cleanup: Killing the jekyll PID: $jekyll_pid"
-    kill -INT $jekyll_pid
+
+    # kill -INT $jekyll_pid # TODO remove after
+    kill $jekyll_pid
+
     success "Cleanup: Killed the jekyll PID: $jekyll_pid"
 
     echo "Debug: TODO remove this after"
