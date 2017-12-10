@@ -27,7 +27,7 @@ notifications:
 
 # Dependency installation steps
 before_install:
-  - apt-get remove jekyll
+  - sudo apt-get remove jekyll
   - gem uninstall jekyll
   - bundle install
   - npm install -g jsonlint  # Required global install otherwise it doesn't work
