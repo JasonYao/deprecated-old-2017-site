@@ -53,7 +53,7 @@ function cleanup() {
     # kill $jekyll_pid # TODO remove after <- normal SIGTERM
     # kill -9 $jekyll_pid # TODO remove after <- force kill
     # kill -TERM $jekyll_pid
-    pkill -f jekyll
+    pkill -f bundle
     # TODO try next ps aux |grep jekyll |awk '{print $2}' | xargs kill -9
     # TODO try next pkill -f jekyll
     # TODO try next pkill -f jekyll
