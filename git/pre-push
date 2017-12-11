@@ -19,49 +19,12 @@ function sub_warn() {
   printf "\r\033[2K  [\033[0;31mWARN\033[0m] \t%s\n" "$1"
 }
 
-function stash_pop() {
-	# Puts back the stuff that wasn't committed
-	info "Git stashing: Putting back temporarily stashed files"
-	git stash pop -q
-}
-
 function stash_push() {
     info "Git stashing: Stashing non-committed files temporarily"
     if git stash save -u -q; then
         success "Git stashing: All non-committed files have been temporarily stashed"
     else
         warn "Git stashing: An error occurred trying to stash non-relevant files, please check for any merge conflicts"
-        exit 1
-    fi
-}
-
-function cleanup() {
-    # Starts the jekyll serve in the background since
-    # `jekyll build`'s JEKYLL_ENV can't be overridden
-    # For more details, see https://github.com/jekyll/jekyll/issues/6397
-
-    # PID of the jekyll serve process is $1
-    jekyll_pid=$1
-    is_git_stashed=$2
-
-    # Kill the process
-    info "Cleanup: Killing the jekyll PID: $jekyll_pid"
-    kill -INT $jekyll_pid
-    success "Cleanup: Killed the jekyll PID: $jekyll_pid"
-
-    # Unstash everything
-    if [[ "$is_git_stashed" = true ]]; then
-        stash_pop
-    fi
-
-    # Remove the build artifacts
-    rm -rf _site/*
-
-    # Rebuild everything for production
-    if jekyll build &> /dev/null ; then
-        success "Build: Jekyll build step was successful"
-    else
-        warn "Build: Jekyll build step failed"
         exit 1
     fi
 }
