@@ -26,21 +26,14 @@ notifications:
     on_success: change
 
 # Dependency installation steps
-before_install:
+install:
   - bundle install
   - npm install -g jsonlint  # Required global install otherwise it doesn't work
   - npm install
 
-# Build steps
-#install:
-
-# Test steps
 script:
   # Generates the static site and runs through the test suite
   - bin/build-dev-leave-prod false
-
-#  # Runs through any validators and tests
-#  - bin/test
 
 # We only run the tests and deployment checks if the build succeeded
 after_success:

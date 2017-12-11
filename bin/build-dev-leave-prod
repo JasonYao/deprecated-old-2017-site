@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CURRENT_BUILD_TIME_MAX=20
+CURRENT_BUILD_TIME_MAX=10
 
 ###
 # Helper functions
@@ -41,35 +41,16 @@ function cleanup() {
     # Starts the jekyll serve in the background since
     # `jekyll build`'s JEKYLL_ENV can't be overridden
     # For more details, see https://github.com/jekyll/jekyll/issues/6397
-
-    # PID of the jekyll serve process is $1
-    jekyll_pid=$1
-    is_git_stashed=$2
+    is_git_stashed=$1
 
     # Kill the process
-    info "Cleanup: Killing the jekyll PID: $jekyll_pid"
-
-    # kill -INT $jekyll_pid # TODO remove after <- normal SIGINT
-    # kill $jekyll_pid # TODO remove after <- normal SIGTERM
-    # kill -9 $jekyll_pid # TODO remove after <- force kill
-    # kill -TERM $jekyll_pid
-    # pkill -f bundle
+    info "Cleanup: Killing the jekyll process"
     pkill -f jekyll
-    # TODO try next ps aux |grep jekyll |awk '{print $2}' | xargs kill -9
-    # TODO try next pkill -f jekyll
-    # TODO try next pkill -f jekyll
-
-    success "Cleanup: Killed the jekyll PID: $jekyll_pid"
-
-    echo "Debug: TODO remove this after"
-    ps aux
+    success "Cleanup: Killed the jekyll process"
 
     info "Sleeping for 10 seconds to let the jekyll process die"
     sleep 10
     success "Slept for 10 seconds to let the jekyll process die"
-
-    echo "Debug: TODO remove this after"
-    ps aux
 
     # Unstash everything
     if [[ "$is_git_stashed" = true ]]; then
@@ -105,8 +86,7 @@ function cleanup() {
 # since Jekyll is retarded.
 info "Serve: Starting a Jekyll server in the background"
 bundle exec jekyll serve --detach
-jekyll_pid=$!
-info "Serve: Jekyll server has started in the background on PID: $jekyll_pid"
+info "Serve: Jekyll server has started in the background"
 
 # Sleeps for a bit while the site is building.
 # NOTE: This value will need to be changed
@@ -120,9 +100,9 @@ success "Build: Done sleeping for $CURRENT_BUILD_TIME_MAX seconds"
 # Runs through the test suite
 if bin/test ; then
     success "Test: All tests passed correctly"
-    cleanup $jekyll_pid $1
+    cleanup $1
 else
     warn "Test: Some tests failed to pass"
-    cleanup $jekyll_pid $1
+    cleanup $1
     exit 1
 fi
