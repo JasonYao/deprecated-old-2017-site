@@ -37,7 +37,9 @@ before_install:
   - tar xzvf ~/image-magick/image-magick.tar.gz -C ~/image-magick
   - cd ~/image-magick/ImageMagick-6.9.9-26
   - ./configure
-  - sudo checkinstall
+#  - sudo checkinstall
+  - sudo make
+  - sudo make install
 
 # Dependency installation steps
 install:
