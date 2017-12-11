@@ -2,11 +2,9 @@
 title:  "A Canadian Existential Crisis Introduction"
 date:   2017-05-22T17:30:32
 categories: featured introduction crisis
-img:
-  name: 0-hamilton.jpg
-  height: 1850
-  width: 1463
-alt_text: "Truly, it's more of a Canadian/Hong Konger/American existential crisis."
+image:
+  name: 0-hamilton.webp
+  alt_text: "Truly, it's more of a Canadian/Hong Konger/American existential crisis."
 tags:
   - featured
   - introduction
