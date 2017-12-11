@@ -58,7 +58,7 @@ _._ _..._ .-',     _.._(`))
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
-<link rel="manifest" href="/assets/img/favicons/manifest.json">
+<link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
@@ -73,8 +73,6 @@ _._ _..._ .-',     _.._(`))
 <!-- Site-wide fonts -->
 <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|IM+Fell+Great+Primer" rel="stylesheet">
 
-
-    
 
     <!-- Keep content hidden until AMP.js is loaded -->
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -319,9 +317,6 @@ _._ _..._ .-',     _.._(`))
             position: relative;
             text-transform: none;
         }
-
-
-
 
         .header .alt {
             padding: 0;
@@ -734,30 +729,24 @@ _._ _..._ .-',     _.._(`))
 <h2 id="test-of-code-block-highlighting">Test of code block highlighting</h2>
 <h3 id="direct">Direct</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span>
-  <span class="nb">puts</span> <span class="s1">'foo'</span>
-<span class="k">end</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span><br data-jekyll-commonmark-ghpages="" />  <span class="nb">puts</span> <span class="s1">'foo'</span><br data-jekyll-commonmark-ghpages="" /><span class="k">end</span></code></pre></figure>
 
 <h3 id="normal-markdown">Normal markdown</h3>
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">foo</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">foo</span>
   <span class="nb">puts</span> <span class="s1">'foo'</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="bash-test">Bash test</h2>
 <h3 id="normal-markdown-1">Normal markdown</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>something<span class="o">()</span> <span class="o">{</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>something<span class="o">()</span> <span class="o">{</span>
     <span class="nb">echo</span> <span class="s2">"hi"</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="direct-1">Direct</h3>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function </span>something<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">"hi"</span>
-<span class="o">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function </span>something<span class="o">()</span> <span class="o">{</span><br data-jekyll-commonmark-ghpages="" />    <span class="nb">echo</span> <span class="s2">"hi"</span><br data-jekyll-commonmark-ghpages="" /><span class="o">}</span></code></pre></figure>
 
 <h1 id="hello-this-is-markdown-live-preview">hello, This is Markdown Live Preview</h1>
 
@@ -792,9 +781,8 @@ _._ _..._ .-',     _.._(`))
   <p>block quote</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>code (4 spaces indent) [links](http://wikipedia.org)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>code (4 spaces indent) [links](http://wikipedia.org)
+</code></pre></div></div>
 
 <hr />
 <h2 id="changelog">changelog</h2>
@@ -850,46 +838,38 @@ changes- will not need a page refresh either</li>
 
 <h2 id="installation">Installation</h2>
 <h3 id="macos">MacOS</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>brew install grender
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install grender
+</code></pre></div></div>
 
 <h3 id="others">Others</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>go get -u github.com/JasonYao/gRender/cmd/gRender
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go get <span class="nt">-u</span> github.com/JasonYao/gRender/cmd/gRender
+</code></pre></div></div>
 
 <h2 id="usage-1">Usage</h2>
 
 <h3 id="rendering-a-markdown-file">Rendering a Markdown file</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md
+</code></pre></div></div>
 
 <h3 id="rendering-all-markdown-files-in-a-directory">Rendering All Markdown Files in a Directory</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES
+</code></pre></div></div>
 
 <h3 id="generate-html-output">Generate HTML Output</h3>
 <h4 id="single-file-output">Single File Output</h4>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md -o OUTPUTFILE.html
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grender SOME_MARKDOWN_FILE.md <span class="nt">-o</span> OUTPUTFILE.html
+</code></pre></div></div>
 <h4 id="directory-output">Directory Output</h4>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES -o OUTPUT_DIRECTORY
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grender SOME_DIRECTORY_WITH_MARKDOWN_FILES <span class="nt">-o</span> OUTPUT_DIRECTORY
+</code></pre></div></div>
 
 <h3 id="seeing-the-help-menu">Seeing the Help Menu</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender -h
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grender <span class="nt">-h</span>
+</code></pre></div></div>
 
 <h3 id="seeing-the-help-submenu-of-a-command">Seeing the Help Submenu of a Command</h3>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>grender SOME_COMMAND -h
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grender SOME_COMMAND <span class="nt">-h</span>
+</code></pre></div></div>
 
 <h3 id="equivalence-with-githubs-online-renderer">Equivalence With Github’s Online Renderer</h3>
 <p>The goal for this project is two-fold:</p>
@@ -956,10 +936,10 @@ encrypting your data when it’s transported over the wire.</p>
     
 
 
-    <amp-install-serviceworker
-        src="https://JasonYao.com/assets/js/service_worker.js"
-        data-iframe-src="https://JasonYao.com/assets/js/service_worker.js"
-        layout="nodisplay">
+    <!-- Install Service Worker -->
+<amp-install-serviceworker src="/service_worker.js"
+                           data-iframe-src="https://www.JasonYao.com/service_worker.html"
+                           layout="nodisplay">
 </amp-install-serviceworker>
 </body>
 </html>

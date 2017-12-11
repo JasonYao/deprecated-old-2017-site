@@ -19,8 +19,8 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-<title itemprop="name">Jason Yao | A Canadian Existential Crisis Introduction</title>
-<meta name="description" content="IntroHey there! My name is Jason, and for some reason you’ve stumbled onto my site.Whether it was to laugh at/with me on my rants, geeking out over playing g...">
+<title itemprop="name">Jason Yao | Offline</title>
+<meta name="description" content="Sorry, you're having connectivity issues and can't reach the broader internet! Don't worry though, this site is optimized for offline support, so you can sti...">
 <meta name="author" content="Jason Yao">
 
 <!--
@@ -41,9 +41,9 @@ _._ _..._ .-',     _.._(`))
 -->
 
 <!-- Opengraph Metadata tags: http://ogp.me/ -->
-<meta property="og:title" content="Jason Yao | A Canadian Existential Crisis Introduction" />
-<meta property="og:description" content="IntroHey there! My name is Jason, and for some reason you’ve stumbled onto my site.Whether it was to laugh at/with me on my rants, geeking out over playing g..." />
-<meta property="og:url" content="https://www.JasonYao.com/amp/blog/2017/05/22/a-canadian-existential-crisis-introduction/" />
+<meta property="og:title" content="Jason Yao | Offline" />
+<meta property="og:description" content="Sorry, you're having connectivity issues and can't reach the broader internet! Don't worry though, this site is optimized for offline support, so you can sti..." />
+<meta property="og:url" content="https://www.JasonYao.com/offline/" />
 
 <meta property="og:image" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg" />
 <meta property="og:image:secure_url" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg" />
@@ -68,7 +68,7 @@ _._ _..._ .-',     _.._(`))
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- AMP canonical link to avoid SEO shredding due to duplicate content on AMP pages -->
-<link rel="canonical" href="https://www.JasonYao.com/blog/2017/05/22/a-canadian-existential-crisis-introduction/" itemprop="url" />
+<link rel="canonical" href="https://www.JasonYao.com/offline/" itemprop="url" />
 
 <!-- Site-wide fonts -->
 <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|IM+Fell+Great+Primer" rel="stylesheet">
@@ -657,189 +657,54 @@ _._ _..._ .-',     _.._(`))
 </amp-sidebar> <!-- End sidebar -->
 
 
-    <section>
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-content" itemprop="articleBody">
-            <!-- CONTENT -->
-            <div class="wrapper">
-                <!--=== Container Part ===-->
-                <div class="container">
-                    <div class="content">
-                        <h1 class="title-v1" itemprop="name headline">Post | A Canadian Existential Crisis Introduction</h1>
-                        <h3 class="title-v1"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Jason Yao</span></span></h3>
+    <div id="project" class="ampstart-card m1">
+    <main>
+        <div class="heading">
+            <h1>Offline | Service Workers to the Rescue!</h1>
+            <!-- Social Sharing TODO: get FB app data attribution # -->
+<amp-social-share type="email" width="45" height="33"></amp-social-share>
+<amp-social-share type="facebook" width="45" height="33" data-param-app_id="254325784911610"></amp-social-share>
+<amp-social-share type="twitter" width="45" height="33"></amp-social-share>
+<amp-social-share type="gplus" width="45" height="33"></amp-social-share>
 
-                        <!-- Image Header -->
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <!-- Blog Grid -->
-                            <div class="blog-grid sm-margin-bottom-40">
-                                <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                                    
-                                    <amp-img src="/assets/img/posts/0-hamilton.jpg"
-                                             alt="Truly, it's more of a Canadian/Hong Konger/American existential crisis."
-                                             title="Truly, it's more of a Canadian/Hong Konger/American existential crisis."
-                                             layout="responsive"
-                                             width="1463"
-                                             height="1850">
-                                    </amp-img>
-                                    
-
-                                    <meta itemprop="url" content="https://www.JasonYao.com/assets/img/posts/0-hamilton.jpg">
-                                    <meta itemprop="width" content="1463">
-                                    <meta itemprop="height" content="1850">
-                                </div>
-                            </div>
-                            <!-- End Blog Grid -->
-                        </div>
-
-                        <!-- Post Information -->
-                        <div class="row margin-bottom-60">
-                            <!-- Post Description -->
-                            <div class="col-sm-8">
-                                <div class="headline"><h2>A Canadian Existential Crisis Introduction</h2></div>
-                                <p>
-                                    <h2 id="intro">Intro</h2>
-<p>Hey there! My name is Jason, and for some reason you’ve stumbled onto my site.
-Whether it was to laugh at/with me on my rants, geeking out over playing games
-(currently <a href="https://playoverwatch.com/">Overwatch</a> is my drug of choice), or
-because a technical guide sparked your interest, I hope you derive some
-enjoyment from this site.</p>
-
-<p>This is actually the 5th or 6th time I’ve tried to get a blog going. I kept
-building and rebuilding prior versions on different platforms, and ended up
-learning five or six different ways to deploy blog platforms instead of just
-writing posts.</p>
-
-<h2 id="platform-overview">Platform Overview</h2>
-<p>Technically speaking, I am proud that I managed to get everything to this point,
-because:</p>
-
-<p>1.) I get to be lazy</p>
-<ul>
-  <li>There is no maintenance required for the site, just content updates. Since
-  hosting is taken care of by <a href="https://pages.github.com/">Github Pages</a>, and
-  deployment taken care of by <a href="https://www.cloudflare.com/">Cloudflare’s CDN</a>,
-  all I have to do to update content is push to the github repo.</li>
-  <li>In this fashion the site also becomes distributed among the CDN’s
-  edge nodes, becoming fault-tolerant in the process (barring catastrophic
-  failure), all while minimizing latency globally.</li>
-</ul>
-
-<p>2.) I get free stuff until the <a href="https://www.youtube.com/watch?v=F1CddzgVW14">heat death of the universe</a>,
-or until they run out of business, whichever comes first</p>
-<ul>
-  <li>Free automatic optimization of static assets and <code class="highlighter-rouge">TLS</code> provided by Cloudflare</li>
-  <li>Free sending/receiving of emails from a custom email address via <a href="https://www.mailgun.com/">Mailgun</a> *</li>
-</ul>
-
-<p>3.) This site has an extremely strong foundation</p>
-<ul>
-  <li>By fully leveraging <a href="https://jekyllrb.com/">Jekyll</a>’s liquid templating,
-  this site can <a href="https://github.com/jekyll/jekyll/issues/3041#issuecomment-303910050">generate multiple output files from a single source</a></li>
-  <li>Has proper <code class="highlighter-rouge">404</code> error code handling</li>
-  <li>Has automatic redirects to the <code class="highlighter-rouge">www.</code> subdomain for better SEO</li>
-  <li>Automatically leverages <a href="https://developers.facebook.com/docs/sharing/opengraph">Opengraph</a> for all pages,
-  making any sharing on Facebook look good.</li>
-  <li>Automatically adds metadata to all blog posts and projects via <a href="https://schema.org/docs/schemas.html">Schema.org</a>
-  markup</li>
-  <li>Is mobile-friendly</li>
-</ul>
-
-<p>* Up to 10k emails a month, which is overkill for my purposes.</p>
-
-<h2 id="existential-crisis-question">Existential Crisis Question</h2>
-<p>If you play Genji in Overwatch, are you supposed to spam
-“I NEED HEALING” when you get a kill, or emote over the
-enemy’s corpse?</p>
-
-<h3 id="my-answer">My Answer</h3>
-<p>I think I would uninstall the game and re-evaluate my life
-for picking trash heroes. At least it isn’t as bad as
-instalocking Hanzo.</p>
-
-<h2 id="future-steps">Future Steps</h2>
-<p>There’s a couple projects that I’ll be adding to the site over time,
-along with the writing of technical articles and other blog posts.</p>
-
-<h2 id="blog-posts--technical-articles">Blog Posts &amp; Technical Articles</h2>
-<ul>
-  <li>The first planned article will be on AWS and dev-ops in general</li>
-  <li>The second planned article will be on a specific clever trick
-to build in a programmatic circuit breaker into AWS</li>
-  <li>The third planned post will be something different, and be a
-rant about NYC’s terrible housing market for renters</li>
-  <li>A fourth planned post fawning over the
-<a href="http://www.hamiltonbroadway.com/">Hamilton Musical</a>, since I only just
-saw it recently and was completely blown away and need to vent.</li>
-</ul>
-
-                                </p>
-                            </div>
-
-                            <!-- Post Details -->
-                            <div class="col-sm-4">
-                                <div class="headline"><h2>Post Details</h2></div>
-                                <ul class="list-unstyled project-details">
-                                    <!-- Github link -->
-                                    
-
-                                    <!-- Date post is posted -->
-                                    <li>
-                                        <i class="fa fa-clock-o"></i>
-                                        <strong>Date:</strong><time datetime="2017-05-22T17:30:32+00:00" itemprop="datePublished">May 22, 2017</time>
-                                    </li>
-
-                                    <!-- Post tags -->
-                                    <li>
-                                        <i class="fa fa-tags"></i>
-                                        <strong>Tags:</strong>
-
-                                        <!-- TODO: Onclick this so that when a tag gets clicked, we don't do a full redirect, just set the search bar's value to the new tag -->
-                                        <a href="/blog?search=">featured</a>, <a href="/blog?search=">introduction</a>, <a href="/blog?search=">existential crisis</a>, <a href="/blog?search=">rants</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="row margin-bottom-40">
-                            <div class="col-sm-8">
-                                <div class="headline"><h2>Post Comments</h2></div>
-                                
-    <!-- Enables disqus commenting -->
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = 'https://www.JasonYao.com/amp/blog/2017/05/22/a-canadian-existential-crisis-introduction/';  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = '/amp/blog/2017/05/22/a-canadian-existential-crisis-introduction'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://jasonyao.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>
-        Hey! Looks like your JavaScript is disabled. If you'd like to see the comments,
-        go ahead and re-enable it. Or don't, it's your life to live.
-    </noscript>
+<amp-social-share type="linkedin" width="45" height="33"></amp-social-share>
+<amp-social-share type="whatsapp" width="45" height="33"></amp-social-share>
+<amp-social-share type="tumblr" width="45" height="33"></amp-social-share>
 
 
-                            </div>
-                        </div>
-                        <!-- End Post Information -->
-                    </div>
-                </div>
-                <!--=== End Container Part ===-->
 
-                <!-- Footer -->
-                <div class="copyright-section"><p>2017 &copy; All rights reserved.</p></div>
-            </div><!--/wrapper-->
-            <!-- /CONTENT -->
         </div>
-    </article>
-</section>
+
+        <h1>Network Connectivity Issues</h1>
+
+        <p>
+            Hey! Looks like you're having some internet
+            connectivity issues and can't reach the broader
+            internet! Don't worry though, this site is optimized
+            for offline support, so you can still navigate
+            the following posts until you find a connection
+            to the internet again!
+        </p>
+
+        <h2>General Writings, Rants, and Existential Crisis</h2>
+        <ul>
+            
+                <li><a href="https://www.JasonYao.com/amp/blog/2017/05/22/a-canadian-existential-crisis-introduction/">A Canadian Existential Crisis Introduction</a></li>
+            
+        </ul>
+
+        <hr>
+
+        <h2>Prior Projects</h2>
+        <ul>
+            
+                <li><a href="https://www.JasonYao.com/amp/projects/2017/05/30/gomark-a-github-markdown-renderer/">gomark | A Github Markdown Renderer</a></li>
+            
+        </ul>
+    </main>
+</div>
+
+
 
     
 
