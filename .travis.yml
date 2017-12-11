@@ -35,6 +35,7 @@ before_install:
   - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O ~/image-magick.tar.gz
   - cd ~
   - tar xzvf image-magick.tar.gz
+  - ls ~
   - cd image-magick
   - ./configure
   - sudo checkinstall
