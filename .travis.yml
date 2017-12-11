@@ -33,7 +33,7 @@ notifications:
 before_install:
   - sudo apt-get build-dep imagemagick
   - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O ~/image-magick.tar.gz
-  - tar xzvf image-magick.tar.gz
+  - tar xzvf ~/image-magick.tar.gz
   - ls ~
   - ls ~/ImageMagick-6.9.9-26
   - cd ~/ImageMagick-6.9.9-26
