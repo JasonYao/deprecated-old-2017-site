@@ -18,6 +18,8 @@ addons:
     # Required for converting to/from webp images
     - webp
     - libwebp-dev
+    # Required for ImageMagick
+    - build-essential checkinstall libx11-dev libxext-dev zlib1g-dev libpng12-dev libjpeg-dev libfreetype6-dev libxml2-dev
 
 # Notification settings
 # TODO look into fixing this
@@ -27,6 +29,14 @@ notifications:
       - hello@jasonyao.com
     # Only sends an email when the build status changes
     on_success: change
+
+before_install:
+  - sudo apt-get build-dep imagemagick
+  - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O image-magick.tar.gz
+  - tar xzvf image-magick.tar.gz
+  - cd image-magick
+  - ./configure
+  - sudo checkinstall
 
 # Dependency installation steps
 install:
