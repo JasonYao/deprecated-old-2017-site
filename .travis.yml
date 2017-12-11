@@ -17,6 +17,7 @@ addons:
     - libcurl4-openssl-dev
     # Required for converting to/from webp images
     - webp
+    - libwebp-dev
 
 # Notification settings
 # TODO look into fixing this
