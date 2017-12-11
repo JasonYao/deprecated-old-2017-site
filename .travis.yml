@@ -32,11 +32,13 @@ notifications:
 
 before_install:
   - sudo apt-get build-dep imagemagick
-  - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O ~/image-magick.tar.gz
-  - tar xzvf ~/image-magick.tar.gz
+  - mkdir -p ~/image-magick
+  - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O ~/image-magick/image-magick.tar.gz
+  - tar xzvf ~/image-magick.tar.gz -C ~/image-magick
   - ls ~
-  - ls ~/ImageMagick-6.9.9-26
-  - cd ~/ImageMagick-6.9.9-26
+  - ls ~/image-magick
+  - ls ~/image-magick/ImageMagick-6.9.9-26
+  - cd ~/image-magick #/ImageMagick-6.9.9-26
   - ./configure
   - sudo checkinstall
 
