@@ -53,7 +53,8 @@ function cleanup() {
     # kill $jekyll_pid # TODO remove after <- normal SIGTERM
     # kill -9 $jekyll_pid # TODO remove after <- force kill
     # kill -TERM $jekyll_pid
-    pkill -f bundle
+    # pkill -f bundle
+    pkill -f jekyll
     # TODO try next ps aux |grep jekyll |awk '{print $2}' | xargs kill -9
     # TODO try next pkill -f jekyll
     # TODO try next pkill -f jekyll
@@ -103,7 +104,7 @@ function cleanup() {
 # with `JEKYLL_ENV=development jekyll build`
 # since Jekyll is retarded.
 info "Serve: Starting a Jekyll server in the background"
-bundle exec jekyll serve --detach
+jekyll serve --detach
 jekyll_pid=$!
 info "Serve: Jekyll server has started in the background on PID: $jekyll_pid"
 
