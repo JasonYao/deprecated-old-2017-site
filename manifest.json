@@ -1,6 +1,13 @@
 {
-    "name": "Jason Yao",
+    "name": "Jason Yao | Software Engineer II @ MediaMath | New York, NY",
     "short_name": "Jason Yao",
+    "theme_color": "#a10f2b",
+    "background_color": "#f9f7f7",
+    "display": "standalone",
+    "Scope": "/",
+    "start_url": "/",
+    "splash_pages": null,
+    "orientation": "portrait",
     "icons": [
         {
             "src": "/assets/img/favicons/android-chrome-192x192.png",
@@ -12,9 +19,5 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "start_url": "/",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+    ]
 }

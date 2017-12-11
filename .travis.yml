@@ -1,13 +1,23 @@
 # General build settings
+sudo: false
+dist: trusty
+
 language: ruby
+
 rvm:
   - 2.4.1
 branches:
   only:
     - source
-sudo: false
+
+addons:
+  apt:
+    packages:
+    # Required for html-proofer, more info here: https://github.com/gjtorikian/html-proofer/issues/376#issuecomment-332770021
+    - libcurl4-openssl-dev
 
 # Notification settings
+# TODO look into fixing this
 notifications:
   email:
     recipients:
@@ -16,20 +26,14 @@ notifications:
     on_success: change
 
 # Dependency installation steps
-before_install:
+install:
   - bundle install
   - npm install -g jsonlint  # Required global install otherwise it doesn't work
   - npm install
 
-# Build steps
-install:
-  # Generates the static site
-  - bundle exec jekyll build
-
-# Test steps
 script:
-  # Runs through any validators and tests
-  - bin/test
+  # Generates the static site and runs through the test suite
+  - bin/build-dev-leave-prod false
 
 # We only run the tests and deployment checks if the build succeeded
 after_success:

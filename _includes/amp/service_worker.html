@@ -1,5 +1,5 @@
-<amp-install-serviceworker
-        src="{% if jekyll.environment == 'production' %}{{ site.baseurl | prepend: site.url }}{% else %}https://JasonYao.com{% endif %}/assets/js/service_worker.js"
-        data-iframe-src="{% if jekyll.environment == 'production' %}{{ site.baseurl | prepend: site.url }}{% else %}https://JasonYao.com{% endif %}/assets/js/service_worker.js"
-        layout="nodisplay">
+<!-- Install Service Worker -->
+<amp-install-serviceworker src="/service_worker.js"
+                           data-iframe-src="{{ site.baseurl | prepend: site.url }}/service_worker.html"
+                           layout="nodisplay">
 </amp-install-serviceworker>
