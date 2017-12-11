@@ -27,6 +27,7 @@ addons:
     - libjpeg-dev
     - libpng-dev
     - libgif-dev
+    - libmagickwand-dev
 
 #env:
 #  global:
@@ -46,6 +47,8 @@ before_install:
   - which convert
   - convert --version
   - convert -list format
+  - cd $TRAVIS_BUILD_DIR
+  - convert assets/img/projects/0-hamilton.jpg assets/img/projects/0-hamilton-test.webp
 #  - export PATH=$HOME/opt/bin:$PATH
 #  # Checks if Imagemagick is already sufficient version
 #  # If not installs it from the sources
