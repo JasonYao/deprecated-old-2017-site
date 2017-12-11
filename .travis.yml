@@ -4,6 +4,11 @@ dist: trusty
 
 language: ruby
 
+
+cache:
+  directories:
+  - "$HOME/opt"
+
 rvm:
   - 2.4.1
 branches:
@@ -19,7 +24,14 @@ addons:
     - webp
     - libwebp-dev
     # Required for ImageMagick
-    - build-essential checkinstall libx11-dev libxext-dev zlib1g-dev libpng12-dev libjpeg-dev libfreetype6-dev libxml2-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libgif-dev
+
+env:
+  global:
+  - IMAGEMAGICK_VERSION: '6.9.9-26'
+  - LIBWEBP_VERSION: '0.6.1'
 
 # Notification settings
 # TODO look into fixing this
@@ -31,15 +43,43 @@ notifications:
     on_success: change
 
 before_install:
-  - sudo apt-get build-dep imagemagick
-  - mkdir -p ~/image-magick
-  - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O ~/image-magick/image-magick.tar.gz
-  - tar xzvf ~/image-magick/image-magick.tar.gz -C ~/image-magick
-  - cd ~/image-magick/ImageMagick-6.9.9-26
-  - ./configure
-#  - sudo checkinstall
-  - sudo make
-  - sudo make install
+  - export PATH=$HOME/opt/bin:$PATH
+  # Checks if Imagemagick is already sufficient version
+  # If not installs it from the sources
+  - convert -version | grep $IMAGEMAGICK_VERSION || {
+      export CORES=$(nproc) &&
+      echo "Using $CORES cores for compiling..." &&
+      cd /tmp &&
+      curl -O https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-$LIBWEBP_VERSION.tar.gz &&
+      tar xvzf libwebp-$LIBWEBP_VERSION.tar.gz &&
+      cd libwebp-* &&
+      ./configure --prefix=$HOME/opt &&
+      make -j$CORES &&
+      make install -j$CORES &&
+      cd /tmp &&
+      curl -O https://www.imagemagick.org/download/ImageMagick-$IMAGEMAGICK_VERSION.tar.gz &&
+      tar xvzf ImageMagick-$IMAGEMAGICK_VERSION.tar.gz &&
+      cd ImageMagick-* &&
+      ./configure --prefix=$HOME/opt &&
+      make -j$CORES &&
+      make install -j$CORES &&
+      $HOME/opt/bin/magick -version | grep $IMAGEMAGICK_VERSION &&
+      cd $TRAVIS_BUILD_DIR; }
+
+  # Update library paths for programs
+  - export LD_FLAGS=-L$HOME/opt/lib
+  - export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib:$HOME/opt/lib
+  - export CPATH=$CPATH:$HOME/opt/include
+
+#  - sudo apt-get build-dep imagemagick
+#  - mkdir -p ~/image-magick
+#  - wget https://github.com/ImageMagick/ImageMagick/archive/6.9.9-26.tar.gz -O ~/image-magick/image-magick.tar.gz
+#  - tar xzvf ~/image-magick/image-magick.tar.gz -C ~/image-magick
+#  - cd ~/image-magick/ImageMagick-6.9.9-26
+#  - ./configure --with-webp
+##  - sudo checkinstall
+#  - sudo make
+#  - sudo make install
 
 # Dependency installation steps
 install:
