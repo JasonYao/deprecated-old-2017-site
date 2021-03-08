@@ -15,14 +15,30 @@
              layout="responsive"
              width="{{ resized[0].width }}"
              height="{{ resized[0].height }}">
-        <noscript>
-            <img src="/{{ path }}"
-                 srcset="{{ srcset | strip_newlines }}"
-                 width="{{ resized[0].width }}"
-                 height="{{ resized[0].height }}"
+
+        <!-- Fallback in case the browser doesn't support webp -->
+        <amp-img on="tap:lightbox1"
+                 fallback
+                 role="button"
+                 tabindex="0"
+                 src="/{{ path }}"
+                 srcset="{{ srcset | strip_newlines | replace: '.webp', '.jpg' }}"
                  alt="{{ alt }}"
-                 title="{{ title }}">
-        </noscript>
+                 title="{{ title }}"
+                 layout="responsive"
+                 width="{{ resized[0].width }}"
+                 height="{{ resized[0].height }}">
+
+            <!-- Fallback in case the browser blocked scripting -->
+            <noscript>
+                <img src="/{{ path }}"
+                     srcset="{{ srcset | strip_newlines | replace: '.webp', '.jpg' }}"
+                     width="{{ resized[0].width }}"
+                     height="{{ resized[0].height }}"
+                     alt="{{ alt }}"
+                     title="{{ title }}">
+            </noscript>
+        </amp-img>
     </amp-img>
     <figcaption>{{ title }}</figcaption>
 </figure>

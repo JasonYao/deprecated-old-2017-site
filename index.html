@@ -10,7 +10,7 @@ page: Home
                 <!-- SLIDE 1 -->
                 <li data-transition="slidedown" data-slotamount="5" data-masterspeed="1500" data-title="Welcome">
                     <!-- MAIN IMAGE -->
-                    <img src="/assets/img/bg/bg_hk.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="/assets/img/bg/bg_hk.webp" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYERS -->
                     <div class="tp-caption"
@@ -21,7 +21,7 @@ page: Home
                          data-start="2000"
                          data-easing="Back.easeInOut"
                          data-endspeed="300">
-                        <img class="img-circle headshot" src="/assets/img/headshot.jpg" alt="Jason Yao" />
+                        <img class="img-circle headshot" src="/assets/img/headshot.webp" alt="Jason Yao" />
                     </div>
 
                     <div class="tp-caption rs-caption-1 sft start"
@@ -79,7 +79,7 @@ page: Home
                 <!-- SLIDE 2 -->
                 <li data-transition="slideup" data-slotamount="5" data-masterspeed="1000" data-title="My Core">
                     <!-- MAIN IMAGE -->
-                    <img src="/assets/img/bg/bg-1.jpg" alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="/assets/img/bg/bg-1.webp" alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYERS -->
                     <div class="tp-caption rs-caption-1 sft start"
@@ -136,7 +136,7 @@ page: Home
                 <!-- SLIDE 3 -->
                 <li data-transition="slidedown" data-slotamount="5" data-masterspeed="700" data-title="Goals">
                     <!-- MAIN IMAGE -->
-                    <img src="/assets/img/bg/bg-2.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                    <img src="/assets/img/bg/bg-2.webp"  alt="slidebg1"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
 
                     <!-- LAYERS -->
                     <div class="tp-caption rs-caption-1 sft start"
@@ -294,7 +294,7 @@ page: Home
                 </div>
 
                 <div class="col-md-6">
-                    <img class="img-responsive" src="/assets/img/about/0-organized.jpg" alt="The good aspects probably outweigh the bad ones">
+                    <img class="img-responsive" src="/assets/img/about/0-organized.webp" alt="The good aspects probably outweigh the bad ones">
                 </div>
             </div>
         </div>
@@ -350,7 +350,13 @@ page: Home
             {% for post in site.posts limit:3 %}
                 <div class="col-md-4 md-margin-bottom-40">
                     <div class="news-v1-in">
-                        <img class="img-responsive" src="{{ post.img.name | prepend: '/assets/img/posts/' }}" alt="{{ post.alt_text }}">
+                        <!--<img class="" src="" alt="{{ post.alt_text }}">-->
+                        {% responsive_image_block %}
+                            path: {{ post.image.name | prepend: 'assets/img/posts/' }}
+                            alt: {{ post.image.alt_text }}
+                            class: "img-responsive"
+                        {% endresponsive_image_block %}
+
                         <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                         {{ post.excerpt }}
                         <ul class="list-inline news-v1-info">

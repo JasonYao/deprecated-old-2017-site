@@ -4,4 +4,18 @@
     {% endfor %}
 {% endcapture %}
 
-<img src="/{{ path }}" alt="{{ alt }}" srcset="{{ srcset | strip_newlines }}"{% if class %} class="{{ class }}"{% endif %}">
+<!--<img src="/{{ path }}" alt="{{ alt }}" srcset="{{ srcset | strip_newlines }}"{% if class %} class="{{ class }}"{% endif %}">-->
+
+<picture>
+    <source type="image/webp"
+            srcset="{{ srcset | strip_newlines }}"
+    />
+
+    <!-- Fallback in case webp isn't supported yet -->
+    <source srcset="{{ srcset | strip_newlines | replace: '.webp', '.jpg' }}"/>
+    <img src="/{{ path }}"
+         alt="{{ alt }}"
+         {% if class %} class="{{ class }}"{% endif %}
+         sizes="100vw"
+    />
+</picture>
