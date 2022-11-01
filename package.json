@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/JasonYao/JasonYao.github.io#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "jsonlint": "^1.6.2",
     "sw-precache": "^5.2.0"
   },
